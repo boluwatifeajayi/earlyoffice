@@ -1,6 +1,7 @@
 {
   "name": "early-office",
   "version": "1.0.0",
+  "proxy": "http://localhost:4070",
   "main": "app.js",
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "nodemailer": "^6.7.6",
     "passport": "^0.6.0",
     "passport-google-oauth20": "^2.0.0",
+    "path": "^0.12.7",
     "swagger-autogen": "^2.21.4",
     "swagger-ui-express": "^4.4.0"
   },
@@ -46,4 +48,3 @@
   },
   "description": ""
 }
-

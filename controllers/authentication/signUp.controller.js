@@ -26,22 +26,22 @@ async function studentSignUp(req, res) {
   const { email, lastname, firstname, password, phoneNumber} = req.body;
   const hashedPassword = await hashPassword(password);
   try {
-    const newStudent = await studentModel.create({
+    const currentStudent = await studentModel.create({
       email,
       lastname,
       firstname,
       password: hashedPassword,
       phoneNumber,
     });
-    console.log("created new student @" + newStudent);
+    console.log("created new student @" + currentStudent);
 
     const token = jwt.sign(
-      { studentId: newStudent._id.toString(), email },
+      { studentId: currentStudent._id.toString(), email },
       process.env.TOKEN_KEY
     );
 
     const response = {
-      newStudent,
+      currentStudent,
       authToken: token,
     };
 
@@ -49,7 +49,7 @@ async function studentSignUp(req, res) {
     await mailSender(
       {
         title: studentSignUpTitle(),
-        body: studentSignUpBody(newStudent),
+        body: studentSignUpBody(currentStudent),
       },
       email
     );
@@ -77,7 +77,7 @@ async function companySignUp(req, res) {
   console.log(req.body);
   const hashedPassword = await hashPassword(orgPassword);
   try {
-    const newCompany = await companyModel.create({
+    const currentCompany = await companyModel.create({
       adminFirstName,
       adminLastName,
       orgEmail,
@@ -86,14 +86,14 @@ async function companySignUp(req, res) {
       orgName,
       orgDescription,
     });
-    console.log("created new company @" + newCompany);
+    console.log("created new company @" + currentCompany);
 
     const token = jwt.sign(
-      { companyId: newCompany._id.toString(), orgEmail },
+      { companyId: currentCompany._id.toString(), orgEmail },
       process.env.TOKEN_KEY
     );
     const response = {
-      newCompany,
+      currentCompany,
       authToken: token,
     };
 
@@ -101,7 +101,7 @@ async function companySignUp(req, res) {
     await mailSender(
       {
         title: companySignUpTitle(),
-        body: companySignUpBody(newCompany),
+        body: companySignUpBody(currentCompany),
       },
       orgEmail
     );

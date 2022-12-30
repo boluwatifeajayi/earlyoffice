@@ -3,11 +3,14 @@ const express = require("express");
 const dbConnect = require("./middlewares/dbUtil/dbconnect");
 const app = express();
 const cors = require("cors");
+const path = require('path');
 const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
 const nodemailer = require("nodemailer");
 const swaggerUi = require('swagger-ui-express')
 const swaggerFile = require('./swagger_output.json')
+const settings = 'production'
+
 
 // Requiring routes
 const authentication = require("./routes/authentication/indexAuthentication.route");
@@ -51,6 +54,19 @@ app.set('trust proxy', 1);
 //   if (responseCode != 250) return "nooo";
 //   res.json(mailer);
 // });
+
+// Serve static assets in production
+if (settings === 'production') {
+  // Set static folder
+ 
+  app.use(express.static(path.join(__dirname, './client/build')))
+
+  
+
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  );
+}
 
 // Database connection and starting the server
 const PORT = process.env.PORT;
