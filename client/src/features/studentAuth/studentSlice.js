@@ -11,6 +11,7 @@ const initialState = {
 	isError: false,
 	isSuccess: false,
 	isLoading: false,
+	theStudent: {},
 	message: ''
 }
 
@@ -52,6 +53,27 @@ export const studentUpdate = createAsyncThunk('studentauth/studentupdate', async
 	 }
 	
 })
+
+// get student Profile
+export const getStudentProfile = createAsyncThunk(
+	'studentauth/studentget',
+	async (_, thunkAPI) => {
+	  try {
+      const token = thunkAPI.getState().studentauth.student.authToken
+		return await studentService.getStudentProfile(token)
+	  } catch (error) {
+		const message =
+		  (error.response &&
+			error.response.data &&
+			error.response.data.message) ||
+		  error.message ||
+		  error.toString()
+		return thunkAPI.rejectWithValue(message)
+	  }
+	}
+  )
+
+
 
 // logout
 export const studentLogout =  createAsyncThunk('studentauth/studentlogout', async () => {
@@ -121,6 +143,21 @@ export const studentSlice = createSlice({
 				state.message = action.payload
 				state.studentProfile = null
 			})
+
+			// get student profile
+			.addCase(getStudentProfile.pending, (state) => {
+				state.isLoading = true
+			  })
+			  .addCase(getStudentProfile.fulfilled, (state, action) => {
+				state.isLoading = false
+				state.isSuccess = true
+				state.theStudent = action.payload
+			  })
+			  .addCase(getStudentProfile.rejected, (state, action) => {
+				state.isLoading = false
+				state.isError = true
+				state.message = action.payload
+			  })
 
 			// logout
 			.addCase(studentLogout.fulfilled, (state) => {

@@ -11,7 +11,7 @@ function JobItem({job}) {
 			  <b>{job.jobType}</b>
 		  </div>
 		  <div className="profile-box">
-			  <b className="primary">{job.role}</b>
+			  <b className="primary">{job.jobProfile}</b>
 		  </div>
 		</div>
 		<h3>{job.jobName}</h3>
@@ -21,7 +21,7 @@ function JobItem({job}) {
 			  <p><b className="primary"> <i className="fa fa-building  ml-2 mr-2" aria-hidden="true"></i>{job.org.orgName}</b></p>
 		  </div>
 		  <div className="profile-box">
-			  <p><b><i className="fa fa-map-marker  ml-2 mr-2" aria-hidden="true"></i>{job.location.state}</b></p>
+			  <p><b><i className="fa fa-map-marker  ml-2 mr-2" aria-hidden="true"></i>{job.place}</b></p>
 		  </div>
 		</div>
 		<div className="spacer mt-3">
@@ -32,7 +32,7 @@ function JobItem({job}) {
 			  <b>Openings: <span className='primary'>{job.numberOfOpenings}</span> </b>
 		  </div>
 		</div>
-		<Link to={`/internship/${job._id}/${job.org.orgName}/${job.location.state}`}>
+		<Link to={`/internship/${job._id}/${job.org.orgName}/${job.place}`}>
 			<button className="learn-button mt-4">Learn More</button>
 		</Link>
 		

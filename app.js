@@ -44,17 +44,6 @@ app.use(jobRoutes);
 
 app.set('trust proxy', 1);
 
-// app.get("/check/:name", (req, res) => {
-//   res.json(req.params);
-// });
-
-// app.get("/mails", async (req, res) => {
-//   const mailer = await mailSender();
-//   const responseCode = mailer;
-//   if (responseCode != 250) return "nooo";
-//   res.json(mailer);
-// });
-
 // Serve static assets in production
 if (settings === 'production') {
   // Set static folder

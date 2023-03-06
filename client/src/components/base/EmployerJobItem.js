@@ -21,7 +21,7 @@ function EmployerJobItem({job}) {
 			  <p><b className="primary"> <i className="fa fa-building  ml-2 mr-2" aria-hidden="true"></i>{job.org.orgName}</b></p>
 		  </div>
 		  <div className="profile-box">
-			  <p><b><i className="fa fa-map-marker  ml-2 mr-2" aria-hidden="true"></i>{job.location.state}</b></p>
+			  <p><b><i className="fa fa-map-marker  ml-2 mr-2" aria-hidden="true"></i>{job.place}</b></p>
 		  </div>
 		</div>
 		<div className="spacer mt-3">

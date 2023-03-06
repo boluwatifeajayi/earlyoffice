@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import jobService from './jobService'
 import axios from 'axios'
+const API_URL = '/api'
 
 
 axios.defaults.withCredentials = true
@@ -53,6 +54,44 @@ export const allJobs = createAsyncThunk(
 	  }
 	}
   )
+
+// get all jobs
+// export const getJobsBySearch = createAsyncThunk(
+// 	'jobs/allJobsBySearch',
+// 	async (_, thunkAPI) => {
+// 	  try {
+// 		return await jobService.getJobsBySearch()
+// 	  } catch (error) {
+// 		const message =
+// 		  (error.response &&
+// 			error.response.data &&
+// 			error.response.data.message) ||
+// 		  error.message ||
+// 		  error.toString()
+// 		return thunkAPI.rejectWithValue(message)
+// 	  }
+// 	}
+//   )
+
+export const getJobsBySearch = createAsyncThunk(
+  'jobs/getJobsBySearch',
+  async (params, thunkAPI) => {
+    try {
+      const { search, location } = params;
+      const response = await axios.get(`${API_URL}/jobs/search?search=${search}&location=${location}`);
+      return response.data;
+    } catch (error) {
+      const message = error.response?.data?.message || error.message || error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
+
+
+
+
+
 
   // get one jobs
 export const GetSingleJob = createAsyncThunk(
@@ -231,6 +270,21 @@ export const jobSlice = createSlice({
         state.message = action.payload
       })
 
+      // get jobs by search
+      .addCase(getJobsBySearch.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getJobsBySearch.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.jobs = action.payload
+      })
+      .addCase(getJobsBySearch.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+      
       // get single job
       .addCase(GetSingleJob.pending, (state) => {
         state.isLoading = true

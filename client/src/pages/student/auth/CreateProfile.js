@@ -6,22 +6,18 @@ import { studentUpdate, studentreset } from '../../../features/studentAuth/stude
 import { States, Status, Schools, Course , Profile} from '../../../utils/data'
 
 function CreateProfile() {
-	const [currentLocation, setcurrentLocation] = useState("");
-      const [preferredLanguage, setpreferredLanguage] = useState("none");
+	    const [currentLocation, setcurrentLocation] = useState("");
       const [status, setstatus] = useState("");
-      const [fieldOfInterest, setfieldOfInterest] = useState([]);
-      const [graduationStatus, setgraduationStatus] = useState("none");
+      const [fieldOfInterest, setfieldOfInterest] = useState('');
+      const [grade, setGrade] = useState("");
       const [schoolName, setschoolName] = useState("");
-      const [startYear, setstartYear] = useState("");
-      const [degree, setdegree] = useState("");
-      const [gpa, setgpa] = useState("");
-      const [company, setcompany] = useState("");
-      const [jobTitle, setjobTitle] = useState("");
-      const [issuerName, setissuerName] = useState("none");
-      const [issuingOrg, setissuingOrg] = useState("none");
+      const [workName, setworkName] = useState("");
+      const [workTitle, setworkTitle] = useState("");
+      const [workDescription, setworkDescription] = useState("");
+      const [works, setworks] = useState("");
+      const [resume, setResume] = useState("none yet");
       const [skills, setskills] = useState("");
-      const [sampleLink, setsampleLink] = useState("none");
-      const [coverLetter, setcoverLetter] = useState("");
+      const [degree, setdegree] = useState("");
       
       const navigate = useNavigate()
       const dispatch = useDispatch()
@@ -43,16 +39,18 @@ function CreateProfile() {
 		e.preventDefault()
 
 		dispatch(studentUpdate({
-			currentLocation: currentLocation,
-			preferredLanguage: preferredLanguage,
-			status: status,
-			fieldOfInterest: [fieldOfInterest],
-			graduation: [{ schoolName, startYear, degree, gpa }],
-			workExperience: [
-			  { company, jobTitle, certifications: [{ issuerName, issuingOrg }] },
-			],
-			skills: [skills],
-			workSamples: [{ coverLetter, sampleLink }],
+			currentLocation,
+      status,
+      fieldOfInterest,
+      grade,
+      schoolName,
+      workName,
+      workTitle,
+      workDescription,
+      works,
+      skills, 
+      resume,
+      degree
 		  }))
 	  }
 
@@ -145,15 +143,15 @@ function CreateProfile() {
                 <textarea
                   id="name"
                   type="text"
-                  name="lastname"
-                 
-                  onChange={(e) => setcoverLetter(e.target.value)}
+                  name="grade"
+                  onChange={(e) => setGrade(e.target.value)}
                   style={{paddingLeft: 15,}}
                   placeholder="Short Bio"
                   className="form-control mb-4"
                   rows={4}
+                  value={grade}
                   required
-                >{coverLetter}</textarea>
+                ></textarea>
              </div>
       
         </div>
@@ -181,13 +179,12 @@ function CreateProfile() {
                       <input
                         id="name"
                         type="text"
-                        name="Start Year"
-                        placeholder='Start Year'
-                        
+                        name="workName"
+                        placeholder='Company Name'
                         className="form-input"
                         style={{paddingLeft: 15,}}
-                        value={startYear}
-                        onChange={(e) => setstartYear(e.target.value)}
+                        value={workName}
+                        onChange={(e) => setworkName(e.target.value)}
                         required
                       />
                     </div>
@@ -197,12 +194,12 @@ function CreateProfile() {
                       <input
                         id="name"
                         type="text"
-                        name="lastname"
+                        name="workTitle"
                        
-                        value={gpa}
-                        onChange={(e) => setgpa(e.target.value)}
+                        value={workTitle}
+                        onChange={(e) => setworkTitle(e.target.value)}
                         style={{paddingLeft: 15,}}
-                        placeholder="End Year"
+                        placeholder="Job title"
                         className="form-input"
                         required
                       />
@@ -224,11 +221,11 @@ function CreateProfile() {
                       <input
                         id="name"
                         type="text"
-                        name="lastname"
-                        value={company}
-                        onChange={(e) => setcompany(e.target.value)}
+                        name="workDescription"
+                        value={workDescription}
+                        onChange={(e) => setworkDescription(e.target.value)}
                         style={{paddingLeft: 15,}}
-                        placeholder="Company"
+                        placeholder="description"
                         className="form-input"
                         required
                       />
@@ -237,17 +234,15 @@ function CreateProfile() {
                       <input
                         id="name"
                         type="text"
-                        name="lastname"
-                        value={jobTitle}
-                        onChange={(e) => setjobTitle(e.target.value)}
+                        name="works"
+                        value={works}
+                        onChange={(e) => setworks(e.target.value)}
                         style={{paddingLeft: 15,}}
-                        placeholder="Work Title"
+                        placeholder="Work"
                         className="form-input"
                         required
                       />
                    </div>
-                   
-            
               </div>
           </div>
         </div>

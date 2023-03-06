@@ -17,6 +17,7 @@ import JobDashboard from './pages/employer/job/JobDashboard';
 import EmployerJob from './pages/employer/job/EmployerJob';
 import StudentDashboard from './pages/student/job/StudentDashboard';
 import CreateProfile from './pages/student/auth/CreateProfile';
+import UpdateProfile from './pages/student/auth/UpdateProfile';
 
 
 
@@ -40,6 +41,7 @@ function App() {
         <Route path='/employer/internship/:id' element={<EmployerJob/>}/>
         <Route path='/student/dashboard' element={<StudentDashboard/>}/>
         <Route path='/student/create' element={<CreateProfile/>}/>
+        <Route path='/student/profile/update' element={<UpdateProfile/>}/>
        </Routes>
       </div>
       <Footer/>

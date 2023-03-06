@@ -2,6 +2,7 @@ const express = require("express");
 const {
   updateStudentProfile,
   changeStudentPassword,
+  getStudentProfile,
 } = require("../../controllers/profile/studentProfile.controller");
 const {
   protectedRoutes,
@@ -16,8 +17,14 @@ var route = express.Router();
 route.put(
   "/api/student/profile/update",
   protectedRoutes,
-  validation(updateStudentProfileSchema),
   updateStudentProfile
+);
+
+// Get student profile
+route.get(
+  "/api/student/profile",
+  protectedRoutes,
+ getStudentProfile
 );
 
 // Change student password

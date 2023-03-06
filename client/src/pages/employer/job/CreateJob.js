@@ -6,20 +6,23 @@ import { useNavigate, Link } from "react-router-dom";
 const CreateJob = () => {
     const navigate = useNavigate()
 	const [formData, setFormData] = useState({
-		role: '',
+		jobProfile: '',
 		jobName: '',
-		jobResponsibility: [""],
+		jobDescription:'',
 		jobType: '',
 		numberOfOpenings: '',
-		skillsNeeded: ["a few"],
+		applicationDeadline: '',
+		skillsRequired: '',
 		salary: '',
+		applicationInfo: '',
+		educationLevel: '',
+		experienceLevel: '',
 		duration: '',
-		location: {state:'', country:'Nigeria'},
+		place: '',
 		benefits: '',
-		additionalInformation: '', 
 	})
     
-	const {role, jobName, jobResponsibility, jobType, numberOfOpenings, skillsNeeded, salary, duration, location, benefits, additionalInformation} = formData;
+	const {jobProfile, jobName, jobDescription, jobType, numberOfOpenings, applicationDeadline, skillsRequired, salary, applicationInfo, educationLevel, experienceLevel, duration, place, benefits} = formData;
 
 	const dispatch = useDispatch()
 
@@ -30,7 +33,7 @@ const CreateJob = () => {
     const onSubmit = (e) => {
         e.preventDefault();
 		const jobData = {
-			role, jobName, jobResponsibility, jobType, numberOfOpenings, skillsNeeded, salary, duration, location, benefits, additionalInformation
+			jobProfile, jobName, jobDescription, jobType, numberOfOpenings, applicationDeadline, skillsRequired, salary, applicationInfo, educationLevel, experienceLevel, duration, place, benefits
 		}
 		dispatch(createJob(jobData)) 
 
@@ -67,8 +70,8 @@ const CreateJob = () => {
 					type='text'
 					placeholder='Profile'
 					className="form-input mb-4"
-                    name='role'
-                    value={role}
+                    name='jobProfile'
+                    value={jobProfile}
                     onChange={(e)=>{onChange(e.target.name,e.target.value)}}
                     required
             	/>
@@ -120,45 +123,86 @@ const CreateJob = () => {
             			/>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-md">
+						<input
+							type='text'
+							placeholder='Experience Level'
+							name='experienceLevel'
+                            value={experienceLevel}
+                            onChange={(e)=>{onChange(e.target.name,e.target.value)}}
+							className="form-input mb-4"
+							required
+            			/>
+					</div>
+					<div class="col-md">
+						<input
+							type='text'
+							placeholder='Education Level'
+							name='educationLevel'
+                            value={educationLevel}
+                            onChange={(e)=>{onChange(e.target.name,e.target.value)}}
+							className="form-input mb-4"
+							required
+            			/>
+					</div>
+				</div>
+				
 				<input
 					type='text'
-					placeholder='Location'
-					name='location'
-                        value={location.state}
-                    onChange={(e)=>{onChange(e.target.name,{['state']:e.target.value})}}
+					placeholder='Application Deadline'
+					name='applicationDeadline'
+					value={applicationDeadline}
+					onChange={(e)=>{onChange(e.target.name,e.target.value)}}
 					className="form-input mb-4"
 					required
             	/>
-				
+				<input
+					type='text'
+					placeholder='Location'
+					name='place'
+					value={place}
+					onChange={(e)=>{onChange(e.target.name,e.target.value)}}
+					className="form-input mb-4"
+					required
+            	/>
 				
 				</div>
 		    </div>
 			<div class="col-md-4">
 				<div className="form-group">
 					<textarea
-					id='name'
 					type='text'
-					value={skillsNeeded[0][skillsNeeded]}
-                onChange={(e)=>{onChange(e.target.name,[e.target.value])}}
-                name='skillsNeeded'
-					placeholder="Skills needed"
-					className="form-control mb-4"
-					rows="5"
-					required
-				
-			  ></textarea>
-			  <textarea
-					id='name'
-					type='text'
-					name='jobResponsibility'
-                    value={jobResponsibility[0][jobResponsibility]}
-                    onChange={(e)=>{onChange(e.target.name,[e.target.value])}}
-					placeholder="Responsibiliities Of Intern"
-					className="form-control mb-4"
+					placeholder='Skills required'
+					name='skillsRequired'
+					value={skillsRequired}
+					onChange={(e)=>{onChange(e.target.name,e.target.value)}}
+					className="form-input mb-4"
 					cols="6"
 					rows="5"
 					required
-				
+			  ></textarea>
+			  <textarea
+					type='text'
+					placeholder='Job Description'
+					name='jobDescription'
+					value={jobDescription}
+					onChange={(e)=>{onChange(e.target.name,e.target.value)}}
+					className="form-input mb-4"
+					cols="6"
+					rows="5"
+					required
+			  ></textarea>
+			  <textarea
+					type='text'
+					placeholder='Application Information'
+					name='applicationInfo'
+					value={applicationInfo}
+					onChange={(e)=>{onChange(e.target.name,e.target.value)}}
+					className="form-input mb-4"
+					cols="6"
+					rows="5"
+					required
 			  ></textarea>
 				</div>
 		    </div>
@@ -176,18 +220,7 @@ const CreateJob = () => {
 					required
 				
 			  ></textarea>
-			  <textarea
-					id='name'
-					type='text'
-                name='additionalInformation'
-                value={additionalInformation}
-                onChange={(e)=>{onChange(e.target.name,e.target.value)}}
-					placeholder="Additional Information"
-					className="form-control mb-4"
-					rows="5"
-					required
-				
-			  ></textarea>
+			 
 				</div>
 
             </div>

@@ -35,57 +35,7 @@ function Header() {
 		  
 		}
 
-		// console.log(employer.currentCompany.adminFistName)
-
-		// nav student name logic
-		// var stud = ""
-
-		// if(student === null){
-		// 	stud = ""
-		// }
-		// else if(student !== null){
-		// 	if(student.currentStudent === undefined){
-		// 		stud = student.newStudent.firstname
-		// 	}
-		// 	else if(student.newStudent === undefined){
-		// 		stud = student.currentStudent.firstname
-		// 	}
-		// 	else{
-		// 		console.log("nada")
-		// 	}
-		// }
-		// else if(student === null){
-		// 	stud = ""
-		// }
-		// else{
-		// 	stud = ""
-		// }
-
-
-		// // nav employer name logic
-		// var emp = ""
-
-		// if(employer === null){
-		// 	emp = ""
-		// }
-		// else if(employer !== null){
-		// 	if(employer.currentCompany === undefined){
-		// 		emp = employer.newCompany.adminFirstName
-		// 	}
-		// 	else if(employer.newCompany === undefined){
-		// 		emp = employer.currentCompany.adminFirstName
-		// 	}
-		// 	else{
-		// 		emp = ""
-		// 	}
-		// }
-		// else if(employer === null){
-		// 	emp = ""
-		// }
-		// else{
-		// 	emp = ""
-		// }
-
+		
 
 		
 
@@ -94,7 +44,7 @@ function Header() {
   
   return (
 	<div>
-	<header>
+	<header className='fix'>
 	<Link to="/">
 	<h5 className="logo">early<span className="primary">office</span></h5>
 	</Link>
@@ -119,10 +69,11 @@ function Header() {
       </nav>
       <div>
 	  {student || employer ? (
-          <div>
-			<Link className='text-primary' to={employer ? '/employer/internships' : '/student/dashboard'}><i className='fas fa-user mr-2'></i><b> welcome {employer ? employer.adminFirstName : student.firstname} {employer ? employer.currentCompany.adminFirstName : student.currentStudent.firstname} </b> </Link>
+          <div className='prof'>
+			<Link className='text-primary' to={employer ? '/employer/internships' : '/student/dashboard'}><i className='fas disp fa-user mr-2'></i><b> <span className='disp'>Welcome</span>{employer ? employer.adminFirstName : student.firstname} {employer ? employer.currentCompany.adminFirstName : student.currentStudent.firstname} </b> </Link>
             <button className='btn' onClick={onLogout}>
-              <b className='primary ml-2'>Logout</b>
+			<i className='fas fa-sign-out-alt mr-1'></i>
+              <b className='primary ml-2 disp'>Logout</b>
             </button>
         
           </div>
@@ -130,7 +81,7 @@ function Header() {
           
           <>
         <Link to='/student/login' className="cta-outline">
-          <button>
+          <button className='log-btn'>
 			Login
 		  </button>
         </Link>

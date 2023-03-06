@@ -1,19 +1,18 @@
 import React, { useEffect } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {studentreset} from '../../../features/studentAuth/studentSlice'
-import { useNavigate } from 'react-router-dom'
+import {studentreset, getStudentProfile} from '../../../features/studentAuth/studentSlice'
+import { useNavigate, Link } from 'react-router-dom'
 
 function StudentDashboard() {
 
-	// const dispatch = useDispatch()
-	const {student} = useSelector((state) => state.studentauth) 
+	
+	
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
 
-	// console.log(student.currentStudent.fieldOfInterest.toString())
-	// console.log(student.fieldOfInterest[0]);
+	const {student, studentProfile, isLoading, isError, isSuccess, message, theStudent} = useSelector((state => state.studentauth))	
 
-	// useEffect
+	
 	console.log(student)
 
 	useEffect(() => {
@@ -23,10 +22,17 @@ function StudentDashboard() {
 		}
 
 
-		return () => {
+		if (isError) {
+			console.log(message)
+		  } 
+	  
+		  dispatch(getStudentProfile())
+		  
+		  return () => {
 			dispatch(studentreset())
 		  }
-	}, [student, dispatch])
+
+	}, [])
 
 	// console.log(student.currentStudent.fieldOfInterest[0])
 
@@ -40,15 +46,16 @@ function StudentDashboard() {
 		<div className="row mt-4">
 			<div className="col-md-4">
 				<small className="primary">Name</small>
-				<h4>{student ? student.currentStudent.firstname : "student"} {student ? student.currentStudent.lastname : "student"}</h4>
+				<h4>{theStudent.firstname}{" "}{theStudent.lastname}</h4>
 			</div>
 			<div className="col-md-4">
 				<small className="primary">Profile</small>
-			 <h4>{student ? student.currentStudent.fieldOfInterest[0] : "none"}</h4> 
+			 {/* <h4>{theStudent.fieldOfInterest[0]}</h4>  */}
 			</div>
 			<div className="col-md-4">
-				
-				<button className="btn btn-success">Update Profile </button>
+				<Link to='/student/profile/update'>
+					<button className="btn btn-success">Update Profile </button>
+				</Link>
 			</div>
 		</div>
 		<hr className="mb-4"/>

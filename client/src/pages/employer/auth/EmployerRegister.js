@@ -13,11 +13,10 @@ const EmployerRegister = (props) => {
     orgEmail: '',
     orgPassword: '',
     phoneNumber: '',
-	orgName: '',
-	orgDescription: '',
+	  orgName: '',
   })
 
-  const {adminFirstName, adminLastName, orgEmail, orgPassword, phoneNumber, orgName, orgDescription} = formData
+  const {adminFirstName, adminLastName, orgEmail, orgPassword, phoneNumber, orgName} = formData
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -51,9 +50,7 @@ const EmployerRegister = (props) => {
         orgEmail,
         phoneNumber,
         orgPassword,
-		orgName,
-		orgDescription
-    
+		    orgName,
       }
       dispatch(employerRegister(employerData))
     }
@@ -154,23 +151,7 @@ const EmployerRegister = (props) => {
               placeholder="organisation name"
               required
             />
-          </div>
-
-		  <div className="form-group">
-            
-            <textarea
-              id="orgEmail"
-              type="text"
-              name="orgDescription"
-              onChange={onChange}
-              value={orgDescription}
-              style={{paddingLeft: 15,}}
-              className="form-input"
-              placeholder="About company"
-              required
-            ></textarea>
-          </div>
-          
+          </div>    
           <div className="form-group">
             <input
               id="orgPassword"

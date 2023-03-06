@@ -45,11 +45,26 @@ const studentUpdate = async(studentData) => {
 	return response.data
 }
 
+const getStudentProfile = async(token) => {
+	const config = {
+		headers: {
+			Authorization: `Bearer ${token}`,
+			withCredentials: true,
+			Cookie: `authToken=${token}`
+		}
+	}
+	const response = await axios.get(`${API_URL}/student/profile`, config)
+	console.log(response.data)
+	return response.data	
+
+}
+
 const studentService = {
 	studentRegister,
 	studentLogin,
 	studentLogout,
-	studentUpdate
+	studentUpdate,
+	getStudentProfile
 }
 
 export default studentService

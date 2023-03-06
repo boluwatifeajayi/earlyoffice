@@ -3,20 +3,28 @@ import {Link} from 'react-router-dom'
 
 function Home() {
   return (
-    <div>
+  <div >
     <div className="banner-area">
    
     <section className="main">
-      <div className="main-content-area">
-        <h3 className="main-heading">Internship Board For Passionate <br/> Youths and Students In Nigeria</h3>
-        <p className="gray main-sub-text">Early Office bring students , youth, copper and new grads  to connect with  <br/> the best companys in Nigeria ready to offer them internships and great work experiences</p>
+      <div className="main-content-area container">
+        <h3 className="main-heading">Internship Board For Passionate  Youths and Students In Nigeria</h3>
+        <p className="gray main-sub-text">Early Office bring students , youth, copper and new grads  to connect with  the best companys in Nigeria ready to offer them internships and great work experiences</p>
 
-        <form>
+        <form className='home-search'>
           <div className="form-box">
             <i className="fa fa-briefcase mr-2 bigger-icon" aria-hidden="true"></i>
             <input type="text" name="" id="" className="search-field internship-field" placeholder="Search Internships..."/>
             <i className="fa fa-map-marker  ml-2 mr-2 bigger-icon" aria-hidden="true"></i>
             <input type="text" name="" id="" className="search-field location-field" placeholder="Search Locations..."/>
+            <Link to='/internships'>
+               <button className="search-btn" type="button">Explore</button>
+            </Link>
+            
+          </div>
+        </form>
+        <form className='other-search'>
+          <div className="form-box">
             <Link to='/internships'>
                <button className="search-btn" type="button">Explore</button>
             </Link>
@@ -37,10 +45,10 @@ function Home() {
     <div className="bg-2">
 
   
-    <section className="container section-2">
+    <section className="section-2 container">
       <div className="sub-heading-div">
         <h1 className="section-heading">Popular Intersnhip Categories</h1>
-      <p className="center mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident molestias,  dicta omnis est excepturi <br/>aliquid fuga harum natus officia laborum nesciunt </p>
+      <p className="center mb-4">Looking for an internship opportunity but not sure which category to explore? Here are some of the most popular internship categories </p>
       </div>
       
       <div className="cat-cards mt-4">
@@ -49,7 +57,7 @@ function Home() {
             <i className="fas fa-code primary"></i>
           </p>
           <h4>Software Development</h4>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+          <p>Interested in coding and technology? Try a software development internship! You'll learn programming, testing, and debugging software applications alongside experienced developers.</p>
           <button>Explore</button>
         </div>
         <div className="my-custom-card">
@@ -57,15 +65,15 @@ function Home() {
             <i className="fas fa-money-bill-wave"></i>
           </p>
           <h4>Finance</h4>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+          <p>Got a knack for numbers and an interest in finance? Consider a finance internship where you'll analyze financial data, prepare reports, and assist with financial planning under experienced finance professionals.</p>
           <button>Explore</button>
         </div>
         <div className="my-custom-card">
           <p className="card-icon primary">
             <i className="fas fa-headphones"></i>
           </p>
-          <h4>Customer SUpport</h4>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+          <h4>Customer Support</h4>
+          <p>Enjoy helping people and communicating? A customer support internship may suit you. You'll assist customers with issues, respond to inquiries, and improve customer satisfaction alongside experienced customer support professionals.</p>
           <button>Explore</button>
         </div>
         
@@ -81,8 +89,8 @@ function Home() {
   
     <section className="container section-3">
       <div className="sub-heading-div">
-        <h1 className="section-heading">Popular Places</h1>
-      <p className="center mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident molestias,  dicta omnis est excepturi <br/>aliquid fuga harum natus officia laborum nesciunt </p>
+      <h1 className="section-heading">Popular Places</h1>
+<p className="center mb-4">Explore the following popular places for internships:</p>
       </div>
       
       <div className="cat-cards mt-4">
@@ -91,7 +99,7 @@ function Home() {
             <i className="fas building "></i>
           </p>
           <h4>Lagos</h4>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+          <p>Looking for an internship in Lagos? Check out our list of available opportunities in the city, ranging from software development to finance and customer support.</p>
           <button>Explore</button>
         </div>
         <div className="my-custom-card">
@@ -99,7 +107,7 @@ function Home() {
             <i className="fas fa-building"></i>
           </p>
           <h4>Abuja</h4>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+          <p>If you're looking for internships in Abuja, we have a range of options available to suit your interests and skills. From marketing to engineering, you're sure to find an opportunity that fits your needs.</p>
           <button>Explore</button>
         </div>
         <div className="my-custom-card">
@@ -107,7 +115,7 @@ function Home() {
             <i className="fas fa-building"></i>
           </p>
           <h4>Port Harcout</h4>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+          <p>Looking to gain experience in Port Harcourt? Browse our selection of available internships in the city, from business administration to graphic design and more.</p>
           <button>Explore</button>
         </div>
         
@@ -120,8 +128,9 @@ function Home() {
   
 
     
-     <section className="container section-4">
+     <section className="section-4 container">
       <div className="sub-heading-div">
+        <hr/>
         <h1 className="section-heading">Why Early Office ?</h1>
       
       </div>
@@ -132,7 +141,7 @@ function Home() {
             <i className="fas fa-building center"></i>
           </p>
           <h4 className="center">100+ Internships</h4>
-          <p className="center">orem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, laudantium velit enim magnam blanditiis optio!  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, ut!</p>
+          <p className="center">Early Office offers over 100 internship opportunities for students to gain practical experience in their fields of interest.</p>
           
         </div>
         <div className="my-custom-card-no-border">
@@ -140,7 +149,7 @@ function Home() {
             <i className="fas fa-building center"></i>
           </p>
           <h4 className="center">Other Benefits</h4>
-          <p className="center">orem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, laudantium velit enim magnam blanditiis optio!  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, ut!</p>
+          <p className="center">In addition to internships, Early Office provides other benefits such as career counseling, resume building, and interview preparation to help students succeed.</p>
           
         </div>
         <div className="my-custom-card-no-border">
@@ -148,7 +157,7 @@ function Home() {
             <i className="fas fa-building center"></i>
           </p>
           <h4  className="center">Quick Response</h4>
-          <p className="center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, laudantium velit enim magnam blanditiis optio!  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, ut!</p>
+          <p className="center">Early Office has a quick response time to inquiries and applications, ensuring that students can secure their desired internships as soon as possible.</p>
           
         </div>
         
@@ -167,7 +176,7 @@ function Home() {
         </div>
         <div className="col-md-6 down">
           <h1 className="mb-4">Early Office for Employers</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quasi, corporis, quaerat pariatur harum ducimus excepturi aliquam inventore doloremque consequatur possimus quos sit fugit doloribus facilis reprehenderit? Omnis, perspiciatis commodi?</p>
+          <p>Looking for top talent to fill your internships? Early Office can help connect you with bright and motivated students and recent graduates. Our platform allows you to easily post your internship opportunities and browse candidate profiles. You can also take advantage of our matching algorithm, which helps you find the best fit for your company culture and internship position. Join Early Office today to start building your team of future leaders.</p>
           <Link to='/employer/register' className="cta-small mt-4">
             <button>Get Started</button>
           </Link>

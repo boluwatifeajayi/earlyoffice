@@ -4,6 +4,9 @@ body{
   color: #444;
   font-family: 'Roboto', sans-serif;
 }
+html{
+  overflow-x: hidden;
+}
 
 h1, h2, h3, h4, h5, h5, h6{
   font-family: 'Poppins', sans-serif;
@@ -26,7 +29,7 @@ h1, h2, h3, h4, h5, h5, h6{
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 100lq;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -140,6 +143,24 @@ a:hover{
   .hide{
     display: none;
   }
+  .job-s{
+    display: none;
+  
+  }
+  .btn-s{
+    width: 100%;
+  }
+  .imp{
+    margin-bottom: 10px;
+  }
+  .prof {
+    margin-left: 110px;
+    display: flex;
+    align-items: center;
+  }
+  .disp{
+    display: none;
+  }
 }
 
 
@@ -182,6 +203,7 @@ img {
   transition: var(--smooth);
 
 }
+
 .cta-outline button {
   font-size: 14px;
   font-weight: bold;
@@ -191,7 +213,40 @@ img {
   background-color: transparent;
   border: none;
   transition: var(--smooth);
+  
 
+}
+
+@media (max-width: 800px){
+  .cta-small button {
+    font-size: 12px;
+    font-weight: normal;
+    color: #fff;
+    background-color: var(--orange);
+    padding: 0.5em 1.5em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--smooth);
+  
+  }
+  
+  .cta-outline button {
+    font-size: 12px;
+    font-weight: normal;
+    color: var(--orange);
+    padding: 0.5em 1.5em;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    transition: var(--smooth);
+    
+  
+  }
+}
+
+.cta-outline button:hover{
+  color: var(--green);
 }
 
 .bigger-icon{
@@ -201,6 +256,11 @@ button:hover {
   
   background: var(--green);
   transition: var(--smooth);
+  
+}
+
+.log-btn:hover{
+  background-color: transparent;
 }
 h1, h2, h3, h4, h5, h5, h6{
   font-family: 'Poppins', sans-serif;
@@ -225,7 +285,7 @@ p {
 
 :root {
   --orange: #f71a46;
-  --green: #035755;
+  --green: #9b043e;
   --gray: #4b4f51;
   --pink: #f8f8f8;
   --light-pink: #fff9f9;
@@ -278,6 +338,11 @@ header{
   color: #f71a46;
 }
 
+@media (max-width: 900px) {
+  .nav_link{
+    display: none;
+  }
+}
 
 
 /* banner */
@@ -309,10 +374,44 @@ header{
 .main-heading{
   font-size: 62px;
 }
+.other-search{
+  display: none;
+}
+
+@media (max-width:900px) {
+  .main-heading{
+    font-size: 30px;
+  }
+
+  .other-search{
+    display: block;
+  }
+
+.home-search{
+  display: none;
+}
+
+  .main{
+    width: 100%;
+    padding-top: 140px;
+    padding-bottom: 70px;
+    padding-left: 0px;
+    padding-right: 0px;
+    height: 70lq;
+  }
+  
+}
 
 .main-sub-text{
   padding-top: 30px;
   font-size: 18px;
+}
+
+@media (max-width: 900px) {
+  .main-sub-text{
+    padding-top: 30px;
+    font-size: 14px;
+  }
 }
 
 .form-box{
@@ -360,15 +459,17 @@ header{
 
 .section-2{
 
-  
-  height:100vh;
+  margin-top: 100px;
+  height:100lq;
   
 }
+
+
 
 .my-custom-card{
    
     border-radius: 9px;
-    padding: 2rem;
+    padding: 3.5rem 2rem;
     border: 1px solid #dcdfdf;
     background-color: ghostwhite;
     cursor: pointer;
@@ -384,11 +485,11 @@ header{
   cursor: pointer;
   border-bottom: 5px solid #e91e63;
   height: 340px;
-  position: relative;
+  /* position: relative; */
 }
 
 .my-custom-card-job button{
-  position: absolute;
+  /* position: absolute; */
   top: 240px;
 }
 
@@ -401,7 +502,7 @@ header{
   background-color: white;
   padding: 5px 10px;
   border-radius: 5px;
-  position: absolute;
+  /* position: absolute; */
 }
 
 .learn-button{
@@ -444,6 +545,7 @@ header{
     display: grid;
     gap: 1rem;
 
+
 }
 
 .card-icon{
@@ -462,7 +564,7 @@ header{
 .card-icon-no-border{
   font-size: 30px;
   margin-bottom: 20px;
-  background-color: white;
+  /* background-color: white; */
  
   
  
@@ -493,12 +595,28 @@ header{
 /* section-3 */
 .section-3{
   margin-top: 80px;
-  height: 90vh;
+  height: 90lq;
+}
+
+@media (max-width:900px) {
+  .section-3{
+    margin-top: 80px;
+    height: 100lq;
+  }
 }
 
 .section-4{
-  height: 70vh;
+  height: 70lq;
+  margin-top: 40px;
 }
+
+@media (max-width:900px) {
+  .section-4{
+    margin-top: 80px;
+    height: 100lq;
+  }
+}
+
 
 .down{
   margin-top: 70px;

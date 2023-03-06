@@ -70,9 +70,8 @@ async function companySignUp(req, res) {
     adminLastName,
     orgEmail,
     orgPassword,
-    phoneNumber,
     orgName,
-    orgDescription,
+    phoneNumber
   } = req.body;
   console.log(req.body);
   const hashedPassword = await hashPassword(orgPassword);
@@ -84,7 +83,7 @@ async function companySignUp(req, res) {
       orgPassword: hashedPassword,
       phoneNumber,
       orgName,
-      orgDescription,
+     
     });
     console.log("created new company @" + currentCompany);
 

@@ -22,79 +22,56 @@ const studentSchema = mongoose.Schema(
     currentLocation: {
       type: String,
     },
-    preferredLanguage: {
-      type: String,
-    },
+
+    // undergraduate, freshgraduate, corper
     status: {
       type: String,
     },
+
+    // 
     fieldOfInterest: {
-      type: [String],
+      type: String,
     },
-    graduation: [
-      {
-        status: {
-          type: String,
-        },
-        schoolName: {
-          type: String,
-        },
-        startYear: {
-          type: String,
-        },
-        degree: {
-          type: String,
-        },
-        gpa: {
-          type: String,
-        },
-        gpaScale: {
-          type: String,
-        },
-      },
-    ],
-    workExperience: [
-      {
-        company: {
-          type: String,
-        },
-        jobTitle: {
-          type: String,
-        },
-        certifications: [
-          {
-            issuerName: {
-              type: String,
-            },
-            issuingOrg: {
-              type: String,
-            },
-            issueDate: {
-              type: String,
-            },
-            credentialId: {
-              type: String,
-            },
-          },
-        ],
-      },
-    ],
+
+    // current level
+    grade: {
+      type: String
+    },
+
+    schoolName: {
+      type: String
+    },
+
+    degree: {
+      type: String,
+    },
+
+    // recent experience
+
+    workName: {
+      type: String
+    },
+
+    workTitle: {
+      type: String
+    },
+
+    workDescription: {
+      type: String
+    },
+
+    //links portfolio works certifications etc
+    works: {
+      type: String
+    },
     skills: {
-      type: [String],
+      type: String
     },
-    workSamples: [
-      {
-        sampleLink: {
-          type: String,
-        },
-        coverLetter: {
-          type: String,
-        },
-        cv: {
-          type: String,
-        },
-      },
-    ],
+
+    resume: {
+      type: String
+    }
+    
   },
   { timestamps: true }
 );

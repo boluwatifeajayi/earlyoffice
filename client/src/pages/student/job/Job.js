@@ -5,6 +5,7 @@ import {GetSingleJob, reset} from '../../../features/job/jobSlice'
 import {ApplyForJob} from '../../../features/job/jobSlice'
 
 
+
 function Job() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -21,18 +22,17 @@ function Job() {
   
 
   const [formData, setFormData] = useState({
-    reasonToBeHired: '',
-    jobAvailability: ''
+    coverLetter: '',
   })
 
 
 
 
-  const {reasonToBeHired, jobAvailability} = formData
+  const {coverLetter} = formData
 
   const {singleJob, isLoading, isError, isSuccess, message} = useSelector((state) => state.job)
 
-  const { org, location, role, jobName, jobResponsibility, jobType, numberOfOpenings, skillsNeeded, salary, duration, benefits, additionalInformation, createdAt} = singleJob
+  const { org, place, jobProfile, jobName, jobDescription, jobType, numberOfOpenings, skillsRequired, salary, duration, benefits, applicationInfo, createdAt} = singleJob
 
   function showCompanyInfo(){
     setCompanyEmail(org.orgEmail)
@@ -50,8 +50,7 @@ function Job() {
   const onSubmit = (e) => {
       e.preventDefault();
       const applyData = {
-      reasonToBeHired,
-      jobAvailability
+        coverLetter
     }
 
     
@@ -127,15 +126,15 @@ function Job() {
            
             
             <b className='pinkish bigger'>Profile</b>
-            <p>{role}</p>
+            <p>{jobProfile}</p>
             <b className='pinkish bigger'>Responsibilities</b>
-            <p>{jobResponsibility}</p>
+            <p>{jobDescription}</p>
             <b className='pinkish bigger'>Skills needed</b>
-            <p>{skillsNeeded}</p>
+            <p>{skillsRequired}</p>
             <b className='pinkish bigger'>Internship Benefits</b>
             <p>{benefits}</p>
             <b className='pinkish bigger'>Aditional Information</b>
-            <p>{additionalInformation}</p>
+            <p>{applicationInfo}</p>
         </div>
         <div className='col-md-0 '>
            <p className='text-white'>......</p>
@@ -150,25 +149,15 @@ function Job() {
               <textarea
                 type='text'
                 placeholder='This is your chance to convince the company to hire you'
-                name='reasonToBeHired'
-                value={reasonToBeHired}
+                name='coverLetter'
+                value={coverLetter}
                 onChange={onChange}
                 className="form-control mb-4"
                 rows={4}
                 required
               >
               </textarea>
-              <b className='pinkish mb-4'>Availability</b>
-              <textarea
-                type='text'
-                placeholder='How Long Would You Be Available for this internship'
-                name='jobAvailability'
-                value={jobAvailability}
-                onChange={onChange}
-                className="form-control mb-4"
-                required
-              >
-              </textarea>
+           
 
               {student ?  <button
                   type='submit'

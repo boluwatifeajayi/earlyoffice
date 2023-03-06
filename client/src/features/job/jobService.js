@@ -40,6 +40,21 @@ const getJobs = async () => {
 	return response.data
 }
 
+// get jobs by search
+
+const getJobsBySearch = async (search, location) => {
+	try {
+	  const response = await axios.get(`${API_URL}/jobs/search`, {
+		params: {
+		  search: search,
+		  location: location,
+		},
+	  });
+	  return response.data;
+	} catch (error) {
+	  console.error(error);
+	}
+  };
 
 
 // get single job
@@ -136,7 +151,8 @@ const jobService = {
 	EmployerJobs,
 	acceptStudent,
 	declineStudent,
-	GetSingleJob2
+	GetSingleJob2,
+	getJobsBySearch
 	
 }
 

@@ -2,25 +2,64 @@ const { default: mongoose } = require("mongoose");
 
 const jobSchema = new mongoose.Schema(
   {
-    role: {
+    // the profile required/category
+    jobProfile: {
       type: String,
     },
+    // job title 
     jobName: {
       type: String,
     },
-
-    jobResponsibility: {
-      type: [String],
+    // responsibilities of the intern
+    jobDescription: {
+      type: String,
     },
-
+    // nature of the job
     jobType: {
       type: String,
     },
-
+    // number of openings
     numberOfOpenings: {
       type: String,
     },
+    // application deadline 
+    applicationDeadline: {
+      type: String,
+    },
+    // salary range
+    salary:{
+      type: String
+    },
+    // application information
+    applicationInfo: {
+      type: String
+    },
+    // education level
+    educationLevel: {
+      type: String
+    },
+    // required experience
+    experienceLevel: {
+      type: String
+    },
+    // required skills
+    skillsRequired: {
+      type: String
+    },
+    // required duration
+    duration: {
+      type: String,
+    },
+    // location
+    place: {
+      type: String,
+    },
+    // internship benefits
+    benefits: {
+      type: String,
+    },
 
+    // organisation info
     org: {
       orgId: {
         type: mongoose.Schema.Types.ObjectId,
@@ -31,52 +70,23 @@ const jobSchema = new mongoose.Schema(
       orgEmail: {
         type: String,
       },
+      orgWebsite: {
+        type: String
+      },
       orgDescription: {
         type: String,
       },
     },
-    skillsNeeded: {
-      type: [String],
-    },
 
-    currencyType: {
-      type: String,
-    },
+    // student application
 
-    salary: {
-      type: Number,
-    },
-
-    duration: {
-      type: String,
-    },
-
-    location: {
-      state: {
-        type: String,
-      },
-
-      country: {
-        type: String,
-        default: "Nigeria",
-      },
-    },
-    benefits: {
-      type: String,
-    },
-
-    additionalInformation: {
-      type: String,
-    },
     student: [
       {
         studentId: {
           type: mongoose.Schema.Types.ObjectId,
         },
-        reasonToBeHired: {
-          type: String,
-        },
-        jobAvailability: {
+        // reason to be hired
+        coverLetter: {
           type: String,
         },
         appliedAt: {
@@ -86,6 +96,7 @@ const jobSchema = new mongoose.Schema(
       },
     ],
   },
+  
   { timestamps: true }
 );
 

@@ -18,6 +18,7 @@ const {
   getSalaryJobs,
   getAllJobs,
   getCompanyJobs,
+  getJobsBySearch,
   getJobById,
   decideApplicant,
   reviewStudent,
@@ -32,12 +33,14 @@ const {
 route.post(
   "/api/company/job/create",
   protectedRoutes,
-  validation(createJobSchema),
   createJob
 );
 
 // Get all jobs
 route.get("/api/jobs", getAllJobs);
+
+// 
+route.get("/api/jobs/search", getJobsBySearch)
 
 // Get company's job
 route.get("/api/company/jobs", protectedRoutes, getCompanyJobs);
@@ -72,7 +75,6 @@ route.get("/api/jobs/salary", getSalaryJobs);
 route.post(
   "/api/jobs/:jobid/apply",
   protectedRoutes,
-  validation(jobApplicationSchema),
   applyToJob
 );
 

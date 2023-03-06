@@ -5,21 +5,18 @@ const companySchema = mongoose.Schema(
     adminFirstName: {
       type: String,
     },
-
     adminLastName: {
       type: String,
     },
-
     orgEmail: {
       type: String,
       required: true,
       unique: true,
     },
-
-    orgPassword: {
+    phoneNumber: {
       type: String,
     },
-    phoneNumber: {
+    orgPassword: {
       type: String,
     },
     orgName: {
@@ -29,15 +26,27 @@ const companySchema = mongoose.Schema(
     orgDescription: {
       type: String,
     },
-    orgPresence: {
-      website: {
-        type: String,
-      },
-      socialHandles: {type:Object},
-      officalDocs: {
-        type: String,
-      },
+    orgWebsite: {
+      type: String
     },
+    orgMission: {
+      type: String
+    },
+    orgIndustry: {
+      type: String
+    },
+    orgLocation: {
+      type: String
+    },
+    orgSize: {
+      type: String
+    },
+    orgBenefits: {
+      type: String
+    },
+    orgLogo:{
+      type: String
+    }
   },
   { timestamps: true }
 );

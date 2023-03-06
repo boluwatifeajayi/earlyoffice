@@ -15,7 +15,7 @@ function EmployerJob() {
 
 	const {singleJob, isLoading, isError, isSuccess, message} = useSelector((state) => state.job)
 
-	const { org, location, role, jobName, jobResponsibility, jobType, numberOfOpenings, skillsNeeded, salary, duration, benefits, additionalInformation, createdAt, student} = singleJob
+	const { org, jobProfile, jobName, jobDescription, jobType, numberOfOpenings, applicationDeadline, skillsRequired, salary, applicationInfo, educationLevel, experienceLevel, duration, place, benefits, createdAt, student} = singleJob
 
   function viewStudents(){
     dispatch(GetSingleJob2(id))
@@ -69,15 +69,15 @@ function EmployerJob() {
             </div>
             <hr/> 
             <b className='pinkish bigger'>Profile</b>
-            <p>{role}</p>
+            <p>{jobProfile}</p>
             <b className='pinkish bigger'>Responsibilities</b>
-            <p>{jobResponsibility}</p>
+            <p>{jobDescription}</p>
             <b className='pinkish bigger'>Skills needed</b>
-            <p>{skillsNeeded}</p>
+            <p>{skillsRequired}</p>
             <b className='pinkish bigger'>Internship Benefits</b>
             <p>{benefits}</p>
             <b className='pinkish bigger'>Aditional Information</b>
-            <p>{additionalInformation}</p>
+            <p>{applicationInfo}</p>
         </div>
         <div className='col-md-0 '>
            <p className='text-white'>......</p>
@@ -92,7 +92,7 @@ function EmployerJob() {
           <p>{student.status}</p>
 
           <b>Cover Letter</b>
-          <p>{student.reasonToBeHired}</p>
+          <p>{student.coverLetter}</p>
             
           <hr/>
           <span>

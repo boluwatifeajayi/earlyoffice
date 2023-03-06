@@ -26,39 +26,45 @@ const createJob = async (req, res) => {
         error: "Ensure you are a registered company to access this route",
       });
     const {
-      role,
+      jobProfile,
       jobName,
-      jobResponsibility,
+      jobDescription,
       jobType,
       numberOfOpenings,
-      skillsNeeded,
+      applicationDeadline,
       salary,
+      applicationInfo,
+      educationLevel,
+      experienceLevel,
+      skillsRequired,
       duration,
-      location,
-      benefits,
-      additionalInformation,
+      place,
+      benefits
     } = req.body;
     // const { companyName: orgName } = req.params;
     const currentOrg = await companyModel.findById(companyId);
-    const { _id: orgId, orgEmail, orgName, orgDescription } = currentOrg;
+    const { _id: orgId, orgEmail, orgName, orgDescription, orgWebsite } = currentOrg;
     const newJob = await jobModel.create({
-      role,
+      jobProfile,
       jobName,
-      jobResponsibility,
+      jobDescription,
       jobType,
       numberOfOpenings,
+      applicationDeadline,
+      salary,
+      applicationInfo,
+      educationLevel,
+      experienceLevel,
+      skillsRequired,
+      duration,
+      place,
+      benefits,
       org: {
         orgId,
         orgName,
         orgEmail,
         orgDescription,
       },
-      skillsNeeded,
-      salary,
-      duration,
-      location,
-      benefits,
-      additionalInformation,
     });
 
     await mailSender(
@@ -85,6 +91,24 @@ const getAllJobs = async (req, res) => {
     res.status(404).json({ error: "No jobs available" });
   }
 };
+
+const getJobsBySearch = async (req, res) => {
+  try {
+    const { search, location } = req.query;
+    const searchedJobs = await jobModel.find({
+        $or: [
+          { jobName: { $regex: search, $options: "i" } },
+          { place: { $regex: location, $options: "i" } },
+        ],
+      })
+      .sort({ updatedAt: -1 });
+      res.status(200).json(searchedJobs);
+  } catch (error) {
+    res.status(404).json({ error: "No jobs available" });
+  }
+};
+
+
 const getCompanyJobs = async (req, res) => {
   try {
     const { companyId } = res.locals.decodedToken;
@@ -153,7 +177,7 @@ const applyToJob = async (req, res) => {
       return res
         .status(400)
         .json({ error: "Ensure you are a student to access this route" });
-    const { reasonToBeHired, jobAvailability } = req.body;
+    const { coverLetter } = req.body;
     const { jobid } = req.params;
     const appliedAt = Date.now();
     const getStudent = await studentModel.findById(studentId);
@@ -161,7 +185,7 @@ const applyToJob = async (req, res) => {
       jobid,
       {
         $push: {
-          student: { studentId, reasonToBeHired, jobAvailability, appliedAt },
+          student: { studentId, coverLetter, appliedAt},
         },
       },
       { new: true }
@@ -261,4 +285,5 @@ module.exports = {
   applyToJob,
   decideApplicant,
   reviewStudent,
+  getJobsBySearch
 };
