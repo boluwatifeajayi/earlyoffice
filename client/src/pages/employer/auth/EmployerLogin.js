@@ -24,7 +24,7 @@ const EmployerLogin = (props) => {
       toast.error("invalid orgEmail or orgPassword")
     }
     if(isSuccess || employer){
-      navigate('/')
+      navigate('/employer/internships')
     } 
 
     dispatch(employerreset())
@@ -76,7 +76,7 @@ const EmployerLogin = (props) => {
             
             <input
               id="orgEmail"
-              type="orgEmail"
+              type="email"
               name="orgEmail"
               onChange={onChange}
               value={orgEmail}
@@ -92,7 +92,7 @@ const EmployerLogin = (props) => {
           <div className="form-group">
             <input
               id="orgPassword"
-              type="orgPassword"
+              type="password"
               name="orgPassword"
               value={orgPassword}
               placeholder="Password"

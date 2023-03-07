@@ -18,7 +18,7 @@ route.get("/api/students", getStudents);
 route.get("/api/students/student", protectedRoutes, getStudent);
 
 // Get student by id
-route.get("/api/student/id/:id", protectedRoutes, getStudentById);
+route.get("/api/student/id/:id", getStudentById);
 
 // Get student by location
 route.get(

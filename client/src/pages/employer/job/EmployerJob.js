@@ -93,6 +93,9 @@ function EmployerJob() {
 
           <b>Cover Letter</b>
           <p>{student.coverLetter}</p>
+          <Link to={`/employer/application/${student.studentId}`}>
+            view student 
+          </Link>
             
           <hr/>
           <span>

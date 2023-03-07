@@ -28,7 +28,7 @@ const EmployerRegister = (props) => {
       toast.error(message)
     }
     if(isSuccess || employer){
-      navigate('/')
+      navigate('/employer/create')
     } 
 
     dispatch(employerreset())

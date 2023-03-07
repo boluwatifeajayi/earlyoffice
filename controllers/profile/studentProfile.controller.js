@@ -5,7 +5,10 @@ async function updateStudentProfile (req,res){
         const {studentId} = res.locals.decodedToken;
         if (studentId == null) return res.status(400).json({error : "Ensure you are a student to access this route"})
 
-        const {firstname, lastname, currentLocation,
+        const {
+            firstname, 
+            lastname, 
+            currentLocation,
             status,
             fieldOfInterest,
             grade,
@@ -24,18 +27,18 @@ async function updateStudentProfile (req,res){
                 firstname, 
                 lastname, 
                 currentLocation,
-      status,
-      fieldOfInterest,
-      grade,
-      schoolName,
-      workName,
-      workTitle,
-      workDescription,
-      works,
-      skills, 
-      resume,
-      degree,
-    coverLetter
+                status,
+                fieldOfInterest,
+                grade,
+                schoolName,
+                workName,
+                workTitle,
+                workDescription,
+                works,
+                skills, 
+                resume,
+                degree,
+                coverLetter
             },{
                 new : true
             })

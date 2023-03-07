@@ -60,6 +60,7 @@ export const Schools = [
   {value: 'Ahmadu Bello University', text: 'Ahmadu Bello University'},
   {value: 'University of Ilorin', text: 'University of Ilorin'},
   {value: 'University of Abuja', text: 'University of Abuja'},
+  {value: 'Bells UNiversity Of Technology', text: 'Bells UNiversity Of Technology'},
   {value: 'Federal University of Technology, Minna', text: 'Federal University of Technology, Minna'},
   {value: 'University of Benin', text: 'University of Benin'},
   {value: 'Federal University of Technology, Akure', text: 'Federal University of Technology, Akure'},

@@ -1,13 +1,18 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import employerService from './employerService'
+import axios from 'axios'
 
 const employer = JSON.parse(localStorage.getItem('employer'))
+const employerProfile = JSON.parse(localStorage.getItem('employerProfile'))
+
 
 const initialState = {
 	employer: employer ? employer: null, 
 	isError: false,
 	isSuccess: false,
+	employerProfile: employerProfile ? employerProfile: null,
 	isLoading: false,
+	theEmployer: {},
 	message: ''
 }
 
@@ -34,7 +39,41 @@ export const employerLogin = createAsyncThunk('employerauth/employerlogin', asyn
 		return thunkAPI.rejectWithValue(message)
 	 }
 	
-})
+});
+
+// update emlployer
+export const employerUpdate = createAsyncThunk('employerauth/employerupdate', async (employerProfile, thunkAPI) => {
+	try{
+		const token = thunkAPI.getState().employerauth.employer.authToken
+     	 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+		return await employerService.employerUpdate(employerProfile)
+	} 
+	catch(error) {
+		const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+		return thunkAPI.rejectWithValue(message)
+	 }
+	
+});
+
+// get employer Profile
+export const getEmployerProfile = createAsyncThunk(
+	'employerauth/employerget',
+	async (_, thunkAPI) => {
+	  try {
+      const token = thunkAPI.getState().employerauth.employer.authToken
+		return await employerService.getEmployerProfile(token)
+	  } catch (error) {
+		const message =
+		  (error.response &&
+			error.response.data &&
+			error.response.data.message) ||
+		  error.message ||
+		  error.toString()
+		return thunkAPI.rejectWithValue(message)
+	  }
+	}
+  )
+
 
 // logout
 export const employerLogout =  createAsyncThunk('employerauth/employerlogout', async () => {
@@ -89,6 +128,37 @@ export const employerSlice = createSlice({
 				state.message = action.payload
 				state.employer = null
 			})
+			// update
+			.addCase(employerUpdate.pending, (state) => {
+				state.isLoading = true
+			})
+			.addCase(employerUpdate.fulfilled, (state, action) => {
+				state.isLoading = false
+				state.isSuccess = true
+				state.employerProfile = action.payload
+			})
+			.addCase(employerUpdate.rejected, (state, action) => {
+				state.isLoading = false
+				state.isError = true
+				state.message = action.payload
+				state.employerProfile = null
+			})
+
+			// get employer profile
+			.addCase(getEmployerProfile.pending, (state) => {
+				state.isLoading = true
+			  })
+			  .addCase(getEmployerProfile.fulfilled, (state, action) => {
+				state.isLoading = false
+				state.isSuccess = true
+				state.theEmployer = action.payload
+			  })
+			  .addCase(getEmployerProfile.rejected, (state, action) => {
+				state.isLoading = false
+				state.isError = true
+				state.message = action.payload
+			  })
+
 
 			// logout
 			.addCase(employerLogout.fulfilled, (state) => {

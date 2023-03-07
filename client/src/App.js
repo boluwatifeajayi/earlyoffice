@@ -18,6 +18,9 @@ import EmployerJob from './pages/employer/job/EmployerJob';
 import StudentDashboard from './pages/student/job/StudentDashboard';
 import CreateProfile from './pages/student/auth/CreateProfile';
 import UpdateProfile from './pages/student/auth/UpdateProfile';
+import CreateEmployerProfile from './pages/employer/auth/CreateEmployerProfile';
+import UpdateEmployerProfile from './pages/employer/auth/UpdateEmployerProfile';
+import ViewStudent from './pages/employer/job/ViewStudent';
 
 
 
@@ -39,15 +42,17 @@ function App() {
         <Route path='/internship/apply' element={<Apply/>}/>
         <Route path='/employer/internships' element={<JobDashboard/>}/>
         <Route path='/employer/internship/:id' element={<EmployerJob/>}/>
+        <Route path='/employer/application/:studentId' element={<ViewStudent/>}/>
         <Route path='/student/dashboard' element={<StudentDashboard/>}/>
         <Route path='/student/create' element={<CreateProfile/>}/>
         <Route path='/student/profile/update' element={<UpdateProfile/>}/>
+        <Route path='/employer/create' element={<CreateEmployerProfile/>}/>
+        <Route path='/employer/profile/update' element={<UpdateEmployerProfile/>}/>
        </Routes>
       </div>
       <Footer/>
     </Router>
-    <ToastContainer/>
-     
+    <ToastContainer/> 
     </>
   );
 }

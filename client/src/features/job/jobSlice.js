@@ -188,6 +188,25 @@ export const EmployerJobs = createAsyncThunk(
 	}
   )
 
+  // get student applied jobs
+export const StudentAppliedJobs = createAsyncThunk(
+	'jobs/studentAppliedJobs',
+	async (_, thunkAPI) => {
+	  try {
+      const token = thunkAPI.getState().studentauth.student.authToken
+		return await jobService.StudentAppliedJobs(token)
+	  } catch (error) {
+		const message =
+		  (error.response &&
+			error.response.data &&
+			error.response.data.message) ||
+		  error.message ||
+		  error.toString()
+		return thunkAPI.rejectWithValue(message)
+	  }
+	}
+  )
+
   // accept student
 
   export const acceptStudent = createAsyncThunk(
@@ -338,6 +357,21 @@ export const jobSlice = createSlice({
         state.jobs = action.payload
       })
       .addCase(EmployerJobs.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+
+      //get student applied jobs
+      .addCase(StudentAppliedJobs.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(StudentAppliedJobs.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.jobs = action.payload
+      })
+      .addCase(StudentAppliedJobs.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload

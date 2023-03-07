@@ -4,7 +4,17 @@ const companyModel = require("../../models/company.model");
 async function updateCompanyProfile(req, res) {
   try {
     const { companyId } = res.locals.decodedToken;
-    const { adminFirstName, adminLastName, orgDescription, orgPresence } =
+    const { 
+      adminFirstName,
+      adminLastName,   
+      orgLocation,
+      orgIndustry,
+      orgMission,
+      orgSize,
+      orgDescription,
+      orgWebsite,
+      orgBenefits, 
+      orgLogo, } =
       req.body;
 
     const updatedCompanyProfile = await companyModel.findOneAndUpdate(
@@ -12,8 +22,14 @@ async function updateCompanyProfile(req, res) {
       {
         adminFirstName,
         adminLastName,
+        orgLocation,
+        orgIndustry,
+        orgMission,
+        orgSize,
         orgDescription,
-        orgPresence,
+        orgWebsite,
+        orgBenefits, 
+        orgLogo,
       },
       {
         new: true,
@@ -42,7 +58,28 @@ async function changeCompanyPassword(req, res) {
   }
 }
 
+async function getCompanyProfile(req, res) {
+  try {
+    const { companyId } = res.locals.decodedToken;
+    if (!companyId) {
+      return res.status(400).json({ error: "Ensure you are a company to access this route" });
+    }
+
+    const companyProfile = await companyModel.findById(companyId);
+    if (!companyProfile) {
+      return res.status(404).json({ error: "Company profile not found" });
+    }
+
+    return res.json(companyProfile);
+  } catch (error) {
+    console.log(error.message);
+    return res.status(400).json({ error: error.message });
+  }
+}
+
+
 module.exports = {
   updateCompanyProfile,
   changeCompanyPassword,
+  getCompanyProfile
 };

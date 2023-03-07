@@ -5,6 +5,9 @@ const {
 const {
   changeStudentPassword,
 } = require("../../controllers/profile/studentProfile.controller");
+
+const {getCompanyProfile} = require("../../controllers/profile/companyProfile.controller");
+
 const {
   protectedRoutes,
 } = require("../../middlewares/authentication/protectedRoutes");
@@ -18,8 +21,14 @@ var route = express.Router();
 route.put(
   "/api/company/profile/update",
   protectedRoutes,
-  validation(updateCompanyProfileSchema),
   updateCompanyProfile
+);
+
+// Get Company profile
+route.get(
+  "/api/company/profile",
+  protectedRoutes,
+ getCompanyProfile
 );
 
 // Change Company password
@@ -29,5 +38,7 @@ route.patch(
   protectedRoutes,
   changeStudentPassword
 );
+
+
 
 module.exports = route;

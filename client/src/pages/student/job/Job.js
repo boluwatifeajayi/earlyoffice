@@ -4,8 +4,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import {GetSingleJob, reset} from '../../../features/job/jobSlice'
 import {ApplyForJob} from '../../../features/job/jobSlice'
 
-
-
 function Job() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -15,18 +13,12 @@ function Job() {
   const [companyInfo, setCompanyInfo] = useState('')
   const [companyEmail, setCompanyEmail] = useState('')
   const [seeComp, setSeeComp] = useState(false)
-  const [sub, setSub] = useState('Login To Submit')
-  const [showb, setShowB] = useState(false)
+ 
   const {student} = useSelector((state) => state.studentauth) 
-
-  
 
   const [formData, setFormData] = useState({
     coverLetter: '',
   })
-
-
-
 
   const {coverLetter} = formData
 

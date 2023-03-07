@@ -111,6 +111,22 @@ const EmployerJobs = async(token) => {
 	return response.data
 }
 
+// get student applied jobs
+const StudentAppliedJobs = async(token) => {
+	const config = {
+		headers: {
+			Authorization: `Bearer ${token}`,
+			withCredentials: true,
+			Cookie: `authToken=${token}`
+		}
+	}
+	const response = await axios.get(`${API_URL}/jobs/applied-jobs`, config)
+
+	console.log(response.data)
+	return response.data
+
+} 
+
 // accept Job
 
 const acceptStudent = async(studentId, jobId, token) => {
@@ -152,7 +168,8 @@ const jobService = {
 	acceptStudent,
 	declineStudent,
 	GetSingleJob2,
-	getJobsBySearch
+	getJobsBySearch,
+	StudentAppliedJobs
 	
 }
 

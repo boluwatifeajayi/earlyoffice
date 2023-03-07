@@ -126,6 +126,9 @@ const getCompanyJobs = async (req, res) => {
   }
 };
 
+
+
+
 const getJobById = async (req, res) => {
   try {
     const { jobId } = req.params;
@@ -147,6 +150,49 @@ const getStateJobs = async (req, res) => {
     res.status(404).json({ error: error.message });
   }
 };
+
+const getStudentAppliedJobs = async (req, res) => {
+  try {
+    const { studentId } = res.locals.decodedToken;
+    if (studentId == null)
+      return res.status(400).json({
+        error: "Ensure you are a registered student to access this route",
+      });
+    const appliedJobs = await jobModel.find({ "student.studentId": studentId });
+    res.status(200).json(appliedJobs);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+};
+
+const getStudentInfoForJob = async (req, res) => {
+  try {
+    const { jobId, studentId } = req.params;
+    const job = await jobModel.findById(jobId).exec();
+    if (!job) {
+      return res.status(404).json({
+        error: `No job found for jobId: ${jobId}`,
+      });
+    }
+    const studentInfo = job.student.find((s) => s.studentId === studentId);
+    if (!studentInfo) {
+      return res.status(404).json({
+        error: `No student found for jobId: ${jobId} and studentId: ${studentId}`,
+      });
+    }
+    const student = await studentModel.findById(studentInfo.studentId).exec();
+    if (!student) {
+      return res.status(404).json({
+        error: `No student found with studentId: ${studentId}`,
+      });
+    }
+    res.status(200).json(student);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: "Server Error" });
+  }
+};
+
 
 const getTypeJobs = async (req, res) => {
   try {
@@ -246,6 +292,9 @@ const decideApplicant = async (req, res) => {
   }
 };
 
+
+
+
 const reviewStudent = async () => {
   try {
     const { companyId } = res.locals.decodedToken;
@@ -285,5 +334,7 @@ module.exports = {
   applyToJob,
   decideApplicant,
   reviewStudent,
-  getJobsBySearch
+  getJobsBySearch,
+  getStudentAppliedJobs,
+  getStudentInfoForJob
 };

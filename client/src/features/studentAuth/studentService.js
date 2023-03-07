@@ -59,12 +59,22 @@ const getStudentProfile = async(token) => {
 
 }
 
+// get student by id
+
+const GetStudent = async(studentId) => {
+	const response = await axios.get(`${API_URL}/student/id/${studentId}`)
+	return response.data	
+}
+
+
+
 const studentService = {
 	studentRegister,
 	studentLogin,
 	studentLogout,
 	studentUpdate,
-	getStudentProfile
+	getStudentProfile,
+	GetStudent
 }
 
 export default studentService

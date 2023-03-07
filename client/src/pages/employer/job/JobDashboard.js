@@ -33,7 +33,9 @@ function JobDashboard() {
   return (
 	<div>
     <div className='container'>
-    
+    <Link to='/employer/profile/update/'>
+      profile
+    </Link>
       <div className='row'>
         <div className='col-8 mt-4'>
           <h1>Posted Internships</h1>

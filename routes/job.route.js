@@ -20,7 +20,9 @@ const {
   getCompanyJobs,
   getJobsBySearch,
   getJobById,
+  getStudentInfoForJob,
   decideApplicant,
+  getStudentAppliedJobs,
   reviewStudent,
 } = require("../controllers/job.controller");
 const customValidation = require("../middlewares/validation/customValidation");
@@ -44,6 +46,14 @@ route.get("/api/jobs/search", getJobsBySearch)
 
 // Get company's job
 route.get("/api/company/jobs", protectedRoutes, getCompanyJobs);
+// get jobs applied to by student
+
+// get jobs a student applied to
+route.get("/api/jobs/applied-jobs", protectedRoutes, getStudentAppliedJobs);
+
+// get info of student that applied to a job
+route.get("/api/jobs/:jobId/students/:studentId", getStudentInfoForJob);
+
 
 // To review an applicant from a job posted by a company
 route.get(
@@ -85,5 +95,7 @@ route.patch(
   customValidation(decideApplicantSchema, "query"),
   decideApplicant
 );
+
+
 
 module.exports = route;
