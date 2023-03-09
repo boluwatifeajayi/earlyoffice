@@ -11,7 +11,7 @@ function Footer() {
 				  <h4>earlyoffice</h4>
 				  <ul>
 					<li><Link to="about-us">about us</Link></li>
-					<li><a href="#">Blog</a></li>
+					<li><Link to="/blog">Blog</Link></li>
 					<li><Link to="/privacy-policy">privacy policy</Link></li>
 					<li><Link to="/contact-us">contact Us</Link></li>
 				  </ul>
@@ -19,10 +19,10 @@ function Footer() {
 				<div className="footer-col">
 				  <h4>Students</h4>
 				  <ul>
-					<li><a href="#">Locations</a></li>
-					<li><a href="#">Categories</a></li>
-					<li><a href="#">Jobs</a></li>
-					<li><a href="#">Register</a></li>
+					<li><Link href="/companies/locations">Locations</Link></li>
+					<li><Link href="/company/categories">Categories</Link></li>
+					<li><Link href="/internships">Internships</Link></li>
+					<li><Link href="/stundent/register">Register</Link></li>
 	  
 				   
 				  </ul>
@@ -30,19 +30,20 @@ function Footer() {
 				<div className="footer-col">
 				  <h4>Employer</h4>
 				  <ul>
-					<li><a href="#">Register</a></li>
-					<li><a href="#">Post Jobs</a></li>
-					<li><a href="#">Profiles</a></li>
+					
+					<li><Link to='/employer/register'>Register</Link></li>
+					<li><Link to="/employer/login">Login</Link></li>
+					<li><Link to="/companies/all">Profiles</Link></li>
 					
 				  </ul>
 				</div>
 				<div className="footer-col">
 				  <h4>follow us</h4>
 				  <div className="social-links">
-					<a href="#"><i className="fab fa-facebook-f"></i></a>
-					<a href="#"><i className="fab fa-twitter"></i></a>
-					<a href="#"><i className="fab fa-instagram"></i></a>
-					<a href="#"><i className="fab fa-linkedin-in"></i></a>
+					<Link to="facebook.com"><i className="fab fa-facebook-f"></i></Link>
+					<Link to="twitter.com"><i className="fab fa-twitter"></i></Link>
+					<Link to="instagram.com"><i className="fab fa-instagram"></i></Link>
+					<Link to="linkedin.com"><i className="fab fa-linkedin-in"></i></Link>
 				  </div>
 				</div>
 			  </div>

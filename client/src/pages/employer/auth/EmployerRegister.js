@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { employerRegister, employerreset } from '../../../features/employerAuth/employerSlice'
+import fifth from '../../../media/fifth.jpg';
 
 
 const EmployerRegister = (props) => {
@@ -62,7 +63,7 @@ const EmployerRegister = (props) => {
     <div className='container'>
       <div className='row'>
         <div className='col-md-7 hide img-down'>
-        <img src="https://source.wustl.edu/wp-content/uploads/2018/01/shutterstock_126952187.jpg" className="img-contain" alt="login"/>
+        <img src={fifth} className="img-contain" alt="login"/>
         </div>
         <div className='col-md-5 downn'>
         <div className="reg-container">

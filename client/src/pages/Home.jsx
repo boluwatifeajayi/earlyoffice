@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import { InternshipCategory } from '../utils/data';
+import fifth from '../media/fifth.jpg'
+
 
 
 function Home() {
@@ -250,7 +252,7 @@ function Home() {
     <section className="container mb-4 section-4 mt-4">
       <div className="row mt-4">
         <div className="col-md-6">
-          <img src="https://i.pinimg.com/736x/e8/e2/46/e8e2469e6a21893eb66df75ddd9869a8.jpg" className="border" alt=""/>
+          <img src={fifth} className="border" alt=""/>
         </div>
         <div className="col-md-6 down">
           <h2 className="mb-4 section-heading2">Early Office for Employers</h2>

@@ -2,7 +2,9 @@ import {React, useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { employerLogin, employerreset } from '../../../features/employerAuth/employerSlice'
+import { employerLogin, employerreset } from '../../../features/employerAuth/employerSlice';
+import third from '../../../media/third.jpg'
+
 
 
 const EmployerLogin = (props) => {
@@ -55,7 +57,7 @@ const EmployerLogin = (props) => {
     <div className='container'>
       <div className='row'>
         <div className='col-md-7 hide img-down'>
-        <img src="https://s3.amazonaws.com/media.youthradio.org/wp-content/uploads/2020/08/21114957/Youngwomanarguesduringvideoconference.jpg" className="img-contain" alt="logine"/>
+        <img src={third} className="img-contain" alt="logine"/>
         </div>
         <div className='col-md-5 downn'>
         <div className="reg-container">
