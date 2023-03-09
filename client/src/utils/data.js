@@ -1,6 +1,7 @@
 export const States = [
   {value: '', text: '-Location-'},
   {value: 'Abia', text: 'Abia'},
+  {value: 'Abuja', text: 'Abuja'},
   {value: 'Adamawa', text: 'Adamawa'},
   {value: 'Akwa Ibom', text: 'Akwa Ibom'},
   {value: 'Anambra', text: 'Anambra'},
