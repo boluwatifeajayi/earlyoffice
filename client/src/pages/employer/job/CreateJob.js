@@ -228,7 +228,7 @@ const CreateJob = () => {
 				/>
 			 
 				<div className="form-group">
-				<label>Internship Benefits</label>
+				<label>Interns Responsibilies</label>
 				<ReactQuill
 					value={benefits}
 					onChange={(value) => { onChange("benefits", value) }}

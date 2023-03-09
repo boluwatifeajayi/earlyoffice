@@ -118,7 +118,7 @@ const EmployerRegister = (props) => {
               value={orgEmail}
               style={{paddingLeft: 15,}}
               className="form-input"
-              placeholder="orgEmail"
+              placeholder="Organisation Email"
               required
             />
           </div>
