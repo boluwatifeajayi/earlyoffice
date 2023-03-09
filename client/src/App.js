@@ -21,6 +21,14 @@ import UpdateProfile from './pages/student/auth/UpdateProfile';
 import CreateEmployerProfile from './pages/employer/auth/CreateEmployerProfile';
 import UpdateEmployerProfile from './pages/employer/auth/UpdateEmployerProfile';
 import ViewStudent from './pages/employer/job/ViewStudent';
+import Privacy from './pages/stateless/Privacy';
+import About from './pages/stateless/About';
+import Contact from './pages/stateless/Contact';
+import JobCategory from './pages/student/job/JobCategory';
+import JobLocation from './pages/student/job/JobLocation';
+import JobCompany from './pages/student/job/JobCompany';
+import AllCompanies from './pages/employer/auth/AllCompanies';
+import Company from './pages/employer/auth/Company';
 
 
 
@@ -48,6 +56,17 @@ function App() {
         <Route path='/student/profile/update' element={<UpdateProfile/>}/>
         <Route path='/employer/create' element={<CreateEmployerProfile/>}/>
         <Route path='/employer/profile/update' element={<UpdateEmployerProfile/>}/>
+        <Route path='/internships/:cat' element={<JobCategory/>}/>
+        <Route path='/internships/locations/:theplace' element={<JobLocation/>}/>
+        <Route path='/internships/companies/:organisation' element={<JobCompany/>}/>
+        <Route path='/companies/all' element={<AllCompanies/>}/>
+        <Route path='/company/:id' element={<Company/>}/>
+
+        {/* stateless */}
+        <Route path='/privacy-policy' element={<Privacy/>}/>
+        <Route path='/about-us' element={<About/>}/>
+        <Route path='/contact-us' element={<Contact/>}/>
+        
        </Routes>
       </div>
       <Footer/>

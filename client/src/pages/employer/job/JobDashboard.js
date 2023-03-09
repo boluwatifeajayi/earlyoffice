@@ -43,7 +43,7 @@ function JobDashboard() {
         </div>
           <div className='col-4'>
           <Link to="/employer/createinternship">
-        <button className='btn btn-block  mt-4 mb-4 text-white' style={{backgroundColor: '#f71a46'}}> {" "}New Internship +</button>
+        <button className='btn btn-block  mt-4 mb-4 text-white' style={{backgroundColor: '#27ba88'}}> {" "}New Internship +</button>
         </Link>
         </div>
         

@@ -69,18 +69,7 @@ function CreateProfile() {
       <div className='row'>
               <div className='col'>
               <div className="form-group">
-                {/* <input
-                  id="name"
-                  type="text"
-                  name="firstname"
-                  placeholder='Location'
-                  
-                  className="form-input"
-                  style={{paddingLeft: 15,}}
-                  value={currentLocation}
-                  required
-                  onChange={(e) => setcurrentLocation(e.target.value)}
-                /> */}
+                
                 <select value={currentLocation} required style={{paddingLeft: 15,}} className="form-input" onChange={(e) => setcurrentLocation(e.target.value)}>
                   {States.map(st => (
                     <option key={st.value} value={st.value}>
@@ -103,7 +92,7 @@ function CreateProfile() {
               </div>
             </div>
             <div className="form-group">
-            <select value={fieldOfInterest} required style={{paddingLeft: 15,}} className="form-input" onChange={(e) => setfieldOfInterest(e.target.value)}>
+            <select value={fieldOfInterest} required style={{paddingLeft: 15,}} name="fieldOfIntrest" className="form-input" onChange={(e) => setfieldOfInterest(e.target.value)}>
                   {Profile.map(st => (
                     <option key={st.value} value={st.value}>
                       {st.text}

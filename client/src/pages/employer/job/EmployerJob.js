@@ -30,21 +30,17 @@ function EmployerJob() {
   
   
 	useEffect(() => {
+    if (isError && message) {
+      console.log(message);
+    } 
   
-	  // if (isError) {
-		// console.log(message)
-	  // } 
-
+    dispatch(GetSingleJob(id));
     
+    return () => {
+      dispatch(reset());
+    };
+  }, [dispatch, id, isError, message]);
   
-	  
-	  dispatch(GetSingleJob(id))
-		
-	
-	  return () => {
-		dispatch(reset())
-	  }
-	}, [dispatch, navigate, message, isError, GetSingleJob])
   
   return (
 	<div className='container'>

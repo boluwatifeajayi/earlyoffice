@@ -33,7 +33,7 @@ function JobItem({job}) {
 		  </div>
 		</div>
 		<Link to={`/internship/${job._id}/${job.org.orgName}/${job.place}`}>
-			<button className="learn-button mt-4">Learn More</button>
+			<button className="bottom-0 end-0 mb-4 me-4 mt-4 learn-button">Learn More</button>
 		</Link>
 		
 	  </div>

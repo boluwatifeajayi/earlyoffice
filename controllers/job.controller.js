@@ -128,6 +128,29 @@ const getCompanyJobs = async (req, res) => {
 
 
 
+const getJobOfCompany = async (req, res) => {
+  try {
+    const { orgName } = req.params; // update to req.params
+    if (orgName == null)
+      return res.status(400).json({
+        error: "Ensure you are a registered company to access this route",
+      });
+   
+    const jobsForCompany = await jobModel
+      .find({ "org.orgName": orgName })
+      .sort({ updatedAt: -1 });
+    res.status(200).json(jobsForCompany);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+};
+
+
+
+
+
+
+
 
 const getJobById = async (req, res) => {
   try {
@@ -141,9 +164,9 @@ const getJobById = async (req, res) => {
 
 const getStateJobs = async (req, res) => {
   try {
-    const { state } = req.params;
+    const { place } = req.params;
     const currentJob = await jobModel
-      .find({ location: { state: state } })
+      .find({ place } )
       .sort({ updatedAt: -1 });
     res.status(200).json(currentJob);
   } catch (error) {
@@ -196,8 +219,8 @@ const getStudentInfoForJob = async (req, res) => {
 
 const getTypeJobs = async (req, res) => {
   try {
-    const { type } = req.params;
-    const currentJob = await jobModel.find({ type }).sort({ updatedAt: -1 });
+    const { jobProfile } = req.params;
+    const currentJob = await jobModel.find({ jobProfile }).sort({ updatedAt: -1 });
     res.status(200).json(currentJob);
   } catch (error) {
     res.status(404).json({ error: error.message });
@@ -336,5 +359,6 @@ module.exports = {
   reviewStudent,
   getJobsBySearch,
   getStudentAppliedJobs,
-  getStudentInfoForJob
+  getStudentInfoForJob,
+  getJobOfCompany
 };

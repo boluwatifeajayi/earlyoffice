@@ -24,6 +24,7 @@ const {
   decideApplicant,
   getStudentAppliedJobs,
   reviewStudent,
+  getJobOfCompany
 } = require("../controllers/job.controller");
 const customValidation = require("../middlewares/validation/customValidation");
 const {
@@ -46,6 +47,11 @@ route.get("/api/jobs/search", getJobsBySearch)
 
 // Get company's job
 route.get("/api/company/jobs", protectedRoutes, getCompanyJobs);
+
+// get jobs of company by name
+route.get("/api/jobs/:orgName", getJobOfCompany);
+
+
 // get jobs applied to by student
 
 // get jobs a student applied to
@@ -66,10 +72,10 @@ route.get(
 route.get("/api/jobs/id/:jobId", getJobById);
 
 // Get job by state
-route.get("/api/jobs/state/:state", getStateJobs);
+route.get("/api/jobs/state/:place", getStateJobs);
 
 // Get job by job type
-route.get("/api/jobs/type/:type", getTypeJobs);
+route.get("/api/jobs/type/:jobProfile", getTypeJobs);
 
 // // Get job by role.
 // route.get("/api/jobs/role/:role?",);

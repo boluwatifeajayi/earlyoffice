@@ -2,6 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { createJob } from "../../../features/job/jobSlice";
 import { useNavigate, Link } from "react-router-dom";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import 'react-quill/dist/quill.snow.css';
+import 'quill/dist/quill.core.css';
+import 'quill/dist/quill.snow.css';
+import 'quill/dist/quill.bubble.css';
+import { States, Duration, Salary, InternshipTypes, ExperienceLevel, EducationLevel, Profile} from '../../../utils/data'
+
 
 const CreateJob = () => {
     const navigate = useNavigate()
@@ -66,19 +74,19 @@ const CreateJob = () => {
 					className="form-input mb-4"
 					required
             	/>
-				<input
-					type='text'
-					placeholder='Profile'
-					className="form-input mb-4"
-                    name='jobProfile'
-                    value={jobProfile}
-                    onChange={(e)=>{onChange(e.target.name,e.target.value)}}
-                    required
-            	/>
+				
+				<select value={jobProfile} required style={{paddingLeft: 15,}} className="form-input mb-4" name="jobProfile"  onChange={(e)=>{onChange(e.target.name,e.target.value)}}>
+                  {Profile.map(st => (
+                    <option key={st.value} value={st.value}>
+                      {st.text}
+                    </option>
+                  ))}
+                </select>
+
 				<div class="row">
 					<div class="col-md">
 						<input
-							type='text'
+							type='number'
 							placeholder='Number Of Openings'
                             name="numberOfOpenings"
 							value={numberOfOpenings}
@@ -88,68 +96,67 @@ const CreateJob = () => {
             			/>
 					</div>
 					<div class="col-md">
-						<input
-							type='text'
-							placeholder='Internship Type'
-							name='jobType'
-                            value={jobType}
-                            onChange={(e)=>{onChange(e.target.name,e.target.value)}}
-							className="form-input mb-4"
-							required
-            			/>
+						
+						<select value={jobType} required style={{paddingLeft: 15,}} className="form-input mb-4" name="jobType"   onChange={(e)=>{onChange(e.target.name,e.target.value)}}>
+                  {InternshipTypes.map(st => (
+                    <option key={st.value} value={st.value}>
+                      {st.text}
+                    </option>
+                  ))}
+                </select>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md">
-						<input
-							type='text'
-							placeholder='Salary'
-							name='salary'
-                            value={salary}
-                            onChange={(e)=>{onChange(e.target.name,e.target.value)}}
-							className="form-input mb-4"
-							required
-            			/>
+						<select value={salary} required style={{paddingLeft: 15,}} name="salary"  className="form-input mb-4"  onChange={(e)=>{onChange(e.target.name,e.target.value)}}>
+                  {Salary.map(st => (
+                    <option key={st.value} value={st.value}>
+                      {st.text}
+                    </option>
+                  ))}
+                </select>
 					</div>
 					<div class="col-md">
-						<input
-							type='text'
-							placeholder='Duration'
-							name='duration'
-                            value={duration}
-                            onChange={(e)=>{onChange(e.target.name,e.target.value)}}
-							className="form-input mb-4"
-							required
-            			/>
+					
+						<select value={duration} required style={{paddingLeft: 15,}} name="duration"  className="form-input mb-4"  onChange={(e)=>{onChange(e.target.name,e.target.value)}}>
+                  {Duration.map(st => (
+                    <option key={st.value} value={st.value}>
+                      {st.text}
+                    </option>
+                  ))}
+                </select>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md">
-						<input
-							type='text'
-							placeholder='Experience Level'
-							name='experienceLevel'
-                            value={experienceLevel}
-                            onChange={(e)=>{onChange(e.target.name,e.target.value)}}
-							className="form-input mb-4"
-							required
-            			/>
+						
+						<select value={experienceLevel} required style={{paddingLeft: 15,}} name="experienceLevel"  className="form-input mb-4"  onChange={(e)=>{onChange(e.target.name,e.target.value)}}>
+                  {ExperienceLevel.map(st => (
+                    <option key={st.value} value={st.value}>
+                      {st.text}
+                    </option>
+                  ))}
+                </select>
 					</div>
 					<div class="col-md">
-						<input
-							type='text'
-							placeholder='Education Level'
-							name='educationLevel'
-                            value={educationLevel}
-                            onChange={(e)=>{onChange(e.target.name,e.target.value)}}
-							className="form-input mb-4"
-							required
-            			/>
+						
+						<select value={educationLevel} required style={{paddingLeft: 15,}} name="educationLevel"  className="form-input mb-4"  onChange={(e)=>{onChange(e.target.name,e.target.value)}}>
+                  {EducationLevel.map(st => (
+                    <option key={st.value} value={st.value}>
+                      {st.text}
+                    </option>
+                  ))}
+                </select>
 					</div>
 				</div>
 				
-				<input
-					type='text'
+				
+				</div>
+		    </div>
+			<div class="col-md-4">
+			<label>Application Deadline</label>
+			<input
+					type='date'
 					placeholder='Application Deadline'
 					name='applicationDeadline'
 					value={applicationDeadline}
@@ -157,69 +164,107 @@ const CreateJob = () => {
 					className="form-input mb-4"
 					required
             	/>
-				<input
-					type='text'
-					placeholder='Location'
-					name='place'
-					value={place}
-					onChange={(e)=>{onChange(e.target.name,e.target.value)}}
-					className="form-input mb-4"
-					required
-            	/>
 				
-				</div>
-		    </div>
-			<div class="col-md-4">
+				
+                
+                <select value={place} required style={{paddingLeft: 15,}} name="place"  className="form-input mb-4" onChange={(e)=>{onChange(e.target.name,e.target.value)}}>
+                  {States.map(st => (
+                    <option key={st.value} value={st.value}>
+                      {st.text}
+                    </option>
+                  ))}
+                </select>
+            
+				
 				<div className="form-group">
-					<textarea
-					type='text'
-					placeholder='Skills required'
-					name='skillsRequired'
+				<label>Skills Needed</label>
+				<ReactQuill
 					value={skillsRequired}
-					onChange={(e)=>{onChange(e.target.name,e.target.value)}}
-					className="form-input mb-4"
-					cols="6"
-					rows="5"
+					onChange={(value) => { onChange("skillsRequired", value) }}
+					modules={{
+						toolbar: [
+							[{ 'header': '1' }, { 'header': '2' }],
+							['bold', 'italic', 'underline', 'blockquote'],
+							[{ 'list': 'ordered' }, { 'list': 'bullet' },],
+							['link'],
+							['clean']
+						]
+						
+					}}
+					rows={12}
+					placeholder='Skills Required'
+					className="mb-4 text-quill"
 					required
-			  ></textarea>
-			  <textarea
-					type='text'
-					placeholder='Job Description'
-					name='jobDescription'
-					value={jobDescription}
-					onChange={(e)=>{onChange(e.target.name,e.target.value)}}
-					className="form-input mb-4"
-					cols="6"
-					rows="5"
-					required
-			  ></textarea>
-			  <textarea
-					type='text'
-					placeholder='Application Information'
-					name='applicationInfo'
-					value={applicationInfo}
-					onChange={(e)=>{onChange(e.target.name,e.target.value)}}
-					className="form-input mb-4"
-					cols="6"
-					rows="5"
-					required
-			  ></textarea>
+					name='skillsRequired'
+				/>
+
+			
+			  
 				</div>
 		    </div>
 			<div class="col-md-4">
-				<div className="form-group">
-					<textarea
-					id='name'
-					type='text'
-                    name='benefits'
-                    value={benefits}
-                    onChange={(e)=>{onChange(e.target.name,e.target.value)}}
-					placeholder="Internship Benefits"
-					className="form-control mb-4"
-					rows="5"
+			<label>Internship Description</label>
+			<ReactQuill
+					value={jobDescription}
+					onChange={(value) => { onChange("jobDescription", value) }}
+					modules={{
+						toolbar: [
+							[{ 'header': '1' }, { 'header': '2' }],
+							['bold', 'italic', 'underline', 'blockquote'],
+							[{ 'list': 'ordered' }, { 'list': 'bullet' },],
+							['link'],
+							['clean']
+						],
+						
+					}}
+					rows={12}
+					placeholder='Job Description'
+					className="mb-4"
 					required
-				
-			  ></textarea>
+					name='jobDescription'
+				/>
+			 
+				<div className="form-group">
+				<label>Internship Benefits</label>
+				<ReactQuill
+					value={benefits}
+					onChange={(value) => { onChange("benefits", value) }}
+					modules={{
+						toolbar: [
+							[{ 'header': '1' }, { 'header': '2' }],
+							['bold', 'italic', 'underline', 'blockquote'],
+							[{ 'list': 'ordered' }, { 'list': 'bullet' },],
+							['link'],
+							['clean']
+						],
+						
+					}}
+					rows={12}
+					placeholder='Internship Benefits'
+					className="mb-4"
+					required
+					name='benefits'
+				/>
+				<label>Application Information Tom Students</label>
+				<ReactQuill
+					value={applicationInfo}
+					onChange={(value) => { onChange("applicationInfo", value) }}
+					modules={{
+						toolbar: [
+							[{ 'header': '1' }, { 'header': '2' }],
+							['bold', 'italic', 'underline', 'blockquote'],
+							[{ 'list': 'ordered' }, { 'list': 'bullet' },],
+							['link'],
+							['clean']
+						],
+						
+					}}
+					rows={12}
+					placeholder='Application Information For Students'
+					className="mb-4"
+					required
+					name='applicationInfo'
+				/>
 			 
 				</div>
 

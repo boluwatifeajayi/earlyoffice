@@ -26,7 +26,7 @@ function Header() {
 
   return (
     <div>
-      <header>
+      <header className="sticky-top py-3">
         <Link to='/'>
           <h5 className='logo'>
             early<span className='primary'>office</span>
@@ -49,7 +49,7 @@ function Header() {
                   <Link to='/locations'>Locations</Link>
                 </li>
                 <li>
-                  <Link to='/employer/register'>Employer</Link>
+                  <Link to='/companies/all'>Companies</Link>
                 </li>
               </span>
             )}

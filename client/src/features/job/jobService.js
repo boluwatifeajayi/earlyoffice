@@ -156,6 +156,35 @@ const declineStudent = async(studentId, jobId, token) => {
 	return response.data	
 }
 
+// get jobs by location
+const getJobsByLocation = async (place) => {
+	try {
+	  const response = await axios.get(`${API_URL}/jobs/state/${place}`);
+	  return response.data;
+	} catch (error) {
+	  console.error(error);
+	}
+  };
+
+// get jobs by category
+const getJobsByCategory = async (jobProfile) => {
+	try {
+	  const response = await axios.get(`${API_URL}/jobs/type/${jobProfile}`);
+	  return response.data;
+	} catch (error) {
+	  console.error(error);
+	}
+  };
+
+// get jobs by company
+const getJobsByCompany = async (orgName) => {
+	try {
+	  const response = await axios.get(`${API_URL}/jobs/${orgName}`);
+	  return response.data;
+	} catch (error) {
+	  console.error(error);
+	}
+  };
 
 
 const jobService = {
@@ -169,7 +198,10 @@ const jobService = {
 	declineStudent,
 	GetSingleJob2,
 	getJobsBySearch,
-	StudentAppliedJobs
+	StudentAppliedJobs,
+	getJobsByCategory,
+	getJobsByCompany,
+	getJobsByLocation
 	
 }
 

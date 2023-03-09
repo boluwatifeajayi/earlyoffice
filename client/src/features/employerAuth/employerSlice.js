@@ -13,6 +13,8 @@ const initialState = {
 	employerProfile: employerProfile ? employerProfile: null,
 	isLoading: false,
 	theEmployer: {},
+	meEmployer: {},
+	employers: [],
 	message: ''
 }
 
@@ -73,6 +75,48 @@ export const getEmployerProfile = createAsyncThunk(
 	  }
 	}
   )
+
+// get employer by id
+
+export const GetEmployer = createAsyncThunk(
+	'employers/getEmployer',
+	async (employerId, thunkAPI) => {
+	  try {
+		return await employerService.GetEmployer(employerId)
+	  } catch (error) {
+		const message =
+		  (error.response &&
+			error.response.data &&
+			error.response.data.message) ||
+		  error.message ||
+		  error.toString()
+		return thunkAPI.rejectWithValue(message)
+	  }
+	}
+  )
+
+// get all empployers
+
+export const AllEmployers = createAsyncThunk(
+	'employers/allEmployers',
+	async (_, thunkAPI) => {
+	  try {
+		return await employerService.AllEmployers()
+	  } catch (error) {
+		const message =
+		  (error.response &&
+			error.response.data &&
+			error.response.data.message) ||
+		  error.message ||
+		  error.toString()
+		return thunkAPI.rejectWithValue(message)
+	  }
+	}
+  )
+
+
+
+
 
 
 // logout
@@ -143,6 +187,35 @@ export const employerSlice = createSlice({
 				state.message = action.payload
 				state.employerProfile = null
 			})
+			// get employer
+			.addCase(GetEmployer.pending, (state) => {
+				state.isLoading = true
+			  })
+			  .addCase(GetEmployer.fulfilled, (state, action) => {
+				state.isLoading = false
+				state.isSuccess = true
+				state.meEmployer = action.payload
+			  })
+			  .addCase(GetEmployer.rejected, (state, action) => {
+				state.isLoading = false
+				state.isError = true
+				state.message = action.payload
+			  })
+
+			// all employers
+			.addCase(AllEmployers.pending, (state) => {
+				state.isLoading = true
+			  })
+			  .addCase(AllEmployers.fulfilled, (state, action) => {
+				state.isLoading = false
+				state.isSuccess = true
+				state.employers = action.payload
+			  })
+			  .addCase(AllEmployers.rejected, (state, action) => {
+				state.isLoading = false
+				state.isError = true
+				state.message = action.payload
+			  })
 
 			// get employer profile
 			.addCase(getEmployerProfile.pending, (state) => {

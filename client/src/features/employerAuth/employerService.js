@@ -59,12 +59,28 @@ const getEmployerProfile = async(token) => {
 
 }
 
+// get company by ID
+const GetEmployer = async(employerId) => {
+	const response = await axios.get(`${API_URL}/company/id/${employerId}`)
+	return response.data	
+}
+
+// get all companies
+
+const AllEmployers = async() => {
+	const response = await axios.get(`${API_URL}/company/all`)
+	console.log("found")
+	return response.data	
+}
+
 const employerService = {
 	employerRegister,
 	employerLogin,
 	employerLogout,
 	employerUpdate,
-	getEmployerProfile
+	getEmployerProfile,
+	GetEmployer,
+	AllEmployers
 }
 
 export default employerService

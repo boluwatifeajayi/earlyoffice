@@ -1,7 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
+import { InternshipCategory } from '../utils/data';
+
 
 function Home() {
+  const [category, setCategory] = useState('');
+
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+  };
+
+  const isButtonDisabled = category === '';
+
+  
   return (
   <div >
     <div className="banner-area">
@@ -13,20 +24,38 @@ function Home() {
 
         <form className='home-search'>
           <div className="form-box">
-            <i className="fa fa-briefcase mr-2 bigger-icon" aria-hidden="true"></i>
-            <input type="text" name="" id="" className="search-field internship-field" placeholder="Search Internships..."/>
-            <i className="fa fa-map-marker  ml-2 mr-2 bigger-icon" aria-hidden="true"></i>
-            <input type="text" name="" id="" className="search-field location-field" placeholder="Search Locations..."/>
-            <Link to='/internships'>
-               <button className="search-btn" type="button">Explore</button>
-            </Link>
+           
+            {/* <input type="text" name="" id="" className="intern-field msf" placeholder="Search Internships Category..."/> */}
+
+            <select
+        required
+        style={{ paddingLeft: 15 }}
+        className="intern-field msf"
+        value={category}
+        onChange={handleCategoryChange}
+      >
+        <option value="" disabled hidden>
+          -Search Internship Category-
+        </option>
+        {InternshipCategory.map((st) => (
+          <option key={st.value} value={st.value}>
+            {st.text}
+          </option>
+        ))}
+      </select>
+
+      <Link to={`/internships/${category}`}>
+        <button className="intern-btn" type="button" disabled={isButtonDisabled}>
+          Search
+        </button>
+      </Link>
             
           </div>
         </form>
         <form className='other-search'>
           <div className="form-box">
             <Link to='/internships'>
-               <button className="search-btn" type="button">Explore</button>
+               <button className="intern-btn" type="button">Search</button>
             </Link>
             
           </div>
@@ -58,7 +87,10 @@ function Home() {
           </p>
           <h4>Software Development</h4>
           <p>Interested in coding and technology? Try a software development internship! You'll learn programming, testing, and debugging software applications alongside experienced developers.</p>
-          <button>Explore</button>
+          <button>
+           
+            <Link to="/internships/software developer"> Explore</Link>
+          </button>
         </div>
         <div className="my-custom-card">
           <p className="card-icon primary">
@@ -100,7 +132,10 @@ function Home() {
           </p>
           <h4>Lagos</h4>
           <p>Looking for an internship in Lagos? Check out our list of available opportunities in the city, ranging from software development to finance and customer support.</p>
+          <Link to="/internships/locations/lagos">
           <button>Explore</button>
+          </Link>
+         
         </div>
         <div className="my-custom-card">
           <p className="card-icon primary">

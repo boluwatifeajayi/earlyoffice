@@ -55,6 +55,60 @@ export const allJobs = createAsyncThunk(
 	}
   )
 
+// get jobs by category
+export const getJobsByCategory = createAsyncThunk(
+	'jobs/jobsByCategory',
+	async (jobProfile, thunkAPI) => {
+	  try {
+		return await jobService.getJobsByCategory(jobProfile)
+	  } catch (error) {
+		const message =
+		  (error.response &&
+			error.response.data &&
+			error.response.data.message) ||
+		  error.message ||
+		  error.toString()
+		return thunkAPI.rejectWithValue(message)
+	  }
+	}
+  )
+
+// get jobs by category
+export const getJobsByLocation = createAsyncThunk(
+	'jobs/jobsByLocation',
+	async (place, thunkAPI) => {
+	  try {
+		return await jobService.getJobsByLocation(place)
+	  } catch (error) {
+		const message =
+		  (error.response &&
+			error.response.data &&
+			error.response.data.message) ||
+		  error.message ||
+		  error.toString()
+		return thunkAPI.rejectWithValue(message)
+	  }
+	}
+  )
+
+// get jobs by category
+export const getJobsByCompany = createAsyncThunk(
+	'jobs/jobsByCompany',
+	async (orgName, thunkAPI) => {
+	  try {
+		return await jobService.getJobsByCompany(orgName)
+	  } catch (error) {
+		const message =
+		  (error.response &&
+			error.response.data &&
+			error.response.data.message) ||
+		  error.message ||
+		  error.toString()
+		return thunkAPI.rejectWithValue(message)
+	  }
+	}
+  )
+
 // get all jobs
 // export const getJobsBySearch = createAsyncThunk(
 // 	'jobs/allJobsBySearch',
@@ -288,6 +342,51 @@ export const jobSlice = createSlice({
         state.isError = true
         state.message = action.payload
       })
+
+       // get all jobs category
+	  .addCase(getJobsByCategory.pending, (state) => {
+      state.isLoading = true
+    })
+    .addCase(getJobsByCategory.fulfilled, (state, action) => {
+      state.isLoading = false
+      state.isSuccess = true
+      state.jobs = action.payload
+    })
+    .addCase(getJobsByCategory.rejected, (state, action) => {
+      state.isLoading = false
+      state.isError = true
+      state.message = action.payload
+    })
+
+     // get all jobs company
+	  .addCase(getJobsByCompany.pending, (state) => {
+      state.isLoading = true
+    })
+    .addCase(getJobsByCompany.fulfilled, (state, action) => {
+      state.isLoading = false
+      state.isSuccess = true
+      state.jobs = action.payload
+    })
+    .addCase(getJobsByCompany.rejected, (state, action) => {
+      state.isLoading = false
+      state.isError = true
+      state.message = action.payload
+    })
+
+     // get all jobs place
+	  .addCase(getJobsByLocation.pending, (state) => {
+      state.isLoading = true
+    })
+    .addCase(getJobsByLocation.fulfilled, (state, action) => {
+      state.isLoading = false
+      state.isSuccess = true
+      state.jobs = action.payload
+    })
+    .addCase(getJobsByLocation.rejected, (state, action) => {
+      state.isLoading = false
+      state.isError = true
+      state.message = action.payload
+    })
 
       // get jobs by search
       .addCase(getJobsBySearch.pending, (state) => {

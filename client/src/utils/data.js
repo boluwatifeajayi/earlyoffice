@@ -48,6 +48,103 @@ export const Status = [
   {value: 'NYSC Corper', text: 'NYSC Corper'},
 ]
 
+export const Salary = [
+  {value: '', text: '-Salary-'},
+  {value: 'No Pay', text: 'No Pay'},
+  {value: '₦10,000 - ₦20,000', text: '₦10,000 - ₦20,000'},
+  {value: '₦21,000 - ₦30,000', text: '₦21,000 - ₦30,000'},
+  {value: '₦31,000 - ₦40,000', text: '₦31,000 - ₦40,000'},
+  {value: '₦41,000 - ₦50,000', text: '₦41,000 - ₦50,000'},
+  {value: '₦51,000 - ₦60,000', text: '₦51,000 - ₦60,000'},
+  {value: '₦61,000 - ₦70,000', text: '₦61,000 - ₦70,000'},
+  {value: '₦71,000 - ₦80,000', text: '₦71,000 - ₦80,000'},
+  {value: '₦81,000 - ₦90,000', text: '₦81,000 - ₦90,000'},
+  {value: '₦91,000 - ₦100,000', text: '₦91,000 - ₦100,000'},
+  {value: '₦100,000+', text: '₦100,000+'},
+]
+
+export const InternshipTypes = [
+  {value: '', text: '-Internship Type-'},
+  {value: 'Part-time Internship', text: 'Part-time Internship'},
+  {value: 'Full-time Internship', text: 'Full-time Internship'},
+  {value: 'Remote Internship', text: 'Remote Internship'},
+  {value: 'Summer Internship', text: 'Summer Internship'},
+  
+]
+
+export const InternshipCategory = [
+  { value: '', text: '-Search Internship Category-' },
+  { value: 'software developer', text: 'software developer' },
+  { value: 'Technology', text: 'Technology' },
+  { value: 'Marketing', text: 'Marketing' },
+  { value: 'Engineering', text: 'Engineering' },
+  { value: 'Healthcare', text: 'Healthcare' },
+  { value: 'Education', text: 'Education' },
+  { value: 'Finance', text: 'Finance' },
+  { value: 'Consulting', text: 'Consulting' },
+  { value: 'Retail', text: 'Retail' },
+  { value: 'Media', text: 'Media' },
+  { value: 'Advertising', text: 'Advertising' },
+  { value: 'Architecture', text: 'Architecture' },
+  { value: 'Art', text: 'Art' },
+  { value: 'Automotive', text: 'Automotive' },
+  { value: 'Aviation', text: 'Aviation' },
+  { value: 'Biotechnology', text: 'Biotechnology' },
+  { value: 'Construction', text: 'Construction' },
+  { value: 'Consumer Goods', text: 'Consumer Goods' },
+  { value: 'Energy', text: 'Energy' },
+  { value: 'Environmental', text: 'Environmental' },
+  { value: 'Hospitality', text: 'Hospitality' },
+  { value: 'Human Resources', text: 'Human Resources' },
+  { value: 'Insurance', text: 'Insurance' },
+  { value: 'Law', text: 'Law' },
+  { value: 'Logistics', text: 'Logistics' },
+  { value: 'Nonprofit', text: 'Nonprofit' },
+  { value: 'Real Estate', text: 'Real Estate' },
+  { value: 'Sports', text: 'Sports' },
+  { value: 'Telecommunications', text: 'Telecommunications' },
+  { value: 'Travel', text: 'Travel' },
+  { value: 'Agriculture', text: 'Agriculture' },
+  { value: 'Chemical', text: 'Chemical' },
+  { value: 'Defense', text: 'Defense' },
+  { value: 'E-commerce', text: 'E-commerce' },
+  { value: 'Entertainment', text: 'Entertainment' },
+  { value: 'Fashion', text: 'Fashion' },
+  { value: 'Food', text: 'Food' },
+  { value: 'Government', text: 'Government' },
+  { value: 'Information Services', text: 'Information Services' },
+  { value: 'Mining', text: 'Mining' },
+  { value: 'Pharmaceutical', text: 'Pharmaceutical' },
+  { value: 'Renewable Energy', text: 'Renewable Energy' },
+  { value: 'Social Media', text: 'Social Media' },
+];
+
+
+export const Duration = [
+  {value: '', text: '-Duration-'},
+  {value: 'Negotiable Duration', text: 'Negotiable Duration'},
+  {value: '1month - 3months', text: '1month - 3months'},
+  {value: '3months - 6months', text: '3months - 6months'},
+  {value: '6months - 9months', text: '6months - 9months'},
+  {value: '9months - 12months', text: '9months - 12months'},
+  {value: '12months+', text: '9months - 12months+'},  
+]
+
+export const ExperienceLevel = [
+  {value: '', text: '-Level Of Experience-'},
+  {value: 'Entry-level internship', text: 'Entry-level internship'},
+  {value: 'Mid-level internship', text: 'Mid-level internship'},
+  {value: 'Advanced-level internship', text: 'Advanced-level internship'},
+]
+
+export const EducationLevel = [
+  { value: '', text: '-Level Of Education-'},
+  { value: 'High School internship', text: 'High School internship' },
+  { value: 'Undergraduate internship', text: 'Undergraduate internship' },
+  { value: 'Graduate internship', text: 'Graduate internship' },
+  { value: 'Post-graduate internship', text: 'Post-graduate internship' },
+]
+
 
 export const Schools = [
   {value: '', text: '-School Name-'},
