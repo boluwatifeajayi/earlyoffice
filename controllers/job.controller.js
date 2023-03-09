@@ -67,13 +67,13 @@ const createJob = async (req, res) => {
       },
     });
 
-    await mailSender(
-      {
-        title: createJobTitle(newJob),
-        body: createJobBody(newJob),
-      },
-      orgEmail
-    );
+    // await mailSender(
+    //   {
+    //     title: createJobTitle(newJob),
+    //     body: createJobBody(newJob),
+    //   },
+    //   orgEmail
+    // );
     return res.status(201).json(newJob);
   } catch (error) {
     console.log(error.message);
@@ -260,13 +260,13 @@ const applyToJob = async (req, res) => {
       { new: true }
     );
 
-    await mailSender(
-      {
-        title: appliedToJobTitle(newJobApplication, getStudent),
-        body: appliedToJobBody(newJobApplication, getStudent),
-      },
-      getStudent.email
-    );
+    // await mailSender(
+    //   {
+    //     title: appliedToJobTitle(newJobApplication, getStudent),
+    //     body: appliedToJobBody(newJobApplication, getStudent),
+    //   },
+    //   getStudent.email
+    // );
     res.status(201).json(newJobApplication);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -292,21 +292,23 @@ const decideApplicant = async (req, res) => {
 
     // const currentJob = await jobModel.findOne({ _id : jobId});
     if (status.toLowerCase() == "accepted") {
-      await mailSender(
-        {
-          title: acceptedForJobTitle(),
-          body: acceptedForJobBody(currentJob, getStudent),
-        },
-        getStudent.email
-      );
+      // await mailSender(
+      //   {
+      //     title: acceptedForJobTitle(),
+      //     body: acceptedForJobBody(currentJob, getStudent),
+      //   },
+      //   getStudent.email
+      // );
+      console.log("accepted")
     } else if (status.toLowerCase() == "declined") {
-      await mailSender(
-        {
-          title: declinedForJobTitle(),
-          body: declinedForJobBody(currentJob, getStudent),
-        },
-        getStudent.email
-      );
+      // await mailSender(
+      //   {
+      //     title: declinedForJobTitle(),
+      //     body: declinedForJobBody(currentJob, getStudent),
+      //   },
+      //   getStudent.email
+      // );
+      console.log("declined")
     }
     res.status(200).json(currentJob);
   } catch (error) {
@@ -333,13 +335,13 @@ const reviewStudent = async () => {
       "org.orgName": companyName,
     });
     currentJob.$set({ "student.status": "reviewed" });
-    await mailSender(
-      {
-        title: reviewedForJobTitle(),
-        body: reviewedForJobBody(currentJob),
-      },
-      getStudent.email
-    );
+    // await mailSender(
+    //   {
+    //     title: reviewedForJobTitle(),
+    //     body: reviewedForJobBody(currentJob),
+    //   },
+    //   getStudent.email
+    // );
     res.status(200).json(currentJob);
   } catch (error) {
     res.status(400).json({ error: error.message });

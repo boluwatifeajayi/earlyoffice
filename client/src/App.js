@@ -29,6 +29,9 @@ import JobLocation from './pages/student/job/JobLocation';
 import JobCompany from './pages/student/job/JobCompany';
 import AllCompanies from './pages/employer/auth/AllCompanies';
 import Company from './pages/employer/auth/Company';
+import {Categories}  from './pages/stateless/Categories';
+import { Locations } from './pages/stateless/Locations';
+import BlogPosts from './pages/blog/BlogPosts';
 
 
 
@@ -66,6 +69,11 @@ function App() {
         <Route path='/privacy-policy' element={<Privacy/>}/>
         <Route path='/about-us' element={<About/>}/>
         <Route path='/contact-us' element={<Contact/>}/>
+        <Route path='/internships/categories' element={<Categories/>}/>
+        <Route path='/internships/locations' element={<Locations/>}/>
+
+        {/* blog posts */}
+        <Route path='/blog' element={<BlogPosts/>}/>
         
        </Routes>
       </div>

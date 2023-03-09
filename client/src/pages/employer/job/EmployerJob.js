@@ -11,7 +11,8 @@ function EmployerJob() {
 	const navigate = useNavigate()
     const dispatch = useDispatch()
     const { id } = useParams();
-    const [status, setStatus] = useState([])
+    const [status, setStatus] = useState([]);
+    const [showb, setshowb] = useState(true)
 
 	const {singleJob, isLoading, isError, isSuccess, message} = useSelector((state) => state.job)
 
@@ -21,6 +22,7 @@ function EmployerJob() {
     dispatch(GetSingleJob2(id))
     const students = singleJob.student
     setStatus(students)  
+    setshowb(false)
     if(students.length === 0){
       alert("no students have applied for this job yet")
     }
@@ -44,7 +46,7 @@ function EmployerJob() {
   
   return (
 	<div className='container'>
-    <Link to="/internships">
+    <Link to="/employer/internships">
       <button className='btn btn-block  mt-4 mb-4 w-25' style={{backgroundColor: '#d9dce2'}}> <i className='fa fa-arrow-left'></i>{" "}Back To Interships</button>
       </Link>
           
@@ -78,9 +80,10 @@ function EmployerJob() {
         <div className='col-md-0 '>
            <p className='text-white'>......</p>
         </div>
-		<div className='col-md-4 border-b apply'>
+		<div className='col-md-4 apply'>
 			<h3>Applications</h3>
-      <button onClick={viewStudents} className="btn btn-primary mt-4 mb-4">View Student Applications</button>
+      {showb ?  <button onClick={viewStudents} className="btn normal-btn mt-4 mb-4">View Student Applications</button> : ""}
+     
       
       {status.map((student) => (
         <div key={student.studentId}>
@@ -90,14 +93,19 @@ function EmployerJob() {
           <b>Cover Letter</b>
           <p>{student.coverLetter}</p>
           <Link to={`/employer/application/${student.studentId}`}>
-            view student 
+            <button className='normal-btn'>
+              More About This student 
+            </button>
           </Link>
-            
-          <hr/>
+           
+           
+           
+        
           <span>
             <button className="btn btn-primary mt-4 mb-4 mr-3" onClick={() => dispatch(acceptStudent({studentId: student.studentId, jobId: id}))}>Accept</button>
             </span>
             <button className="btn btn-danger mt-4 mb-4" onClick={() => dispatch(declineStudent({studentId: student.studentId, jobId: id}))}>Decline</button>
+            <hr/>
         </div>
       ))} 
       {/* <p>{student[0].studentId}</p> */}

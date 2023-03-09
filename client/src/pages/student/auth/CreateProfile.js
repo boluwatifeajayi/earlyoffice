@@ -162,8 +162,20 @@ function CreateProfile() {
                   ))}
                 </select>
                    </div>
+                   <div className="form-group">
+                  <select value={degree} required style={{paddingLeft: 15,}} className="form-input" onChange={(e) => setdegree(e.target.value)}>
+                  {Course.map(st => (
+                    <option key={st.value} value={st.value}>
+                      {st.text}
+                    </option>
+                  ))}
+                </select>
+                   </div>
+                   <p>Recent work experience</p>
             <div className='row'>
+              
                     <div className='col'>
+
                     <div className="form-group">
                       <input
                         id="name"
@@ -193,21 +205,12 @@ function CreateProfile() {
                         required
                       />
                    </div>
+                   
                     </div>
+                   
                   </div>
-                  
                   <div className="form-group">
-                  <select value={degree} required style={{paddingLeft: 15,}} className="form-input" onChange={(e) => setdegree(e.target.value)}>
-                  {Course.map(st => (
-                    <option key={st.value} value={st.value}>
-                      {st.text}
-                    </option>
-                  ))}
-                </select>
-                   </div>
-                   <p>Recent Experience (optional)</p>
-                   <div className="form-group">
-                      <input
+                      <textarea
                         id="name"
                         type="text"
                         name="workDescription"
@@ -215,10 +218,14 @@ function CreateProfile() {
                         onChange={(e) => setworkDescription(e.target.value)}
                         style={{paddingLeft: 15,}}
                         placeholder="description"
+                        rows={4}
                         className="form-input"
                         required
-                      />
+                      ></textarea>
                    </div>
+                  
+                 
+                  
                    <div className="form-group">
                       <input
                         id="name"
@@ -227,7 +234,7 @@ function CreateProfile() {
                         value={works}
                         onChange={(e) => setworks(e.target.value)}
                         style={{paddingLeft: 15,}}
-                        placeholder="Work"
+                        placeholder="Links to any previous works"
                         className="form-input"
                         required
                       />

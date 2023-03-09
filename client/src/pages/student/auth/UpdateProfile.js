@@ -53,11 +53,15 @@ function UpdateProfile() {
       resume,
       degree
     }))
+    alert("student profile updated succesfully")
+    navigate('/student/dashboard')
   }
+
+  
 
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <h2 className='loading'>Loading...</h2>;
   }
 
   return (
@@ -67,35 +71,43 @@ function UpdateProfile() {
     <div className="row">
       <div className="col-md-6">
         <div className="form-group">
-          <label htmlFor="firstName">First Name:</label>
-          <input type="text" id="firstName" className="form-control" defaultValue={theStudent?.firstname} />
+          <label htmlFor="firstName">Course:</label>
+          <input type="text" id="firstName" className="form-input" defaultValue={theStudent?.degree} onChange={e => setDegree(e.target.value)} required />
         </div>
         <div className="form-group">
-          <label htmlFor="lastName">Last Name:</label>
-          <input type="text" id="lastName" className="form-control" defaultValue={theStudent?.lastname} />
+          <label htmlFor="lastName">schoolName:</label>
+          <input type="text" id="lastName" className="form-input" defaultValue={theStudent?.schoolName} onChange={e => setSchoolName(e.target.value)} required />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" className="form-control" defaultValue={theStudent?.email} />
+          <label htmlFor="email">Skills:</label>
+          <input type="text" id="email" className="form-input" defaultValue={theStudent?.skills} onChange={e => setSkills(e.target.value)} required/>
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Status:</label>
+          <input type="text" id="email" className="form-input" defaultValue={theStudent?.status} onChange={e => setStatus(e.target.value)} required/>
         </div>
       </div>
       <div className="col-md-6">
+      <div className="form-group">
+          <label htmlFor="email">Link To Portfolio:</label>
+          <input type="text" id="email" className="form-input" defaultValue={theStudent?.works} onChange={e => setWorks(e.target.value)} required/>
+        </div>
         <div className="form-group">
           <label htmlFor="interest">Interest:</label>
-          <input type="text" id="interest" className="form-control" defaultValue={fieldOfInterest} onChange={e => setFieldOfInterest(e.target.value)} />
+          <input type="text" id="interest" className="form-input" defaultValue={theStudent?.fieldOfInterest} onChange={e => setFieldOfInterest(e.target.value)} required/>
         </div>
         <div className="form-group">
           <label htmlFor="place">Place:</label>
-          <input type="text" id="place" className="form-control" defaultValue={currentLocation} onChange={e => setCurrentLocation(e.target.value)} />
+          <input type="text" id="place" className="form-input" defaultValue={theStudent?.currentLocation} onChange={e => setCurrentLocation(e.target.value)} required/>
         </div>
         <div className="form-group">
           <label htmlFor="grade">Grade:</label>
-          <input type="text" id="grade" className="form-control" defaultValue={grade} onChange={e => setGrade(e.target.value)} />
+          <input type="text" id="grade" className="form-input" defaultValue={theStudent?.grade} onChange={e => setGrade(e.target.value)} required />
         </div>
       </div>
     </div>
     <div className="text-center">
-      <input type="submit" className="btn btn-primary" value="Update" />
+      <input type="submit" className="btn normal-btn" value="Update" />
     </div>
   </form>
 </div>

@@ -69,7 +69,10 @@ function Jobs() {
             ))}
           </div>
         ) : (
-          <h3>No Jobs</h3>
+          <center>
+             <h3> No Internships Yet</h3>
+          
+          </center>
         )}
       </section>
     </div>

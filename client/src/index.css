@@ -115,9 +115,9 @@ a:hover{
   font-size: 18px;
 }
 
-.apply{
+/* .apply{
   max-height: 460px;
-}
+} */
 
 .rowland {
   display: flex;
@@ -135,6 +135,10 @@ a:hover{
 
 .downn-c{
   margin-top: 30px;
+}
+
+.back-btn{
+  width: 25%;
 }
 
 
@@ -168,6 +172,9 @@ a:hover{
   }
   .disp{
     display: none;
+  }
+  .back-btn{
+    width: 50%;
   }
 }
 
@@ -426,6 +433,10 @@ header{
   margin-top: 40px;
 }
 
+.form-box select{
+  color: rgb(83, 81, 81);
+}
+
 .form-box .search-field{
   border: none;
   height: 50px;
@@ -464,6 +475,39 @@ header{
   font-weight: bold;
 }
 
+@media (max-width: 900px) {
+  .form-box .search-field{
+    border: none;
+    height: 50px;
+    width: 350px;
+    padding: 10px 20px;
+    font-size: 17px;
+    margin-left: 0; 
+  }
+  
+  .form-box .intern-field{
+    border: 1px solid #e1d7d7;
+    height: 50px;
+    width: 100%;
+    padding: 13px 20px;
+    font-size: 16px;
+    margin-left: 0; 
+  }
+  
+  
+  .intern-btn{
+    margin-top: 20px;
+    background-color: #27ba88;
+    color: #fff;
+    height: 50px;
+    width: 100%;
+    padding: 13px 30px;
+    border: 1px solid #27ba88;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
 .under-text{
   margin-top: 70px;
 }
@@ -480,6 +524,16 @@ header{
 /* secgtion 2 */
 .section-heading{
   text-align: center;
+}
+
+@media (max-width: 900px) {
+  .section-heading{
+    text-align: center;
+    font-size: 32px;
+  }
+  .section-heading2{
+    font-size: 32px;
+  }
 }
 
 
@@ -635,7 +689,8 @@ header{
 
 .section-4{
   height: 70lq;
-  margin-top: 40px;
+  margin-top: 80px;
+
 }
 
 @media (max-width:900px) {
@@ -741,6 +796,12 @@ header{
   margin: 30px 80px;
 }
 
+@media (max-width: 900px) {
+  .container2{
+    margin: 15px 30px;
+  }
+}
+
 /* .text-quill{
   height: 100px;
   font-size: 20px;
@@ -764,6 +825,34 @@ header{
 .inside ol{
   line-height: 30px;
   font-size: 18px;
+}
+
+@media (max-width: 900px) {
+  .inside{
+    padding: 1px;
+  
+  }
+  
+  .inside p {
+    font-size: 17px;
+    line-height: 25px;
+  }
+  
+  .inside ul{
+    line-height: 25px;
+    font-size: 17px;
+  }
+  
+  .inside ol{
+    line-height: 25px;
+    font-size: 17px;
+  }
+
+  .push-down{
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  
 }
 
 .push-down{

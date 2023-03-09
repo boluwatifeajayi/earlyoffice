@@ -120,7 +120,7 @@ const StudentAppliedJobs = async(token) => {
 			Cookie: `authToken=${token}`
 		}
 	}
-	const response = await axios.get(`${API_URL}/jobs/applied-jobs`, config)
+	const response = await axios.get(`${API_URL}/jobs/student/applications/applied-jobs`, config)
 
 	console.log(response.data)
 	return response.data

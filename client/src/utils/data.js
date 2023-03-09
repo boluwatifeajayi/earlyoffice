@@ -73,7 +73,7 @@ export const InternshipTypes = [
 ]
 
 export const InternshipCategory = [
-  { value: '', text: '-Search Internship Category-' },
+  // { value: '', text: '-Search Internship Category-' },
   { value: 'software developer', text: 'software developer' },
   { value: 'Technology', text: 'Technology' },
   { value: 'Marketing', text: 'Marketing' },
@@ -258,4 +258,38 @@ export const Schools = [
       {value: 'Real Estate', text: 'Real Estate'},
       {value: 'Design/Architecture', text: 'Design/Architecture'},
       {value: 'Manufacturing/Production', text: 'Manufacturing/Production'},
-      ];
+];
+
+
+export const Industry = [
+  {value: '', text: '-Industry-'},
+  {value: 'Engineering', text: 'Engineering'},
+  {value: 'Information Technology', text: 'Information Technology'},
+  {value: 'Automotive', text: 'Automotive'},
+  {value: 'Fashion and Textiles', text: 'Fashion and Textiles'},
+  {value: 'Food and Beverage', text: 'Food and Beverage'},
+  {value: 'Healthcare', text: 'Healthcare'},
+  {value: 'Hospitality and Tourism', text: 'Hospitality and Tourism'},
+  {value: 'Mining and Metals', text: 'Mining and Metals'},
+  {value: 'Oil and Gas', text: 'Oil and Gas'},
+  {value: 'Pharmaceuticals', text: 'Pharmaceuticals'},
+  {value: 'Retail', text: 'Retail'},
+  {value: 'Telecommunications', text: 'Telecommunications'},
+  {value: 'Transportation and Logistics', text: 'Transportation and Logistics'},
+  {value: 'Aerospace and Defense', text: 'Aerospace and Defense'},
+  {value: 'Chemicals', text: 'Chemicals'},
+  {value: 'Construction', text: 'Construction'},
+  {value: 'Education', text: 'Education'},
+  {value: 'Electronics', text: 'Electronics'},
+  {value: 'Financial Services', text: 'Financial Services'},
+  {value: 'Government', text: 'Government'},
+  {value: 'Insurance', text: 'Insurance'},
+  {value: 'Media and Entertainment', text: 'Media and Entertainment'},
+  {value: 'Nonprofit', text: 'Nonprofit'},
+  {value: 'Real Estate', text: 'Real Estate'},
+  {value: 'Renewable Energy', text: 'Renewable Energy'},
+  {value: 'Sports and Fitness', text: 'Sports and Fitness'},
+  {value: 'Utilities', text: 'Utilities'},
+  {value: 'Waste Management', text: 'Waste Management'},
+  {value: 'Water', text: 'Water'}
+];

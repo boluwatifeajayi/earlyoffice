@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { employerUpdate, employerreset } from '../../../features/employerAuth/employerSlice'
-import { States, Status, Schools, Course , Profile} from '../../../utils/data'
+import { States, Status, Schools, Course , Profile, Industry} from '../../../utils/data'
 
 function CreateEmployerProfile() {
 	  const [orgLocation, setorgLocation] = useState("");
@@ -76,7 +76,7 @@ function CreateEmployerProfile() {
             </div>
             <div className="form-group">
             <select value={orgIndustry} required style={{paddingLeft: 15,}} className="form-input" onChange={(e) => setorgIndustry(e.target.value)}>
-                  {Profile.map(st => (
+                  {Industry.map(st => (
                     <option key={st.value} value={st.value}>
                       {st.text}
                     </option>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getJobsByCategory, reset, getJobsBySearch } from '../../../features/job/jobSlice'
 import JobItem from '../../../components/base/JobItem'
@@ -70,7 +70,13 @@ function JobCategory() {
             ))}
           </div>
         ) : (
-          <h3>No Jobs</h3>
+          <center>
+             <h3>Ops No Internships for that category</h3>
+             <Link to='/internships'>
+              <button className='btn btn-secondary'>View All Internships</button>
+             </Link>
+          </center>
+         
         )}
       </section>
     </div>

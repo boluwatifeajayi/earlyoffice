@@ -55,7 +55,7 @@ route.get("/api/jobs/:orgName", getJobOfCompany);
 // get jobs applied to by student
 
 // get jobs a student applied to
-route.get("/api/jobs/applied-jobs", protectedRoutes, getStudentAppliedJobs);
+route.get("/api/jobs/student/applications/applied-jobs", protectedRoutes, getStudentAppliedJobs);
 
 // get info of student that applied to a job
 route.get("/api/jobs/:jobId/students/:studentId", getStudentInfoForJob);

@@ -12,7 +12,7 @@ function EmployerJob() {
     const dispatch = useDispatch()
     const { studentId } = useParams();
 	const {meStudent, isError, message} = useSelector((state) => state.studentauth)
-	const { firstname, lastname, email, phoneNumber, currentLocation,
+	const { _id, firstname, lastname, email, phoneNumber, currentLocation,
 		status,
 		fieldOfInterest,
 		grade,
@@ -25,6 +25,8 @@ function EmployerJob() {
 		resume,
 		degree } = meStudent;
 
+
+    
   
   
 		useEffect(() => {
@@ -38,10 +40,8 @@ function EmployerJob() {
 		  }, [dispatch, isError, studentId, GetStudent])
 		  
   return (
-	<div className='container'>
-    <Link to="/internships">
-      <button className='btn btn-block  mt-4 mb-4 w-25' style={{backgroundColor: '#d9dce2'}}> <i className='fa fa-arrow-left'></i>{" "}Back To Interships</button>
-      </Link>
+	<div className='container mt-4'>
+  
           
    <div className='row gx-5 mx-1'>
         <div className='col-md-7 border-b job-d mb-4'>

@@ -5,6 +5,7 @@ import {GetSingleJob, reset} from '../../../features/job/jobSlice'
 import {ApplyForJob} from '../../../features/job/jobSlice'
 import { Button, Modal, Form } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
+import moment from 'moment';
 
 function Job() {
   const navigate = useNavigate()
@@ -29,6 +30,9 @@ function Job() {
   const {singleJob, isLoading, isError, isSuccess, message} = useSelector((state) => state.job)
 
   const { org, place, jobProfile, jobName, jobDescription, jobType, numberOfOpenings, skillsRequired, salary, duration, benefits, applicationInfo, createdAt, applicationDeadline, educationLevel, experienceLevel} = singleJob
+
+
+  
 
   function showCompanyInfo(){
     setCompanyEmail(org.orgEmail)
@@ -74,7 +78,13 @@ function Job() {
     }, [isError, message]);
 
 
-        
+  const timeDiff = moment(createdAt).fromNow();
+
+  
+  const date = moment(applicationDeadline);
+
+  const deadline = date.format("Do MMMM YYYY");
+
 
   if(isLoading){
     return <h1 className='loading'>Loading...</h1>
@@ -95,11 +105,11 @@ function Job() {
 
 
     <Link to="/internships">
-      <button className='btn btn-block  mt-4 mb-4 w-25' style={{backgroundColor: '#d9dce2'}}> <i className='fa fa-arrow-left'></i>{" "}Back To Interships</button>
+      <button className='btn btn-block  mt-4 mb-4 back-btn' style={{backgroundColor: '#d9dce2'}}> <i className='fa fa-arrow-left'></i>{" "}Back To Interships</button>
       </Link>
           
    <div className='row gx-5 mx-1'>
-        <div className='col-md-12 border-b job-d mb-4 p-4 inside mr-4 ml-4'>
+        <div className='col-md-12 border-b job-d mb-4 p-4 inside'>
         <div className='inside'>
         <h2 className='mb-4'><b>{jobName}</b></h2>
         <b className='pinkish bigger'>Category</b>
@@ -143,10 +153,10 @@ function Job() {
       <p class="bigger"><b>Openings: {numberOfOpenings}</b></p>
     </div>
     <div class="col-12 col-md-4 mb-3 mb-md-0">
-      <p class="bigger"><b><span>Posted:</span> {createdAt}</b></p>
+      <p class="bigger"><b><span>Posted:</span> {timeDiff}</b></p>
     </div>
     <div class="col-12 col-md-4">
-      <p class="bigger"><b>Deadline: {applicationDeadline}</b></p>
+      <p class="bigger"><b>Deadline: {deadline}</b></p>
     </div>
   </div>
   <hr class="my-4"/>

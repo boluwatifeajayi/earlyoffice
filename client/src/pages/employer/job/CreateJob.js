@@ -8,7 +8,7 @@ import 'react-quill/dist/quill.snow.css';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.snow.css';
 import 'quill/dist/quill.bubble.css';
-import { States, Duration, Salary, InternshipTypes, ExperienceLevel, EducationLevel, Profile} from '../../../utils/data'
+import { States, Duration, Salary, InternshipTypes, ExperienceLevel, EducationLevel, Profile, InternshipCategory} from '../../../utils/data'
 
 
 const CreateJob = () => {
@@ -57,7 +57,7 @@ const CreateJob = () => {
 
         <div className="container2">
              <Link to="/employer/internships">
-      <button className='btn btn-block  mt-4 mb-4 w-25' style={{backgroundColor: '#d9dce2'}}> <i className='fa fa-arrow-left'></i>{" "}Back</button>
+      <button className='btn btn-block  mt-4 mb-4 w-50' style={{backgroundColor: '#d9dce2'}}> <i className='fa fa-arrow-left'></i>{" "}Back</button>
       </Link>
             <h2 class="text-center">Create A New Internship</h2>
 		<hr/>
@@ -76,7 +76,10 @@ const CreateJob = () => {
             	/>
 				
 				<select value={jobProfile} required style={{paddingLeft: 15,}} className="form-input mb-4" name="jobProfile"  onChange={(e)=>{onChange(e.target.name,e.target.value)}}>
-                  {Profile.map(st => (
+				<option value="" disabled hidden>
+          -Internship Category-
+        </option>
+                  {InternshipCategory.map(st => (
                     <option key={st.value} value={st.value}>
                       {st.text}
                     </option>
@@ -277,7 +280,7 @@ const CreateJob = () => {
         <input
           type='submit'
           value='Create'
-          className='btn btn-danger btn-block mb-4 w-50'
+          className='btn btn-primary btn-block mb-4 w-50'
         />
         </center>
         

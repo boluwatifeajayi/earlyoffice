@@ -32,6 +32,10 @@ function StudentDashboard() {
     };
   }, []);
 
+  if(isLoading){
+     return <h2 className='loading'>Loading...</h2>
+  }
+
   return (
     <div>
       <div className="container">

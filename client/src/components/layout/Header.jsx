@@ -1,14 +1,35 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { studentLogout, studentreset } from '../../features/studentAuth/studentSlice';
 import { employerLogout, employerreset } from '../../features/employerAuth/employerSlice';
+
+
 
 function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { student } = useSelector((state) => state.studentauth);
   const { employer } = useSelector((state) => state.employerauth);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+    return () => {
+      if (student) {
+        dispatch(studentLogout());
+        dispatch(studentreset());
+      } else if (employer) {
+        dispatch(employerLogout());
+        dispatch(employerreset());
+      }
+    };
+  }, [dispatch, employer, student, isMounted]);
 
   const onLogout = () => {
     if (student) {
@@ -43,13 +64,16 @@ function Header() {
                   <Link to='/internships'>Internships</Link>
                 </li>
                 <li>
-                  <Link to='/categories'>Categories</Link>
+                  <Link to='/internships/categories'>Categories</Link>
                 </li>
                 <li>
-                  <Link to='/locations'>Locations</Link>
+                  <Link to='/internships/locations'>Locations</Link>
                 </li>
                 <li>
                   <Link to='/companies/all'>Companies</Link>
+                </li>
+                <li>
+                  <Link to='/blog'>Blog</Link>
                 </li>
               </span>
             )}
@@ -64,7 +88,7 @@ function Header() {
                 <b>
                   {' '}
                   <span className='disp'>Welcome</span>
-                  {employer ? employer.adminFirstName : student.firstname} {employer ? employer.currentCompany.adminFirstName : student.currentStudent.firstname}
+                  {employer?.adminFirstName || student?.firstname} {employer?.currentCompany?.adminFirstName || student?.currentStudent?.firstname}
                 </b>{' '}
               </Link>
               <button className='btn' onClick={onLogout}>
@@ -78,14 +102,14 @@ function Header() {
                 <button className='log-btn'>Login</button>
               </Link>
               <Link to='/student/register' className='cta-small'>
-                <button>Register</button>
-              </Link>
-            </>
-          )}
-        </div>
-      </header>
-    </div>
-  );
+              <button className='reg-btn'>Register</button>
+</Link>
+</>
+)}
+</div>
+</header>
+</div>
+);
 }
 
 export default Header;
