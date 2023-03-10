@@ -139,7 +139,9 @@ a:hover{
 
 .back-btn{
   width: 25%;
+  font-size: 19px;
 }
+
 
 
 
@@ -175,10 +177,20 @@ a:hover{
   }
   .back-btn{
     width: 50%;
+    font-size: 12px;
   }
+
 }
 
-
+.small-normal-btn{
+  color: #27ba88;
+  /* background-color: #27ba88; */
+  padding: 5px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 0px;
+  font-size: 14px;
+}
 
 /* Global */
 *,

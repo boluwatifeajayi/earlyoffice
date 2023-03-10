@@ -105,7 +105,7 @@ function Job() {
 
 
     <Link to="/internships">
-      <button className='btn btn-block  mt-4 mb-4 back-btn' style={{backgroundColor: '#d9dce2'}}> <i className='fa fa-arrow-left'></i>{" "}Back To Interships</button>
+      <button className='btn mt-4 mb-4 back-btn' style={{backgroundColor: '#d9dce2'}}> <i className='fa fa-arrow-left'></i>{" "}Back To Interships</button>
       </Link>
           
    <div className='row gx-5 mx-1'>
@@ -116,7 +116,13 @@ function Job() {
             <p>{jobProfile}</p>
             
             <h5 className='pinkish'><b><i className='fa fa-building'></i>{" "}{companyname}</b></h5> 
-            <p className='bigger'><i className="fa fa-map-marker mt-2"></i>{" "} {companylocation}</p>
+            {org && <Link to={`/company/${org.orgId}`}>
+  <button className='small-normal-btn mt-3 mb-3'>More About {companyname}</button>
+</Link>}
+
+            <p className='bigger'><i className="fa fa-map-marker mt-2"></i>{" "} {place}</p>
+
+            
             
             
 
@@ -128,10 +134,6 @@ function Job() {
             </div> : <div>{""}</div>}
 
 
-
-            {org && <Link to={`/company/${org.orgId}`}>
-  <button className='normal-btn-short'>Learn More About {companyname}</button>
-</Link>}
 
            
             <hr/>

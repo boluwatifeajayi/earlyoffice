@@ -25,7 +25,7 @@ const StudentLogin = (props) => {
       toast.error("invalid email or password")
     }
     if(isSuccess || student){
-      navigate('/')
+      navigate('/internships')
     } 
 
     dispatch(studentreset())
