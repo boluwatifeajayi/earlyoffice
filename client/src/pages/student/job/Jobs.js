@@ -36,7 +36,7 @@ function Jobs() {
   return (
     <div className='container'>
       <div className='job-page-search container main-content-area'>
-        <form onSubmit={handleSearch}>
+      <form onSubmit={handleSearch} className='search-form'>
           <div className='form-box'>
             <i className='fa fa-briefcase mr-2 bigger-icon job-s' aria-hidden='true'></i>
             <input 
@@ -58,7 +58,8 @@ function Jobs() {
             />
             <button className='search-btn btn-s' type='submit'>Explore</button>
           </div>
-        </form>
+      </form>
+
       </div>
       <hr />
       <section className='content'>

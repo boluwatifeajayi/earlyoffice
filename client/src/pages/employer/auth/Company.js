@@ -1,5 +1,5 @@
 import {React, useEffect, useState} from 'react'
-import { useNavigate, useParams, Link } from 'react-router-dom'
+import { useNavigate, useParams, Link, histo } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { GetEmployer, employerreset } from '../../../features/employerAuth/employerSlice'
@@ -55,9 +55,13 @@ function Company() {
       </Helmet> */}
 
 
-    <Link to="/internships">
-      <button className='btn btn-block  mt-4 mb-4 w-25' style={{backgroundColor: '#d9dce2'}}> <i className='fa fa-arrow-left'></i>{" "}Back To Interships</button>
-      </Link>
+<button
+      className='btn mt-4 mb-4 back-btn'
+      style={{backgroundColor: '#d9dce2'}}
+      onClick={() => window.history.back()}
+    >
+      <i className='fa fa-arrow-left'></i>{" "}Back To Intership
+    </button>
           
    <div className='row gx-5 mx-1'>
         <div className='col-md-12 border-b job-d mb-4 p-4 inside mr-4 ml-4'>

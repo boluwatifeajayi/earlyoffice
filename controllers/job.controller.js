@@ -95,18 +95,37 @@ const getAllJobs = async (req, res) => {
 const getJobsBySearch = async (req, res) => {
   try {
     const { search, location } = req.query;
-    const searchedJobs = await jobModel.find({
-        $or: [
-          { jobName: { $regex: search, $options: "i" } },
+    let searchedJobs;
+    if (location) {
+      searchedJobs = await jobModel.find({
+        $and: [
+          {
+            $or: [
+              { jobName: { $regex: search, $options: "i" } },
+              { jobProfile: { $regex: search, $options: "i" } },
+              { jobType: { $regex: search, $options: "i" } },
+            ],
+          },
           { place: { $regex: location, $options: "i" } },
         ],
-      })
-      .sort({ updatedAt: -1 });
-      res.status(200).json(searchedJobs);
+      }).sort({ updatedAt: -1 });
+    } else {
+      searchedJobs = await jobModel
+        .find({
+          $or: [
+            { jobName: { $regex: search, $options: "i" } },
+            { jobProfile: { $regex: search, $options: "i" } },
+            { jobType: { $regex: search, $options: "i" } },
+          ],
+        })
+        .sort({ updatedAt: -1 });
+    }
+    res.status(200).json(searchedJobs);
   } catch (error) {
-    res.status(404).json({ error: "No jobs available" });
+    res.status(404).json({ error: "No Internships available" });
   }
 };
+
 
 
 const getCompanyJobs = async (req, res) => {
