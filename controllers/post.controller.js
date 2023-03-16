@@ -98,6 +98,49 @@ const commentPost = async (req, res) => {
   }
 };
 
+const updatePost = async (req, res) => {
+	try {
+	  const { adminId } = res.locals.decodedToken;
+	  if (adminId == null)
+		return res.status(400).json({
+		  error: "Ensure you are a registered admin to access this route",
+		});
+  
+	  const { postId } = req.params;
+	  const updatedPost = req.body;
+  
+	  const updated = await postModel.findByIdAndUpdate(postId, updatedPost, { new: true });
+	  res.status(200).json(updated);
+	} catch (error) {
+	  res.status(400).json({ error: error.message });
+	}
+  };
+  
+
+  const deletePost = async (req, res) => {
+	try {
+	  const { adminId } = res.locals.decodedToken;
+	  if (adminId == null) {
+		return res.status(400).json({
+		  error: "Ensure you are a registered admin to access this route",
+		});
+	  }
+  
+	  const { postId } = req.params;
+  
+	  const deletedPost = await postModel.findByIdAndDelete(postId);
+	  if (!deletedPost) {
+		return res.status(404).json({
+		  error: `Post with ID ${postId} not found`,
+		});
+	  }
+  
+	  res.status(200).json(deletedPost);
+	} catch (error) {
+	  res.status(400).json({ error: error.message });
+	}
+  };
+  
 
 
 module.exports = {
@@ -106,5 +149,6 @@ module.exports = {
   getPostById,
   getCategoryPosts,
   commentPost,
-  getPostById
+  updatePost,
+  deletePost
 };
