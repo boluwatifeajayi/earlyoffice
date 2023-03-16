@@ -17,6 +17,7 @@ const authentication = require("./routes/authentication/indexAuthentication.rout
 const studentRoutes = require("./routes/student.route");
 const companyRoutes = require("./routes/company.route");
 const profileRoutes = require("./routes/profile/index.profile");
+const postRoutes = require("./routes/post.route");
 const jobRoutes = require("./routes/job.route");
 const mailSender = require("./middlewares/helperfunctions/mailSender");
 
@@ -41,6 +42,7 @@ app.use(studentRoutes);
 app.use(companyRoutes);
 app.use(profileRoutes);
 app.use(jobRoutes);
+app.use(postRoutes);
 
 app.set('trust proxy', 1);
 

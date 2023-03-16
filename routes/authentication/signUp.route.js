@@ -2,6 +2,7 @@ const express = require("express");
 const {
   studentSignUp,
   companySignUp,
+  adminSignUp
 } = require("../../controllers/authentication/signUp.controller");
 const validation = require("../../middlewares/validation/validation");
 
@@ -23,6 +24,12 @@ route.post(
   "/api/company/signUp",
   validation(companySignUpSchema),
   companySignUp
+);
+
+// admin signup route
+route.post(
+  "/api/admin/signUp",
+  adminSignUp
 );
 
 module.exports = route;

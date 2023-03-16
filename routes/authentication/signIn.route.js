@@ -7,6 +7,9 @@ const studentSignIn =
   require("../../controllers/authentication/signIn.controller").studentSignIn;
 const companySignIn =
   require("../../controllers/authentication/signIn.controller").companySignIn;
+const adminSignIn = 
+  require("../../controllers/authentication/signIn.controller").adminSignIn;
+
 var route = express.Router();
 
 // Student signin route
@@ -18,5 +21,9 @@ route.post(
 
 // Company signin route
 route.post("/api/company/signIn", companySignIn);
+
+// admin signin route
+route.post("/api/admin/signIn", adminSignIn);
+
 
 module.exports = route;

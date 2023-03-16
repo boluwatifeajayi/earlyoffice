@@ -1,5 +1,7 @@
 const companyModel = require("../../models/company.model");
 const studentModel = require("../../models/student.model");
+const adminModel = require("../../models/admin.model");
+
 const axios = require("axios");
 const jwt = require("jsonwebtoken");
 const {
@@ -66,8 +68,8 @@ async function studentSignUp(req, res) {
 async function companySignUp(req, res) {
   // destructuring req.body
   const {
-    adminFirstName,
-    adminLastName,
+    username,
+   
     orgEmail,
     orgPassword,
     orgName,
@@ -77,8 +79,8 @@ async function companySignUp(req, res) {
   const hashedPassword = await hashPassword(orgPassword);
   try {
     const currentCompany = await companyModel.create({
-      adminFirstName,
-      adminLastName,
+      username,
+     
       orgEmail,
       orgPassword: hashedPassword,
       phoneNumber,
@@ -113,7 +115,53 @@ async function companySignUp(req, res) {
   }
 }
 
+
+async function adminSignUp(req, res) {
+  // destructuring req.body
+  const {
+    username,
+    email,
+    password,
+  } = req.body;
+  console.log(req.body);
+  const hashedPassword = await hashPassword(password);
+  try {
+    const currentadmin = await adminModel.create({
+      username,
+      email,
+      password: hashedPassword,  
+    });
+    console.log("created new admin @" + currentadmin);
+
+    const token = jwt.sign(
+      { adminId: currentadmin._id.toString(),username },
+      process.env.TOKEN_KEY
+    );
+    const response = {
+      currentadmin,
+      authToken: token,
+    };
+
+    res.cookie("authToken", token);
+    // await mailSender(
+    //   {
+    //     title: adminSignUpTitle(),
+    //     body: adminSignUpBody(currentadmin),
+    //   },
+    //   orgEmail
+    // );
+    return res.status(201).json(response);
+  } catch (error) {
+    console.log(error.message);
+    if (error.code == 11000)
+      return res.status(400).json({ error: "Account already exists" });
+    return res.status(400).json({ error: error.message });
+  }
+}
+
+
 module.exports = {
   studentSignUp,
   companySignUp,
+  adminSignUp,
 };

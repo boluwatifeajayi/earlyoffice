@@ -1,5 +1,6 @@
 const student = require("../../models/student.model");
 const company = require("../../models/company.model");
+const admin = require("../../models/admin.model");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
@@ -74,7 +75,42 @@ async function companySignIn(req, res) {
   }
 }
 
+async function adminSignIn(req, res) {
+  const { username, password } = req.body;
+  try {
+    const currentadmin = await admin.findOne({ username });
+    if (currentadmin == null || typeof currentadmin == undefined)
+      return res.status(401).json({ error: "User does not exist" });
+
+      console.log(req.body, currentadmin)
+    const passwordCompare = await bcrypt.compare(
+      password,
+      currentadmin.password
+    );
+    if (passwordCompare) {
+      const token = jwt.sign(
+        { adminId: currentadmin._id.toString(), username },
+        process.env.TOKEN_KEY
+      );
+      const response = {
+        currentadmin,
+        authToken: token,
+      };
+
+      res.cookie("authToken",token, { sameSite: "None", secure: true})
+      return res.status(200).json(response);
+    } else {
+      return res.status(401).json({ error: "Incorrect Password" });
+    }
+  } catch (error) {
+    console.log(error.message);
+    return res.status(500).json("Server error");
+  }
+}
+
+
 module.exports = {
   studentSignIn,
   companySignIn,
+  adminSignIn,
 };
