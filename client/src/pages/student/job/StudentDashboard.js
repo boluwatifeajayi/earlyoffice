@@ -4,15 +4,17 @@ import { studentreset, getStudentProfile } from '../../../features/studentAuth/s
 import { useNavigate, Link } from 'react-router-dom';
 import { StudentAppliedJobs, reset } from '../../../features/job/jobSlice';
 import { Badge } from 'reactstrap';
+import Spinner from '../../../media/loading-gif.gif'
 
 function StudentDashboard() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { student, studentProfile, isLoading, isError, isSuccess, message, theStudent } = useSelector(
+  const { student, studentProfile, isError, isSuccess, message, theStudent } = useSelector(
     state => state.studentauth,
   );
-  const { jobs } = useSelector(state => state.job);
+
+  const { jobs, isLoading } = useSelector(state => state.job);
 
   useEffect(() => {
     if (student === null) {
@@ -33,7 +35,9 @@ function StudentDashboard() {
   }, []);
 
   if(isLoading){
-     return <h2 className='loading'>Loading...</h2>
+     return <h1 className='loading'>
+     <img src={Spinner} alt="Loading..." className='spinner-img'/>
+   </h1>
   }
 
   return (

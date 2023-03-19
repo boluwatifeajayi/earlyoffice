@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getStudentProfile, studentreset, studentUpdate } from '../../../features/studentAuth/studentSlice';
+import Spinner from '../../../media/loading-gif.gif'
 
 function UpdateProfile() {
   const navigate = useNavigate()
@@ -61,7 +62,9 @@ function UpdateProfile() {
 
 
   if (isLoading) {
-    return <h2 className='loading'>Loading...</h2>;
+    return <h1 className='loading'>
+    <img src={Spinner} alt="Loading..." className='spinner-img'/>
+  </h1>
   }
 
   return (

@@ -3,6 +3,7 @@ import { useNavigate, useParams, Link, histo } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { GetEmployer, employerreset } from '../../../features/employerAuth/employerSlice'
+import Spinner from '../../../media/loading-gif.gif'
 
 import { Helmet } from 'react-helmet';
 

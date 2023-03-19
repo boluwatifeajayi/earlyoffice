@@ -6,6 +6,7 @@ import {ApplyForJob} from '../../../features/job/jobSlice'
 import { Button, Modal, Form } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
 import moment from 'moment';
+import Spinner from '../../../media/loading-gif.gif'
 
 function Job() {
   const navigate = useNavigate()
@@ -87,7 +88,9 @@ function Job() {
 
 
   if(isLoading){
-    return <h1 className='loading'>Loading...</h1>
+    return <h1 className='loading'>
+    <img src={Spinner} alt="Loading..." className='spinner-img'/>
+  </h1>
   }
 
 

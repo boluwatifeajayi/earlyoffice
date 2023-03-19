@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { employerreset, AllEmployers } from '../../../features/employerAuth/employerSlice';
 import CompanyItem from '../../../components/base/CompanyItem';
+import Spinner from '../../../media/loading-gif.gif'
 
 function AllCompanies() {
   const navigate = useNavigate();
@@ -24,7 +25,9 @@ function AllCompanies() {
   }, [isError, message]);
 
   if (isLoading) {
-    return <h1 className='loading'>Loading....</h1>;
+    return <h1 className='loading'>
+    <img src={Spinner} alt="Loading..." className='spinner-img'/>
+  </h1>
   }
 
   return (

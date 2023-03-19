@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { allJobs, reset, getJobsBySearch } from '../../../features/job/jobSlice'
 import JobItem from '../../../components/base/JobItem'
+import Spinner from '../../../media/loading-gif.gif';
 
 function Jobs() {
   const navigate = useNavigate()
@@ -30,7 +31,9 @@ function Jobs() {
   }
 
   if (isLoading) {
-    return <h1 className='loading'>Loading....</h1>
+    return <h1 className='loading'>
+    <img src={Spinner} alt="Loading..." className='spinner-img'/>
+  </h1>
   }
 
   return (

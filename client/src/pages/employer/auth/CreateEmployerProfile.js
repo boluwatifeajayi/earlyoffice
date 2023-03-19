@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { employerUpdate, employerreset } from '../../../features/employerAuth/employerSlice'
 import { States, Status, Schools, Course , Profile, Industry} from '../../../utils/data'
+import Spinner from '../../../media/loading-gif.gif'
 
 function CreateEmployerProfile() {
 	  const [orgLocation, setorgLocation] = useState("");
@@ -46,6 +47,12 @@ function CreateEmployerProfile() {
       		orgLogo,
 		  }))
 	  }
+
+    if(isLoading){
+      return <h1 className='loading'>
+      <img src={Spinner} alt="Loading..." className='spinner-img'/>
+    </h1>
+    }
 
   return (
 	<div>

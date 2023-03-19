@@ -31,7 +31,14 @@ import AllCompanies from './pages/employer/auth/AllCompanies';
 import Company from './pages/employer/auth/Company';
 import {Categories}  from './pages/stateless/Categories';
 import { Locations } from './pages/stateless/Locations';
-import BlogPosts from './pages/blog/BlogPosts';
+import AdminDashboard from './pages/admin/auth/AdminDashboard';
+import AdminLogin from './pages/admin/auth/AdminLogin';
+import AdminRegister from './pages/admin/auth/AdminRegister';
+import CreatePost from './pages/admin/post/CreatePost';
+import Posts from './pages/admin/post/Posts';
+import Post from './pages/admin/post/Post';
+import PostCategory from './pages/admin/post/PostCategory';
+import UpdatePost from './pages/admin/post/UpdatePost';
 
 
 
@@ -42,7 +49,7 @@ function App() {
       <Header/>
       <div>
        <Routes>
-        <Route path='/' element={<Home/>}/>
+        {/* student and admin */}
         <Route path='/student/register' element={<StudentRegister/>}/>
         <Route path='/student/login' element={<StudentLogin/>}/>
         <Route path='/employer/login' element={<EmployerLogin/>}/>
@@ -66,14 +73,22 @@ function App() {
         <Route path='/company/:id' element={<Company/>}/>
 
         {/* stateless */}
+        <Route path='/' element={<Home/>}/>
         <Route path='/privacy-policy' element={<Privacy/>}/>
         <Route path='/about-us' element={<About/>}/>
         <Route path='/contact-us' element={<Contact/>}/>
         <Route path='/internships/categories' element={<Categories/>}/>
         <Route path='/internships/locations' element={<Locations/>}/>
 
-        {/* blog posts */}
-        <Route path='/blog' element={<BlogPosts/>}/>
+        {/* blog section */}
+        <Route path='/admin/register' element={<AdminRegister/>}/>
+        <Route path='/admin/login' element={<AdminLogin/>}/>
+        <Route path='/admin/dashboard' element={<AdminDashboard/>}/>
+        <Route path='/posts' element={<Posts/>}/>
+        <Route path='/post/:id' element={<Post/>}/>
+        <Route path='/post/create' element={<CreatePost/>}/>
+        <Route path='/post/update/:id' element={<UpdatePost/>}/>
+
         
        </Routes>
       </div>

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { getEmployerProfile, employerreset, employerUpdate } from '../../../features/employerAuth/employerSlice';
+import Spinner from '../../../media/loading-gif.gif'
 
 function UpdateEmployerProfile() {
   const navigate = useNavigate();
@@ -49,7 +50,9 @@ function UpdateEmployerProfile() {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <h1 className='loading'>
+    <img src={Spinner} alt="Loading..." className='spinner-img'/>
+  </h1>
   }
 
   return (

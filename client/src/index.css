@@ -111,6 +111,32 @@ a:hover{
   
 }
 
+.border-post{
+  border: 1px solid #d9dce2;
+  border-radius: 0px;
+  padding: 5px 5px;
+  
+}
+
+.post-img{
+  height: 500px;
+}
+
+@media(max-width: 900px){
+
+.post-img{
+  height: 200px;
+}
+.border-post{
+  border: 0px solid #d9dce2;
+  border-radius: 0px;
+  padding: 5px 5px;
+  
+}
+
+}
+
+
 .bigger{
   font-size: 18px;
 }
@@ -142,11 +168,26 @@ a:hover{
   font-size: 19px;
 }
 
-
+.admin-reg{
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+}
 
 
 
 @media (max-width: 850px) {
+  h1{
+    font-size: 30px;
+  }
+  .admin-reg{
+    width: 100%;
+  }
+  
+  
+  h2, h3{
+    font-size: 20px;
+  }
   .rowland {
     display: block;
   }
@@ -581,9 +622,39 @@ header{
   /* position: relative; */
 }
 
+.my-custom-card-post{
+  border-radius: 0px;
+  padding: 2rem;
+  border: 1px solid #dcdfdf;
+  background-color: white;
+  cursor: pointer;
+  border-bottom: 5px solid #27ba88;
+ 
+  
+  /* position: relative; */
+}
+
+.my-custom-card-post img{
+  height: 270px;
+  margin-bottom: 20px;
+ 
+   /* position: relative; */
+}
+
 .my-custom-card-job button{
   /* position: absolute; */
   top: 240px;
+}
+
+.my-custom-card-post button{
+  /* position: absolute; */
+  top: 10px;
+  color: #27ba88;
+  width: 100%;
+  padding: 10px 30px;
+  border: 2px solid #27ba88;
+  border-radius: 0px;
+  background-color: white;
 }
 
 .my-custom-card button{
@@ -642,6 +713,16 @@ header{
 
 }
 
+.cards-posts{
+    
+  width: 100%;
+  margin: 40px auto;
+  display: grid;
+  gap: 2rem;
+
+
+}
+
 .card-icon{
   font-size: 30px;
   margin-bottom: 20px;
@@ -672,6 +753,15 @@ header{
 @media (min-width: 900px) {
   .cat-cards { grid-template-columns: repeat(3, 1fr); }
 }
+
+@media (min-width: 900px) {
+  .cards-posts { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+  .cards-posts { grid-template-columns: repeat(2, 1fr); }
+}
+
 
 .all-cat-btn{
   justify-content: center;
@@ -956,6 +1046,11 @@ header{
   .location-field {
     max-width: none;
   }
+}
+
+.spinner-img{
+  height: 120px;
+  width: 120px;
 }
 
 

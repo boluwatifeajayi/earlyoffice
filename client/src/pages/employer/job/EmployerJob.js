@@ -3,6 +3,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {GetSingleJob, GetSingleJob2, reset} from '../../../features/job/jobSlice'
 import { acceptStudent, declineStudent } from '../../../features/job/jobSlice'
+import Spinner from '../../../media/loading-gif.gif'
 
 
 
@@ -42,6 +43,12 @@ function EmployerJob() {
       dispatch(reset());
     };
   }, [dispatch, id, isError, message]);
+
+  if(isLoading){
+    return <h1 className='loading'>
+    <img src={Spinner} alt="Loading..." className='spinner-img'/>
+  </h1>
+  }
   
   
   return (
