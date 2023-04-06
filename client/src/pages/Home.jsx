@@ -2,10 +2,15 @@ import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import { InternshipCategory } from '../utils/data';
 import fifth from '../media/fifth.jpg'
+import { useSpring, animated, useTrail } from 'react-spring';
+import { useInView } from 'react-intersection-observer';
+
 
 
 
 function Home() {
+
+
   const [category, setCategory] = useState('');
 
   const handleCategoryChange = (e) => {
@@ -14,13 +19,31 @@ function Home() {
 
   const isButtonDisabled = category === '';
 
+  const [ref, inView] = useInView({
+    threshold: 0.2 // Change this value as per your requirement
+  });
+
+  const cardAnimations = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: inView ? 1 : 1 },
+    config: { duration: 500, delay: 200 }
+  });
+  
+
+  const fadeIn = useSpring({
+    from: { opacity: 0, transform: 'translateY(50px)' },
+    to: { opacity: 1, transform: 'translateY(0px)' },
+    config: { duration: 500, delay: 200 }
+  });
+
   
   return (
   <div >
     <div className="banner-area">
    
     <section className="main">
-      <div className="main-content-area container">
+      
+      <animated.div className="main-content-area container" ref={ref} style={fadeIn}>
         <h3 className="main-heading">Internship Board For Passionate  Youths and Students In Nigeria</h3>
         <p className="gray main-sub-text">Early Office bring students , youth, copper and new grads  to connect with  the best companys in Nigeria ready to offer them internships and great work experiences</p>
 
@@ -30,12 +53,12 @@ function Home() {
             {/* <input type="text" name="" id="" className="intern-field msf" placeholder="Search Internships Category..."/> */}
 
             <select
-        required
-        style={{ paddingLeft: 15 }}
-        className="intern-field msf"
-        value={category}
-        onChange={handleCategoryChange}
-      >
+              required
+              style={{ paddingLeft: 15 }}
+              className="intern-field msf"
+              value={category}
+              onChange={handleCategoryChange}
+            >
         <option value="" disabled hidden>
           -Search Internship Category-
         </option>
@@ -87,7 +110,7 @@ function Home() {
         <div className="under-text">
           <p className="gray border-around">Powered By The early Office Team</p>
         </div>
-      </div>
+        </animated.div>
     </section>
        
     </div>
@@ -105,7 +128,7 @@ function Home() {
       </div>
       
       <div className="cat-cards mt-4">
-        <div className="my-custom-card">
+      <animated.div className="my-custom-card" ref={ref} style={cardAnimations}>
           <p className="card-icon">
             <i className="fas fa-code primary"></i>
           </p>
@@ -116,8 +139,9 @@ function Home() {
               Explore
             </button>
           </Link>
-        </div>
-        <div className="my-custom-card">
+        </animated.div>
+
+        <animated.div className="my-custom-card" ref={ref} style={cardAnimations}>
           <p className="card-icon primary">
             <i className="fas fa-money-bill-wave"></i>
           </p>
@@ -128,8 +152,9 @@ function Home() {
               Explore
             </button>
           </Link>
-        </div>
-        <div className="my-custom-card">
+          </animated.div>
+
+        <animated.div className="my-custom-card" ref={ref} style={cardAnimations}>
           <p className="card-icon primary">
             <i className="fas fa-headphones"></i>
           </p>
@@ -140,7 +165,8 @@ function Home() {
               Explore
             </button>
           </Link>
-        </div>
+        </animated.div>
+
         
         
       </div>
@@ -161,7 +187,7 @@ function Home() {
       </div>
       
       <div className="cat-cards mt-4">
-        <div className="my-custom-card">
+      <animated.div className="my-custom-card" ref={ref} style={cardAnimations}>
           <p className="card-icon primary">
             <i className="fas fa-building"></i>
           </p>
@@ -171,8 +197,8 @@ function Home() {
             <button>Explore</button>
           </Link>
          
-        </div>
-        <div className="my-custom-card">
+        </animated.div>
+        <animated.div className="my-custom-card" ref={ref} style={cardAnimations}>
           <p className="card-icon primary">
             <i className="fas fa-building"></i>
           </p>
@@ -181,8 +207,8 @@ function Home() {
           <Link to="/internships/locations/Abuja">
             <button>Explore</button>
           </Link>
-        </div>
-        <div className="my-custom-card">
+       </animated.div>
+       <animated.div className="my-custom-card" ref={ref} style={cardAnimations}>
           <p className="card-icon primary">
             <i className="fas fa-building"></i>
           </p>
@@ -191,7 +217,7 @@ function Home() {
           <Link to="/internships/locations/Cross River">
             <button>Explore</button>
           </Link>
-        </div>
+        </animated.div>
         
         
       </div>
@@ -215,29 +241,29 @@ function Home() {
       </div>
       
       <div className="cat-cards mt-4">
-        <div className="my-custom-card">
+      <animated.div className="my-custom-card" ref={ref} style={cardAnimations}>
           <p className="card-icon primary">
             <i className="fas fa-suitcase"></i>
           </p>
           <h4>100+ Internships</h4>
           <p>Early Office offers over 100 internship opportunities for students to gain practical experience in their fields of interest.</p>
-        </div>
-        <div className="my-custom-card">
+        </animated.div>
+        <animated.div className="my-custom-card" ref={ref} style={cardAnimations}>
           <p className="card-icon primary">
             <i className="fas fa-users"></i>
           </p>
           <h4>Other Benefits</h4>
           <p>In addition to internships, Early Office provides other benefits such as career counseling, resume building, and interview preparation to help students succeed.</p>
          
-        </div>
-        <div className="my-custom-card">
+        </animated.div>
+        <animated.div className="my-custom-card" ref={ref} style={cardAnimations}>
           <p className="card-icon primary">
             <i className="fas fa-tachometer-alt"></i>
           </p>
           <h4>Quick Response</h4>
           <p>Early Office has a quick response time to inquiries and applications, ensuring that students can secure their desired internships as soon as possible.</p>
          
-        </div>
+        </animated.div>
         
         
       </div>
@@ -250,6 +276,7 @@ function Home() {
     
 
     <section className="container mb-4 section-4 mt-4">
+    <animated.div  ref={ref} style={cardAnimations}>
       <div className="row mt-4">
         <div className="col-md-6">
           <img src={fifth} className="border" alt=""/>
@@ -262,6 +289,7 @@ function Home() {
           </Link>
         </div>
       </div>
+      </animated.div>
     </section>
 
     </div>
