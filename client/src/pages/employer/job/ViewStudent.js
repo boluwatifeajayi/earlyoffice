@@ -23,10 +23,24 @@ function EmployerJob() {
 		works,
 		skills, 
 		resume,
-		degree } = meStudent;
+		degree 
+  } = meStudent;
 
 
     
+    const onButtonClick = () => {
+      // using JavaScript method to get PDF file
+      fetch(resume)
+        .then(res => res.blob())
+        .then(blob => {
+          const link = document.createElement("a");
+          link.href = URL.createObjectURL(blob);
+          link.setAttribute("download", resume);
+          document.body.appendChild(link);
+          link.click();
+          console.log(resume)
+        })
+  }
   
   
 		useEffect(() => {
@@ -49,13 +63,13 @@ function EmployerJob() {
         <h2 className='mt-4'><b>{firstname}{" "}{lastname}</b></h2>
             <div className='row'>
               <div className='col'>
-                <p className='bigger'><b><i className='fa fa-circle'></i>{" "}{email}</b></p>
+                <p className='bigger'><b>{" "}{email}</b></p>
               </div>
               <div className='col'>
-              <p className='bigger'><b><i className='fa fa-clock'></i>{" "}{phoneNumber}</b></p>
+              <p className='bigger'><b>{" "}{phoneNumber}</b></p>
               </div>
               <div className='col'>
-              <p className='bigger'><b><span>₦</span>{" "}{currentLocation}</b></p>
+              <p className='bigger'><b>{" "}{currentLocation}</b></p>
               </div>
             </div>
             <hr/> 
@@ -69,8 +83,15 @@ function EmployerJob() {
             <p>{grade}</p>
             <b className='pinkish bigger'>Status</b>
             <p>{status}</p>
-			<b className='pinkish bigger'>School Name</b>
+			      <b className='pinkish bigger'>School Name</b>
             <p>{schoolName}</p>
+
+            <b className='pinkish bigger'>Resume</b><br/>
+            <button className='normal-btn mt-4 w-50' onClick={onButtonClick}>
+              View Resume
+            </button>
+
+
         </div>
         <div className='col-md-0 '>
            <p className='text-white'>......</p>
@@ -79,5 +100,10 @@ function EmployerJob() {
   </div>
   )
 }
+
+// kill -9 101443
+
+// sudo lsof -i :4070
+
 
 export default EmployerJob

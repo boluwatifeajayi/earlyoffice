@@ -101,7 +101,7 @@ function Post() {
 
 
   return (
-	<div className='container'>
+	<div className='container posty'>
       <Helmet>
         <title>{title ? `${title} | Early Office - Internships For Nigerians` : "Early Office - Internships For Nigerians"}</title>
         <meta name="description" content={"Early Office is a post board website for interns in Nigeria to connect them to companies."} />

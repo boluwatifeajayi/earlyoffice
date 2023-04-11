@@ -16,6 +16,8 @@ const {
   getStateJobs,
   getTypeJobs,
   getSalaryJobs,
+  updateJob,
+  deleteJob,
   getAllJobs,
   getCompanyJobs,
   getJobsBySearch,
@@ -101,6 +103,14 @@ route.patch(
   customValidation(decideApplicantSchema, "query"),
   decideApplicant
 );
+
+// Update job by id
+route.put("/api/jobs/update/:jobId", protectedRoutes, updateJob);
+
+// Delete job by id
+route.delete("/api/jobs/delete/:jobId", protectedRoutes, deleteJob);
+
+
 
 
 

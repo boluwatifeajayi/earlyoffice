@@ -39,6 +39,8 @@ import Posts from './pages/admin/post/Posts';
 import Post from './pages/admin/post/Post';
 import PostCategory from './pages/admin/post/PostCategory';
 import UpdatePost from './pages/admin/post/UpdatePost';
+import UpdateJob from './pages/employer/job/UpdateJob';
+
 
 
 
@@ -71,6 +73,9 @@ function App() {
         <Route path='/internships/companies/:organisation' element={<JobCompany/>}/>
         <Route path='/companies/all' element={<AllCompanies/>}/>
         <Route path='/company/:id' element={<Company/>}/>
+        <Route path='/job/update/:id' element={<UpdateJob/>}/>
+
+
 
         {/* stateless */}
         <Route path='/' element={<Home/>}/>

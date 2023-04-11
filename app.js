@@ -19,6 +19,7 @@ const companyRoutes = require("./routes/company.route");
 const profileRoutes = require("./routes/profile/index.profile");
 const postRoutes = require("./routes/post.route");
 const jobRoutes = require("./routes/job.route");
+const uploadRoutes = require("./routes/uploads.route");
 const mailSender = require("./middlewares/helperfunctions/mailSender");
 
 // setting cors
@@ -43,6 +44,7 @@ app.use(companyRoutes);
 app.use(profileRoutes);
 app.use(jobRoutes);
 app.use(postRoutes);
+app.use(uploadRoutes);
 
 app.set('trust proxy', 1);
 

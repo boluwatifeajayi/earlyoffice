@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { studentUpdate, studentreset } from '../../../features/studentAuth/studentSlice'
 import { States, Status, Schools, Course , Profile} from '../../../utils/data'
+import { Form } from 'react-bootstrap'
+import axios from 'axios'
 
 function CreateProfile() {
 	    const [currentLocation, setcurrentLocation] = useState("");
@@ -18,22 +20,68 @@ function CreateProfile() {
       const [resume, setResume] = useState("none yet");
       const [skills, setskills] = useState("");
       const [degree, setdegree] = useState("");
+      const [selectedFile, setSelectedFile] = useState(null);
+	    const [uploading, setUploading] = useState(false)
+      const [docName, setDocName] = useState("");
+
+      const allowedFileTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/msword', 'application/vnd.openxmlformats-officedocument.presentationml.presentation'];
+
+ 
       
       const navigate = useNavigate()
       const dispatch = useDispatch()
 
 	  const {student, studentProfile, isLoading, isError, isSuccess, message} = useSelector((state => state.studentauth))	
 
+    const token = student.authToken
+
+
+    // console.log(student.authToken)
+
     useEffect (() => {
       if(isError){
         toast.error(message)
       }
+      
       if(isSuccess){
         navigate('/internships')
       } 
   
       dispatch(studentreset())
     }, [student, studentProfile, isError, isSuccess, message, navigate, dispatch])
+
+
+    const headers = {
+		  Authorization: `Bearer ${token}`,
+		 
+		}
+
+	
+	  const uploadFileHandler = async (e) => {
+
+		const file = e.target.files[0]
+		if (file && allowedFileTypes.includes(file.type)) {
+   		setSelectedFile(file);
+		setDocName(file.name);
+		const formData = new FormData()
+		formData.append('resume', file)
+		setUploading(true)
+		
+		try {
+		  const { data } = await axios.post('/api/upload', formData, {headers})
+		  setResume(data)
+		  setUploading(false)
+		} catch (error) {
+		  console.error(error)
+		  setUploading(false)
+		}
+
+	} else {
+		setSelectedFile(null)
+		setUploading(false)
+		alert('File type not supported! Please choose a different file.')
+	  }
+	  }
 	  
 	  const onSubmit = (e) => {
 		e.preventDefault()
@@ -116,17 +164,18 @@ function CreateProfile() {
              </div>
              <div className="form-group">
               <p>Resume</p>
-                <input
-                  id="name"
-                  type="file"
-                  name="lastname"
-                 
-                 
-                  style={{paddingLeft: 15,}}
-                  placeholder="Resume"
-                  className="form-input"
-                  
-                />
+              
+              <Form.Group controlId='image'>
+							<Form.File
+								id='image-file'
+								label={selectedFile ? selectedFile.name : 'Choose File'}
+								type='file'
+								custom
+								accept=".docx,.dot,.doc,.pdf,.pptx"
+								onChange={uploadFileHandler}
+							/>
+							{uploading && <p>Loading...</p>}
+						</Form.Group>
              </div>
              <div className="form-group">
                 <textarea

@@ -109,23 +109,6 @@ export const getJobsByCompany = createAsyncThunk(
 	}
   )
 
-// get all jobs
-// export const getJobsBySearch = createAsyncThunk(
-// 	'jobs/allJobsBySearch',
-// 	async (_, thunkAPI) => {
-// 	  try {
-// 		return await jobService.getJobsBySearch()
-// 	  } catch (error) {
-// 		const message =
-// 		  (error.response &&
-// 			error.response.data &&
-// 			error.response.data.message) ||
-// 		  error.message ||
-// 		  error.toString()
-// 		return thunkAPI.rejectWithValue(message)
-// 	  }
-// 	}
-//   )
 
 export const getJobsBySearch = createAsyncThunk(
   'jobs/getJobsBySearch',
@@ -140,9 +123,6 @@ export const getJobsBySearch = createAsyncThunk(
     }
   }
 );
-
-
-
 
 
 
@@ -300,6 +280,48 @@ export const StudentAppliedJobs = createAsyncThunk(
       }
     }
   )
+
+  // delete job 
+export const deleteJob = createAsyncThunk(
+	'jobs/deleteJob',
+	async (jobId, thunkAPI) => {
+	  try {
+    const token = thunkAPI.getState().employerauth.employer.authToken
+		return await jobService.deleteJob(jobId, token)
+	  } catch (error) {
+		const docmessage =
+		  (error.response &&
+			error.response.data &&
+			error.response.data.docmessage) ||
+		  error.docmessage ||
+		  error.toString()
+		return thunkAPI.rejectWithValue(docmessage)
+	  }
+	}
+  )
+
+  // update job 
+  export const updateJob = createAsyncThunk(
+    'jobs/updateJob',
+    async ({ jobData, jobId }, thunkAPI) => {
+      try {
+        const token = thunkAPI.getState().employerauth.employer.authToken
+        return await jobService.updateJob(jobData, jobId, token)
+      } catch (error) {
+        const docmessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.docmessage) ||
+          error.docmessage ||
+          error.toString()
+        return thunkAPI.rejectWithValue(docmessage)
+      }
+    }
+  )
+  
+
+
+ 
 
 
 
@@ -505,6 +527,37 @@ export const jobSlice = createSlice({
         state.isError = true
         state.message = action.payload
       })
+
+      // 
+            // delete
+      //   delete content
+      .addCase(deleteJob.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(deleteJob.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+      })
+      .addCase(deleteJob.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })  
+
+      // update
+      // 
+      .addCase(updateJob.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(updateJob.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+      })
+      .addCase(updateJob.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.docmessage = action.payload
+      })  
 
      
   },

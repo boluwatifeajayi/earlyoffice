@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { EmployerJobs, reset } from '../../../features/job/jobSlice'
 import EmployerJobItem from '../../../components/base/EmployerJobItem'
 import Spinner from '../../../media/loading-gif.gif'
+import { Button, Modal, Form } from 'react-bootstrap';
 
 function JobDashboard() {
   const navigate = useNavigate()
@@ -40,8 +41,8 @@ function JobDashboard() {
       <div className='row'>
         <div className='col-8 mt-4'>
         <Link to='/employer/profile/update/'>
-            <button className='btn btn-success mt-4 mb-4'>
-             check profile
+            <button className='btn btn-primary mt-4 mb-4'>
+             Profile
             </button>
           </Link>
           <h1>Posted Internships</h1>
@@ -49,7 +50,7 @@ function JobDashboard() {
         </div>
           <div className='col-4'>
           <Link to="/employer/createinternship">
-        <button className='btn btn-block  mt-4 mb-4 text-white' style={{backgroundColor: '#27ba88'}}> {" "}New Internship +</button>
+        <button className='btn btn-block  mt-4 mb-4 text-white' style={{backgroundColor: 'dodgerblue'}}> {" "}New Internship +</button>
         </Link>
         </div>
         

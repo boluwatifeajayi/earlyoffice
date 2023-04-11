@@ -74,12 +74,12 @@ a:hover{
 }
 
 .pinkish{
-  color: #27ba88;
+  color: #0b79ce;
 }
 
 .normal-btn{
   color: #fff;
-  background-color: #27ba88;
+  background-color: #0b79ce;
   width: 100%;
   padding: 10px 30px;
   border: none;
@@ -88,7 +88,7 @@ a:hover{
 
 .normal-btn-short{
   color: #fff;
-  background-color: #27ba88;
+  background-color: #0b79ce;
   padding: 10px 30px;
   border: none;
  border-radius: 8px;
@@ -151,7 +151,7 @@ a:hover{
 }
 
 .secondary{
-  color: #27ba88;
+  color: #0b79ce;
   font-weight: bold;
 }
 
@@ -225,8 +225,8 @@ a:hover{
 }
 
 .small-normal-btn{
-  color: #27ba88;
-  /* background-color: #27ba88; */
+  color: #0b79ce;
+  /* background-color: #0b79ce; */
   padding: 5px 20px;
   font-weight: bold;
   border: none;
@@ -339,7 +339,7 @@ h1, h2, h3, h4, h5, h5, h6{
   color: #444;
 }
 .primary{
-  color: #27ba88;
+  color: #0b79ce;
 }
 p {
   line-height: 25px;
@@ -353,8 +353,8 @@ p {
 }
 
 :root {
-  --orange: #27ba88;
-  --green: #40886a;
+  --orange: #0b79ce;
+  --green: #143a7d;
   --gray: #4b4f51;
   --pink: #f8f8f8;
   --light-pink: #fff9f9;
@@ -404,7 +404,7 @@ header{
 }
 
 .nav_link li a:hover{
-  color: #27ba88;
+  color: #0b79ce;
 }
 
 @media (max-width: 900px) {
@@ -513,22 +513,22 @@ header{
 }
 
 .form-box .search-btn{
-  background-color: #27ba88;
+  background-color: #0b79ce;
   color: #fff;
   height: 50px;
   padding: 10px 30px;
-  border: 1px solid #27ba88;
+  border: 1px solid #0b79ce;
   font-size: 17px;
   font-weight: bold;
 
 }
 
 .intern-btn{
-  background-color: #27ba88;
+  background-color: #0b79ce;
   color: #fff;
   height: 70px;
   padding: 10px 30px;
-  border: 1px solid #27ba88;
+  border: 1px solid #0b79ce;
   font-size: 19px;
   font-weight: bold;
   border-top-right-radius: 8px;
@@ -546,11 +546,11 @@ header{
     margin-left: 0; 
   }
   .intern-btn{
-    background-color: #27ba88;
+    background-color: #0b79ce;
     color: #fff;
     height: 70px;
     padding: 10px 30px;
-    border: 1px solid #27ba88;
+    border: 1px solid #0b79ce;
     font-size: 19px;
     font-weight: bold;
     border-top-right-radius: 0px;
@@ -572,12 +572,12 @@ header{
   
   .intern-btn{
     margin-top: 20px;
-    background-color: #27ba88;
+    background-color: #0b79ce;
     color: #fff;
     height: 50px;
     width: 100%;
     padding: 13px 30px;
-    border: 1px solid #27ba88;
+    border: 1px solid #0b79ce;
     font-size: 16px;
     font-weight: bold;
   }
@@ -588,7 +588,7 @@ header{
 }
 
 .under-text p{
-  color: #27ba88;
+  color: #0b79ce;
   font-weight: bold;
   font-size: 13px;
 }
@@ -622,6 +622,7 @@ header{
 
 
 
+
 .my-custom-card{
    
    border-radius: 8px;
@@ -640,7 +641,7 @@ header{
   border: 1px solid #dcdfdf;
   background-color: white;
   cursor: pointer;
-  border-bottom: 5px solid #27ba88;
+  border-bottom: 5px solid #0b79ce;
   height: 340px;
   /* position: relative; */
 }
@@ -651,7 +652,7 @@ header{
   border: 1px solid #dcdfdf;
   background-color: white;
   cursor: pointer;
-  border-bottom: 5px solid #27ba88;
+  border-bottom: 5px solid #0b79ce;
  
   
   /* position: relative; */
@@ -672,17 +673,17 @@ header{
 .my-custom-card-post button{
   /* position: absolute; */
   top: 10px;
-  color: #27ba88;
+  color: #0b79ce;
   width: 100%;
   padding: 10px 30px;
-  border: 2px solid #27ba88;
+  border: 2px solid #0b79ce;
  border-radius: 8px;
   background-color: white;
 }
 
 .my-custom-card button{
   border: none;
-  color: #27ba88;
+  color: #0b79ce;
   font-weight: bold;
   background-color: transparent;
   cursor: pointer;
@@ -707,7 +708,7 @@ header{
 
 /* .my-custom-card-job button{
   border: none;
-  color: #27ba88;
+  color: #0b79ce;
   font-weight: bold;
   background-color: transparent;
   cursor: pointer;
@@ -718,7 +719,7 @@ header{
 
 
 .my-custom-card:hover{
-  background-color: #27ba88;
+  background-color: #0b79ce;
   color: white;
   
 }
@@ -790,9 +791,9 @@ header{
   justify-content: center;
   text-align: center;
   align-items: center;
-  color: #27ba88;
+  color: #0b79ce;
   font-weight: bold;
-  border: 1px solid #27ba88;
+  border: 1px solid #0b79ce;
   padding: 10px 25px;
   background-color: transparent;
  border-radius: 8px;
@@ -854,7 +855,7 @@ header{
 	position: absolute;
 	left:0;
 	bottom: -10px;
-	background-color: #27ba88;
+	background-color: #0b79ce;
 	height: 2px;
 	box-sizing: border-box;
 	width: 50px;
@@ -1030,7 +1031,7 @@ header{
   padding: 8px 20px;
   font-size: 18px;
   border: none;
-  background-color: #27ba88;
+  background-color: #0b79ce;
   color: #fff;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -1074,6 +1075,10 @@ header{
 .spinner-img{
   height: 120px;
   width: 120px;
+}
+
+.btt{
+  border-bottom: 1px solid #d9dce2;
 }
 
 

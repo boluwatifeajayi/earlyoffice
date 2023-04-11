@@ -367,6 +367,59 @@ const reviewStudent = async () => {
   }
 };
 
+
+const updateJob = async (req, res) => {
+  try {
+    const { jobId } = req.params;
+    const {
+      jobProfile,
+      jobName,
+      jobDescription,
+      jobType,
+      numberOfOpenings,
+      applicationDeadline,
+      salary,
+      applicationInfo,
+      educationLevel,
+      experienceLevel,
+      skillsRequired,
+      duration,
+      place,
+      benefits
+    } = req.body;
+    const updatedJob = await jobModel.findByIdAndUpdate(jobId, {
+      jobProfile,
+      jobName,
+      jobDescription,
+      jobType,
+      numberOfOpenings,
+      applicationDeadline,
+      salary,
+      applicationInfo,
+      educationLevel,
+      experienceLevel,
+      skillsRequired,
+      duration,
+      place,
+      benefits,
+    }, { new: true });
+    res.status(200).json(updatedJob);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+const deleteJob = async (req, res) => {
+  try {
+    const { jobId } = req.params;
+    await jobModel.findByIdAndDelete(jobId);
+    res.status(200).json({ message: "Job deleted successfully" });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+
 module.exports = {
   createJob,
   getAllJobs,
@@ -381,5 +434,7 @@ module.exports = {
   getJobsBySearch,
   getStudentAppliedJobs,
   getStudentInfoForJob,
-  getJobOfCompany
+  getJobOfCompany, 
+  updateJob,
+  deleteJob
 };

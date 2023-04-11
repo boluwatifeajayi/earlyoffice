@@ -1,11 +1,9 @@
 import {React, useEffect, useState} from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import {GetSingleJob, GetSingleJob2, reset} from '../../../features/job/jobSlice'
-import { acceptStudent, declineStudent } from '../../../features/job/jobSlice'
+import {GetSingleJob, GetSingleJob2, reset, acceptStudent, declineStudent, deleteJob} from '../../../features/job/jobSlice'
 import Spinner from '../../../media/loading-gif.gif'
-
-
+import { Button, Modal, Form } from 'react-bootstrap';
 
 function EmployerJob() {
   
@@ -14,6 +12,12 @@ function EmployerJob() {
     const { id } = useParams();
     const [status, setStatus] = useState([]);
     const [showb, setshowb] = useState(true)
+    const [showModal, setShowModal] = useState(false);
+
+
+    const handleShowModal = () => setShowModal(true);
+    const handleCloseModal = () => setShowModal(false);
+
 
 	const {singleJob, isLoading, isError, isSuccess, message} = useSelector((state) => state.job)
 
@@ -29,8 +33,22 @@ function EmployerJob() {
     }
   }
 
+
  
-  
+  const handleDelete = async () => {
+    if (window.confirm('Are you sure you want to delete this job?')) {
+      try {
+        await dispatch(deleteJob(id));
+        // Reload the page after successful deletion
+        alert("Job Deleted")
+        navigate('/employer/internships');
+      } catch (error) {
+        console.error('Error deleting job:', error);
+        // Alert an error if there was an error
+        alert('Error deleting job');
+      }
+    }
+  };
   
 	useEffect(() => {
     if (isError && message) {
@@ -76,13 +94,22 @@ function EmployerJob() {
             <b className='pinkish bigger'>Profile</b>
             <p>{jobProfile}</p>
             <b className='pinkish bigger'>Responsibilities</b>
-            <p>{jobDescription}</p>
+            <div dangerouslySetInnerHTML={{ __html: jobDescription.slice(0, 200)  }} />
+            
             <b className='pinkish bigger'>Skills needed</b>
-            <p>{skillsRequired}</p>
+            <div dangerouslySetInnerHTML={{ __html: skillsRequired.slice(0, 200) }} />
             <b className='pinkish bigger'>Internship Benefits</b>
-            <p>{benefits}</p>
-            <b className='pinkish bigger'>Aditional Information</b>
-            <p>{applicationInfo}</p>
+            <div dangerouslySetInnerHTML={{ __html: benefits.slice(0, 200) }} />
+            <b className='pinkish bigger'>Additional Information</b>
+            <div dangerouslySetInnerHTML={{ __html: applicationInfo.slice(0, 200) }} />
+
+
+           <div>
+       <Link to={`/job/update/${id}`}> <button className='btn btn-secondary'>Update Job</button></Link>    
+            <button className='btn btn-danger ml-2' onClick={handleDelete}>Delete Job</button>
+            
+            </div>
+
         </div>
         <div className='col-md-0 '>
            <p className='text-white'>......</p>
@@ -104,30 +131,55 @@ function EmployerJob() {
               More About This student 
             </button>
           </Link>
+          
+
+
+
+       
+         
+      <button
+        className="btn btn-primary mt-4 mb-4 mr-3"
+        onClick={() => {
+          dispatch(acceptStudent({ studentId: student.studentId, jobId: id }));
+          setTimeout(() => {
+            setShowModal(true);
+            
+          }, 2000);
+        }}
+      >
+        Accept
+      </button>
+
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Successfully Accpeted</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Send this student a custom email now
+          <Link to='/student/dashboard' >
+            <Button
+              type='submit'
+              className=' mt-4 w-100'
+              aria-disabled={false}
+              variant='success'
+            >
+             Send Email
+            </Button>
+          </Link>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    
            
-           
-           
-        
-          <span>
-            <button className="btn btn-primary mt-4 mb-4 mr-3" onClick={() => dispatch(acceptStudent({studentId: student.studentId, jobId: id}))}>Accept</button>
-            </span>
             <button className="btn btn-danger mt-4 mb-4" onClick={() => dispatch(declineStudent({studentId: student.studentId, jobId: id}))}>Decline</button>
             <hr/>
         </div>
       ))} 
-      {/* <p>{student[0].studentId}</p> */}
-      {/* <section classNameName='content'>
-        {student.length > 0 ? (
-          <div className='cat-cards mt-4'> 
-            {student.map((stud) => (
-              <p>{stud.reasonToBeHired}</p>
-            ))}
-          </div>
-        ) : (
-        <h3>No Jobs</h3>
-        )}
-
-      </section> */}
+    
         </div>
        
     </div>

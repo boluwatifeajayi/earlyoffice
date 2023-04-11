@@ -22,7 +22,7 @@ const CreateJob = () => {
 		applicationDeadline: '',
 		skillsRequired: '',
 		salary: '',
-		applicationInfo: '',
+		applicationInfo: 'Apply Now',
 		educationLevel: '',
 		experienceLevel: '',
 		duration: '',
@@ -59,7 +59,7 @@ const CreateJob = () => {
              <Link to="/employer/internships">
       <button className='btn btn-block  mt-4 mb-4 w-50' style={{backgroundColor: '#d9dce2'}}> <i className='fa fa-arrow-left'></i>{" "}Back</button>
       </Link>
-            <h2 class="text-center">Create A New Internship</h2>
+            <h2 class="text-center">Create A New Internship Position</h2>
 		<hr/>
             <form onSubmit={onSubmit}>
             <div class="row mt-4">

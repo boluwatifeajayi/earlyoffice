@@ -12,7 +12,8 @@ function PostItem({post}) {
         
 		<img src={post.image} alt={post.title}/>
 		<h4>
-        	{post.title}
+        	
+			{post.title.slice(0, 40) + '...'}
       	</h4>
 	   
 		<div className="spacer mb-3">

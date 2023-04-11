@@ -19,8 +19,11 @@ function JobItem({job}) {
 		  </div>
 		</div>
 		<h4>
-        	{job.jobName}
-      	</h4>
+			{job.jobName.length > 20
+				? job.jobName.slice(0, 19) + "..."
+				: job.jobName}
+		</h4>
+
 	   
 		<div className="spacer">
 		  <div className="intersnhip-box">

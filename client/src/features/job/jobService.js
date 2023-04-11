@@ -186,6 +186,52 @@ const getJobsByCompany = async (orgName) => {
 	}
   };
 
+// delete Job
+const deleteJob = async (JobId, token) => {
+	axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+	const config = {
+		headers: {
+			Authorization: `Bearer ${token}`,
+			withCredentials: true,
+			Cookie: `authToken=${token}`
+		}
+	}
+
+	try {
+	  const response = await axios.delete(`${API_URL}/jobs/delete/${JobId}`, config, {withCredentials: true});
+	  return response.data;
+	} 
+	
+	catch (error) {
+	  console.error(error);
+	}
+  };
+
+// delete Job
+const updateJob = async (jobData, jobId, token) => {
+	axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+	const config = {
+		headers: {
+			Authorization: `Bearer ${token}`,
+			withCredentials: true,
+			Cookie: `authToken=${token}`
+		}
+	}
+
+	try {
+	  const response = await axios.put(`${API_URL}/jobs/update/${jobId}`, jobData, config, {withCredentials: true});
+	  return response.data;
+	 
+	} 
+	
+	catch (error) {
+	  console.error(error);
+	}
+  };
+
+
+
+
 
 const jobService = {
 	createJob,
@@ -201,7 +247,9 @@ const jobService = {
 	StudentAppliedJobs,
 	getJobsByCategory,
 	getJobsByCompany,
-	getJobsByLocation
+	getJobsByLocation,
+	deleteJob,
+	updateJob
 	
 }
 

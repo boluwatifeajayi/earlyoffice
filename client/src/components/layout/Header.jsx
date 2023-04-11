@@ -57,7 +57,7 @@ function Header() {
 
   return (
     <div>
-      <header className="sticky-top py-3">
+      <header className="sticky-top py-3 btt">
         <Link to='/'>
           <h5 className='logo'>
             early<span className='primary'>office</span>
