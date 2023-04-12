@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { studentLogout, studentreset } from '../../features/studentAuth/studentSlice';
 import { employerLogout, employerreset } from '../../features/employerAuth/employerSlice';
 import { adminLogout, adminreset } from '../../features/adminAuth/adminSlice';
+import { Container, Row, Col, Nav, Navbar } from 'react-bootstrap';
 
 
 
@@ -57,67 +58,71 @@ function Header() {
 
   return (
     <div>
-      <header className="sticky-top py-3 btt">
+     <Navbar sticky='top' bg='' expand='md' className='btt'>
+     <Container>
         <Link to='/'>
-          <h5 className='logo'>
+          <Navbar.Brand className='logo'>
             early<span className='primary'>office</span>
-          </h5>
+          </Navbar.Brand>
         </Link>
-
-        <nav>
-          <ul className='nav_link'>
-            {employer ? (
-              ''
-            ) : (
-              <span>
-                <li>
-                  <Link to='/internships'>Internships</Link>
-                </li>
-                <li>
-                  <Link to='/internships/categories'>Categories</Link>
-                </li>
-                <li>
-                  <Link to='/internships/locations'>Locations</Link>
-                </li>
-                <li>
-                  <Link to='/companies/all'>Companies</Link>
-                </li>
-                <li>
-                  <Link to='/posts'>Blog</Link>
-                </li>
-              </span>
+        <Navbar.Toggle aria-controls='navbar-nav' />
+        <Navbar.Collapse id='navbar-nav'>
+          <Nav className='mx-auto'>
+            {!employer && (
+              <Nav.Link as={Link} to='/internships'>
+                Internships
+              </Nav.Link>
             )}
-          </ul>
-        </nav>
-
-        <div>
-        {student || employer || admin ? (
-  <div className='prof'>
-   <Link className='text-primary' to={admin ? '/admin/dashboard' : employer ? '/employer/internships' : '/student/dashboard'}>
-      <i className='fas disp fa-user mr-2'></i>
-      <b>
-        {' '}
-        <span className='disp'>Welcome</span>
-        {employer?.adminFirstName || student?.firstname || admin?.username} {employer?.currentCompany?.adminFirstName || student?.currentStudent?.firstname || admin?.currentadmin?.username}
-      </b>{' '}
-    </Link>
-    <button className='btn' onClick={onLogout}>
-      <i className='fas fa-sign-out-alt mr-1'></i>
-      <b className='primary ml-2 disp'>Logout</b>
-    </button>
-  </div>
-          ) : (
-            <>
-              <Link to='/student/login' className='cta-outline'>
-                <button className='log-btn'>Login</button>
-              </Link>
-              <Link to='/student/register' className='cta-small'>
-              <button className='reg-btn'>Register</button>
-</Link>
-</>
-)}
-</div>
-</header>
+            {!employer && (
+              <Nav.Link as={Link} to='/internships/categories'>
+                Categories
+              </Nav.Link>
+            )}
+            {!employer && (
+              <Nav.Link as={Link} to='/internships/locations'>
+                Locations
+              </Nav.Link>
+            )}
+            {!employer && (
+              <Nav.Link as={Link} to='/companies/all'>
+                Companies
+              </Nav.Link>
+            )}
+            {!employer && (
+              <Nav.Link as={Link} to='/posts'>
+                Blog
+              </Nav.Link>
+            )}
+          </Nav>
+          <div className='ml-auto'>
+            {student || employer || admin ? (
+              <div className='prof'>
+                <Link className='text-primary' to={admin ? '/admin/dashboard' : employer ? '/employer/internships' : '/student/dashboard'}>
+                  <i className='fas disp fa-user mr-2'></i>
+                  <b>
+                    <span className='disp'>Welcome</span>
+                    {employer?.adminFirstName || student?.firstname || admin?.username} {employer?.currentCompany?.adminFirstName || student?.currentStudent?.firstname || admin?.currentadmin?.username}
+                  </b>{' '}
+                </Link>
+                <button className='btn' onClick={onLogout}>
+                  <i className='fas fa-sign-out-alt mr-1'></i>
+                  <b className='primary ml-2 disp'>Logout</b>
+                </button>
+              </div>
+            ) : (
+              <>
+                <Link to='/student/login' className='cta-outline'>
+                  <button className='log-btn'>Login</button>
+                </Link>
+                <Link to='/student/register' className='cta-small'>
+                  <button className='reg-btn'>Register</button>
+                </Link>
+              </>
+            )}
+          </div>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
 </div>
 );
 }

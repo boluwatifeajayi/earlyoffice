@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { adminRegister, adminreset } from '../../../features/adminAuth/adminSlice'
-import fifth from '../../../media/fifth.jpg';
+
 
 
 const AdminRegister = (props) => {

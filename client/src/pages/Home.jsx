@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import { InternshipCategory } from '../utils/data';
-import fifth from '../media/fifth.jpg'
+import fifth from '../media/undraw_Job_offers_re_634p.png'
 import { useSpring, animated, useTrail } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 
@@ -45,7 +45,7 @@ function Home() {
       
       <animated.div className="main-content-area container" ref={ref} style={fadeIn}>
         <h3 className="main-heading">Internship Board For Passionate  Youths and Students In Nigeria</h3>
-        <p className="gray main-sub-text">Early Office bring students , youth, copper and new grads  to connect with  the best companys in Nigeria ready to offer them internships and great work experiences</p>
+        <p className="gray main-sub-text">Early Office bring students , youth, copper and new grads  to connect with <br/>  the best companys in Nigeria ready to offer them internships and great work experiences</p>
 
         <form className='home-search'>
           <div className="form-box">
@@ -54,13 +54,13 @@ function Home() {
 
             <select
               required
-              style={{ paddingLeft: 15 }}
+              style={{ paddingLeft: 15, backgroundColor: 'white' }} // Added inline style for background color
               className="intern-field msf"
               value={category}
               onChange={handleCategoryChange}
             >
         <option value="" disabled hidden>
-          -Search Internship Category-
+          Search Internship Category...
         </option>
         {InternshipCategory.map((st) => (
           <option key={st.value} value={st.value}>
@@ -90,7 +90,7 @@ function Home() {
         onChange={handleCategoryChange}
       >
         <option value="" disabled hidden>
-          -Search Internship Category-
+          Search Internship Category
         </option>
         {InternshipCategory.map((st) => (
           <option key={st.value} value={st.value}>
@@ -279,7 +279,7 @@ function Home() {
     <animated.div  ref={ref} style={cardAnimations}>
       <div className="row mt-4">
         <div className="col-md-6">
-          <img src={fifth} className="border" alt=""/>
+          <img src={fifth}  alt=""/>
         </div>
         <div className="col-md-6 down">
           <h2 className="mb-4 section-heading2">Early Office for Employers</h2>

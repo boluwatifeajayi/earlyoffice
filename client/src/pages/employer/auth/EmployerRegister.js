@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { employerRegister, employerreset } from '../../../features/employerAuth/employerSlice'
-import fifth from '../../../media/fifth.jpg';
+import fifth from '../../../media/undraw_feeling_proud_qne1.png';
 
 
 const EmployerRegister = (props) => {

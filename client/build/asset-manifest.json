@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.2ab82522.css",
-    "main.js": "/static/js/main.eb8b9b4e.js",
-    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
-    "static/media/first.jpg": "/static/media/first.a156a73dbaaebf3a8c29.jpg",
-    "static/media/third.jpg": "/static/media/third.45202a66432df3bf214a.jpg",
-    "static/media/white.jpg": "/static/media/white.bcc06cf9cf9dcd87d38f.jpg",
-    "static/media/fifth.jpg": "/static/media/fifth.269389cc2c0e3092ed83.jpg",
+    "main.css": "/static/css/main.c7ce821a.css",
+    "main.js": "/static/js/main.1e3613b8.js",
+    "static/js/787.f319fdd9.chunk.js": "/static/js/787.f319fdd9.chunk.js",
+    "static/media/undraw_Welcome_re_h3d9.png": "/static/media/undraw_Welcome_re_h3d9.fa956ab10467691f77ff.png",
     "static/media/loading-gif.gif": "/static/media/loading-gif.803f24369a085e35482e.gif",
+    "static/media/undraw_Job_offers_re_634p.png": "/static/media/undraw_Job_offers_re_634p.49aae40d5469f2f2d5e8.png",
+    "static/media/undraw_feeling_proud_qne1.png": "/static/media/undraw_feeling_proud_qne1.742fceb6cc338ae842eb.png",
+    "static/media/undraw_Online_cv_re_gn0a.png": "/static/media/undraw_Online_cv_re_gn0a.bcaa6ba3220bb2ddbea2.png",
+    "static/media/undraw_contract_re_ves9.svg": "/static/media/undraw_contract_re_ves9.b43476adc07e54ca38ece83328e668fe.svg",
     "index.html": "/index.html",
-    "main.2ab82522.css.map": "/static/css/main.2ab82522.css.map",
-    "main.eb8b9b4e.js.map": "/static/js/main.eb8b9b4e.js.map",
-    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+    "main.c7ce821a.css.map": "/static/css/main.c7ce821a.css.map",
+    "main.1e3613b8.js.map": "/static/js/main.1e3613b8.js.map",
+    "787.f319fdd9.chunk.js.map": "/static/js/787.f319fdd9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2ab82522.css",
-    "static/js/main.eb8b9b4e.js"
+    "static/css/main.c7ce821a.css",
+    "static/js/main.1e3613b8.js"
   ]
 }

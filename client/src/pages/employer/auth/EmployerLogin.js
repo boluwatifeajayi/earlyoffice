@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { employerLogin, employerreset } from '../../../features/employerAuth/employerSlice';
-import third from '../../../media/third.jpg'
+import third from '../../../media/undraw_contract_re_ves9.svg'
 
 
 
