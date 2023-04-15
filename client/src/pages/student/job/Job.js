@@ -78,6 +78,9 @@ function Job() {
       }
     }, [isError, message]);
 
+    
+  
+
 
   const timeDiff = moment(createdAt).fromNow();
 
@@ -90,6 +93,7 @@ function Job() {
   if(isLoading){
     return <h1 className='loading'>
     <img src={Spinner} alt="Loading..." className='spinner-img'/>
+
   </h1>
   }
 
