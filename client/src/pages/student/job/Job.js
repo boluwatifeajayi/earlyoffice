@@ -92,8 +92,7 @@ function Job() {
 
   if(isLoading){
     return <h1 className='loading'>
-    <img src={Spinner} alt="Loading..." className='spinner-img'/>
-
+    <img src={Spinner} alt="Loading..." className='spinner-img'/> 
   </h1>
   }
 
