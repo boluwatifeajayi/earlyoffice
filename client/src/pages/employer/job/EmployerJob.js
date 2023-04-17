@@ -94,14 +94,14 @@ function EmployerJob() {
             <b className='pinkish bigger'>Profile</b>
             <p>{jobProfile}</p>
             <b className='pinkish bigger'>Responsibilities</b>
-            <div dangerouslySetInnerHTML={{ __html: jobDescription.slice(0, 200)  }} />
+            <div dangerouslySetInnerHTML={{ __html: jobDescription?.slice(0, 200)  }} />
             
             <b className='pinkish bigger'>Skills needed</b>
-            <div dangerouslySetInnerHTML={{ __html: skillsRequired.slice(0, 200) }} />
+            <div dangerouslySetInnerHTML={{ __html: skillsRequired?.slice(0, 200) }} />
             <b className='pinkish bigger'>Internship Benefits</b>
-            <div dangerouslySetInnerHTML={{ __html: benefits.slice(0, 200) }} />
+            <div dangerouslySetInnerHTML={{ __html: benefits?.slice(0, 200) }} />
             <b className='pinkish bigger'>Additional Information</b>
-            <div dangerouslySetInnerHTML={{ __html: applicationInfo.slice(0, 200) }} />
+            <div dangerouslySetInnerHTML={{ __html: applicationInfo?.slice(0, 200) }} />
 
 
            <div>
