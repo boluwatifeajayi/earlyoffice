@@ -5,8 +5,7 @@ import {GetSinglePost, reset, deletePost} from '../../../features/post/postSlice
 import {ApplyForPost} from '../../../features/post/postSlice'
 import { Helmet } from 'react-helmet';
 import moment from 'moment';
-import Spinner from '../../../media/loading-gif.gif'
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button, Spinner } from 'react-bootstrap';
 
 function Post() {
   const navigate = useNavigate()
@@ -95,9 +94,10 @@ function Post() {
 
   if(isLoading){
     return <h1 className='loading'>
-      <img src={Spinner} alt="Loading..." className='spinner-img'/>
-      <p>...</p>
-    </h1>
+        <Spinner animation='border' role='status' className='spinner-img spin'>
+          <span className='sr-only'>Loading...</span>
+        </Spinner>
+  </h1>
   }
 
 

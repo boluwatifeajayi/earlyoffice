@@ -3,10 +3,11 @@ import { useNavigate, useParams, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {GetSingleJob, reset} from '../../../features/job/jobSlice'
 import {ApplyForJob} from '../../../features/job/jobSlice'
-import { Button, Modal, Form } from 'react-bootstrap';
+import { Button, Modal, Form, Spinner } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
 import moment from 'moment';
-import Spinner from '../../../media/loading-gif.gif'
+
+
 
 function Job() {
   const navigate = useNavigate()
@@ -92,7 +93,9 @@ function Job() {
 
   if(isLoading){
     return <h1 className='loading'>
-    <img src={Spinner} alt="Loading..." className='spinner-img'/> 
+        <Spinner animation='border' role='status' className='spinner-img spin'>
+          <span className='sr-only'>Loading...</span>
+        </Spinner>
   </h1>
   }
 

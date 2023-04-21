@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getJobsByCategory, reset, getJobsBySearch } from '../../../features/job/jobSlice'
 import JobItem from '../../../components/base/JobItem'
-import Spinner from '../../../media/loading-gif.gif'
+import { Spinner } from 'react-bootstrap'
 
 function JobCategory() {
   const navigate = useNavigate()
@@ -33,7 +33,9 @@ function JobCategory() {
 
   if (isLoading) {
     return <h1 className='loading'>
-    <img src={Spinner} alt="Loading..." className='spinner-img'/>
+        <Spinner animation='border' role='status' className='spinner-img spin'>
+          <span className='sr-only'>Loading...</span>
+        </Spinner>
   </h1>
   }
 

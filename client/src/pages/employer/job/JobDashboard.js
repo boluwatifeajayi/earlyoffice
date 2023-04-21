@@ -3,8 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { EmployerJobs, reset } from '../../../features/job/jobSlice'
 import EmployerJobItem from '../../../components/base/EmployerJobItem'
-import Spinner from '../../../media/loading-gif.gif'
-import { Button, Modal, Form } from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap';
 
 function JobDashboard() {
   const navigate = useNavigate()
@@ -30,7 +29,9 @@ function JobDashboard() {
   
   if(isLoading){
     return <h1 className='loading'>
-    <img src={Spinner} alt="Loading..." className='spinner-img'/>
+        <Spinner animation='border' role='status' className='spinner-img spin'>
+          <span className='sr-only'>Loading...</span>
+        </Spinner>
   </h1>
   }
 

@@ -2,6 +2,7 @@ import {React, useEffect, useState} from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {GetStudent, studentreset} from '../../../features/studentAuth/studentSlice'
+import { Spinner } from 'react-bootstrap'
 
 
 
@@ -11,7 +12,7 @@ function EmployerJob() {
 	const navigate = useNavigate()
     const dispatch = useDispatch()
     const { studentId } = useParams();
-	const {meStudent, isError, message} = useSelector((state) => state.studentauth)
+	const {meStudent, isError, message, isLoading} = useSelector((state) => state.studentauth)
 	const { _id, firstname, lastname, email, phoneNumber, currentLocation,
 		status,
 		fieldOfInterest,
@@ -52,6 +53,15 @@ function EmployerJob() {
 		  
 			return () => dispatch(studentreset())
 		  }, [dispatch, isError, studentId, GetStudent])
+
+
+      if(isLoading){
+        return <h1 className='loading'>
+            <Spinner animation='border' role='status' className='spinner-img spin'>
+              <span className='sr-only'>Loading...</span>
+            </Spinner>
+      </h1>
+      }
 		  
   return (
 	<div className='container mt-4'>

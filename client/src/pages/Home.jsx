@@ -4,6 +4,7 @@ import { InternshipCategory } from '../utils/data';
 import fifth from '../media/undraw_Job_offers_re_634p.png'
 import { useSpring, animated, useTrail } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
+import career from '../media/career.svg'
 
 
 
@@ -41,77 +42,88 @@ function Home() {
   <div >
     <div className="banner-area">
    
-    <section className="main">
-      
-      <animated.div className="main-content-area container" ref={ref} style={fadeIn}>
-        <h3 className="main-heading">Internship Board For Passionate  Youths and Students In Nigeria</h3>
-        <p className="gray main-sub-text">Early Office bring students , youth, copper and new grads  to connect with <br/>  the best companys in Nigeria ready to offer them internships and great work experiences</p>
+    <section className="main container">
+  <div className="container-fluid">
+    <div className="row">
+      <div className="col-md-6 mt-6">
+        <animated.div className="main-content-area" ref={ref} style={fadeIn}>
+          <h3 className="main-heading">Kickstart Your career with earlyoffice Internships</h3>
+          <p className="gray main-sub-text">Early Office bring students , youth, copper and new grads to connect with the best companys in Nigeria ready to offer them internships and great work experiences</p>
 
-        <form className='home-search'>
-          <div className="form-box">
-           
-            {/* <input type="text" name="" id="" className="intern-field msf" placeholder="Search Internships Category..."/> */}
+          <form className='home-search'>
+            <div className="form-box">
 
-            <select
-              required
-              style={{ paddingLeft: 15, backgroundColor: 'white' }} // Added inline style for background color
-              className="intern-field msf"
-              value={category}
-              onChange={handleCategoryChange}
-            >
-        <option value="" disabled hidden>
-          Search Internship Category...
-        </option>
-        {InternshipCategory.map((st) => (
-          <option key={st.value} value={st.value}>
-            {st.text}
-          </option>
-        ))}
-      </select>
+              {/* <input type="text" name="" id="" className="intern-field msf" placeholder="Search Internships Category..."/> */}
 
-      <Link to={`/internships/${category}`}>
-        <button className="intern-btn" type="button" disabled={isButtonDisabled}>
-          Search
-        </button>
-      </Link>
-            
-          </div>
-        </form>
-        <form className='other-search'>
-          <div className="form-box">
-           
-            {/* <input type="text" name="" id="" className="intern-field msf" placeholder="Search Internships Category..."/> */}
+              <select
+                required
+                style={{ paddingLeft: 15, backgroundColor: 'white' }} // Added inline style for background color
+                className="intern-field msf"
+                value={category}
+                onChange={handleCategoryChange}
+              >
+                <option value="" disabled hidden>
+                  Search Internship Category...
+                </option>
+                {InternshipCategory.map((st) => (
+                  <option key={st.value} value={st.value}>
+                    {st.text}
+                  </option>
+                ))}
+              </select>
 
-            <select
-        required
-        style={{ paddingLeft: 15 }}
-        className="intern-field msf"
-        value={category}
-        onChange={handleCategoryChange}
-      >
-        <option value="" disabled hidden>
-          Search Internship Category
-        </option>
-        {InternshipCategory.map((st) => (
-          <option key={st.value} value={st.value}>
-            {st.text}
-          </option>
-        ))}
-      </select>
+              <Link to={`/internships/${category}`}>
+                <button className="intern-btn" type="button" disabled={isButtonDisabled}>
+                  Search
+                </button>
+              </Link>
 
-      <Link to={`/internships/${category}`}>
-        <button className="intern-btn" type="button" disabled={isButtonDisabled}>
-          Search
-        </button>
-      </Link>
-            
-          </div>
-        </form>
-        <div className="under-text">
-          <p className="gray border-around">Powered By The early Office Team</p>
-        </div>
+            </div>
+          </form>
+          <form className='other-search'>
+            <div className="form-box">
+
+              {/* <input type="text" name="" id="" className="intern-field msf" placeholder="Search Internships Category..."/> */}
+
+              <select
+                required
+                style={{ paddingLeft: 15 }}
+                className="intern-field msf"
+                value={category}
+                onChange={handleCategoryChange}
+              >
+                <option value="" disabled hidden>
+                  Search Internship Category
+                </option>
+                {InternshipCategory.map((st) => (
+                  <option key={st.value} value={st.value}>
+                    {st.text}
+                  </option>
+                ))}
+              </select>
+
+              <Link to={`/internships/${category}`}>
+                <button className="intern-btn" type="button" disabled={isButtonDisabled}>
+                  Search
+                </button>
+              </Link>
+
+            </div>
+          </form>
+        
         </animated.div>
-    </section>
+      </div>
+      <div className="col-md-6">
+        <img src={career} className="img-fluid im" />
+      </div>
+     
+    </div>
+  </div>
+  <center className="under-text center">
+            <p className="gray border-around">Powered By The early Office Team</p>
+          </center>
+</section>
+
        
     </div>
 

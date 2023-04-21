@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { allPosts, reset } from '../../../features/post/postSlice'
 import PostItem from '../../../components/base/PostItem'
-import Spinner from '../../../media/loading-gif.gif';
+import { Spinner } from 'react-bootstrap'
 
 function Posts() {
   const navigate = useNavigate()
@@ -26,12 +26,13 @@ function Posts() {
 
  
 
-  if (isLoading) {
+  if(isLoading){
     return <h1 className='loading'>
-    <img src={Spinner} alt="Loading..." className='spinner-img'/>
+        <Spinner animation='border' role='status' className='spinner-img spin'>
+          <span className='sr-only'>Loading...</span>
+        </Spinner>
   </h1>
   }
-
   return (
     <div className='container'>
       <h1 className='mt-4'>Lastest Blog Posts</h1>

@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { studentreset, getStudentProfile } from '../../../features/studentAuth/studentSlice';
 import { useNavigate, Link } from 'react-router-dom';
 import { StudentAppliedJobs, reset } from '../../../features/job/jobSlice';
-import { Badge } from 'reactstrap';
-import Spinner from '../../../media/loading-gif.gif'
+import { Badge, Spinner } from 'reactstrap';
+
 
 function StudentDashboard() {
   const navigate = useNavigate();
@@ -36,7 +36,9 @@ function StudentDashboard() {
 
   if(isLoading){
      return <h1 className='loading'>
-     <img src={Spinner} alt="Loading..." className='spinner-img'/>
+     <Spinner animation='border' role='status' className='spinner-img spin'>
+          <span className='sr-only'>Loading...</span>
+        </Spinner>
    </h1>
   }
 

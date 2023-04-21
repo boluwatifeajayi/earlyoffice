@@ -2,8 +2,8 @@ import {React, useEffect, useState} from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {GetSingleJob, GetSingleJob2, reset, acceptStudent, declineStudent, deleteJob} from '../../../features/job/jobSlice'
-import Spinner from '../../../media/loading-gif.gif'
-import { Button, Modal, Form } from 'react-bootstrap';
+
+import { Button, Spinner, Modal, Form } from 'react-bootstrap';
 
 function EmployerJob() {
   
@@ -64,10 +64,11 @@ function EmployerJob() {
 
   if(isLoading){
     return <h1 className='loading'>
-    <img src={Spinner} alt="Loading..." className='spinner-img'/>
+        <Spinner animation='border' role='status' className='spinner-img spin'>
+          <span className='sr-only'>Loading...</span>
+        </Spinner>
   </h1>
   }
-  
   
   return (
 	<div className='container'>
