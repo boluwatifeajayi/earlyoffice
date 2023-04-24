@@ -2,21 +2,7 @@ const jobModel = require("../models/job.model");
 const companyModel = require("../models/company.model");
 const studentModel = require("../models/student.model");
 const mailSender = require("../middlewares/helperfunctions/mailSender");
-const {
-  createJobBody,
-  appliedToJobBody,
-  acceptedForJobBody,
-  declinedForJobBody,
-  reviewedForJobBody,
-} = require("../middlewares/mails/body.mails");
 
-const {
-  createJobTitle,
-  appliedToJobTitle,
-  declinedForJobTitle,
-  acceptedForJobTitle,
-  reviewedForJobTitle,
-} = require("../middlewares/mails/title.mails");
 
 const createJob = async (req, res) => {
   try {
@@ -265,32 +251,103 @@ const applyToJob = async (req, res) => {
       return res
         .status(400)
         .json({ error: "Ensure you are a student to access this route" });
-    const { coverLetter } = req.body;
+
+    // check if student has already applied to this job
     const { jobid } = req.params;
-    const appliedAt = Date.now();
+    const hasApplied = await jobModel.exists({
+      _id: jobid,
+      "student.studentId": studentId,
+    });
+    if (hasApplied)
+      return res
+        .status(400)
+        .json({ error: "You have already applied to this job" });
+
     const getStudent = await studentModel.findById(studentId);
+    const {
+      firstname,
+      lastname,
+      email,
+      phoneNumber,
+      currentLocation,
+      degree,
+      fieldOfInterest,
+      grade,
+      resume,
+      schoolName,
+      skills,
+      status,
+      workDescription,
+      workName,
+      workTitle,
+      works,
+    } = getStudent;
+
+    // check if any required attribute is empty or null
+    if (
+      !(
+        firstname &&
+        lastname &&
+        email &&
+        phoneNumber &&
+        currentLocation &&
+        degree &&
+        fieldOfInterest &&
+        grade &&
+        resume &&
+        schoolName &&
+        skills &&
+        status &&
+        workDescription &&
+        workName &&
+        workTitle &&
+        works
+      )
+    ) {
+      return res
+        .status(400)
+        .json({ error: "Please complete your student profile first" });
+    }
+
+    const { coverLetter } = req.body;
+    const appliedAt = Date.now();
+
     const newJobApplication = await jobModel.findByIdAndUpdate(
       jobid,
       {
         $push: {
-          student: { studentId, coverLetter, appliedAt},
+          student: {
+            studentId,
+            studentFirstname: firstname,
+            studentLastname: lastname,
+            studentEmail: email,
+            studentPhone: phoneNumber,
+            studentLocation: currentLocation,
+            studentDegree: degree,
+            studentIntrest: fieldOfInterest,
+            studentGrade: grade,
+            studentResume: resume,
+            studentSchool: schoolName,
+            studentSkills: skills,
+            studentStatus: status,
+            studentDescription: workDescription,
+            studentWorkName: workName,
+            studentTitle: workTitle,
+            studentWorks: works,
+            coverLetter,
+            appliedAt,
+          },
         },
       },
       { new: true }
     );
 
-    // await mailSender(
-    //   {
-    //     title: appliedToJobTitle(newJobApplication, getStudent),
-    //     body: appliedToJobBody(newJobApplication, getStudent),
-    //   },
-    //   getStudent.email
-    // );
     res.status(201).json(newJobApplication);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
+
 
 const decideApplicant = async (req, res) => {
   try {

@@ -85,6 +85,54 @@ const jobSchema = new mongoose.Schema(
         studentId: {
           type: mongoose.Schema.Types.ObjectId,
         },
+        studentFirstname:{
+          type: String
+        },
+        studentLastname:{
+          type: String
+        },
+        studentEmail:{
+          type: String
+        },
+        studentPhone:{
+          type: String
+        },
+        studentLocation:{
+          type: String
+        },
+        studentDegree:{
+          type: String
+        },
+        studentIntrest:{
+          type: String
+        },
+        studentGrade:{
+          type: String
+        },
+        studentResume:{
+          type: String
+        },
+        studentSchool:{
+          type: String
+        },
+        studentSkills:{
+          type: String
+        },
+        studentStatus:{
+          type: String
+        },
+        studentDescription:{
+          type: String
+        },
+        studentWorkName:{
+          type: String
+        },
+        studentTitle:{
+          type: String
+        },
+        studentWorks:{
+          type: String
+        },
         // reason to be hired
         coverLetter: {
           type: String,

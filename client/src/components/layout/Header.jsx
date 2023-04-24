@@ -93,6 +93,11 @@ function Header() {
             Blog
           </Nav.Link>
         )}
+         {!employer && (
+          <Nav.Link as={Link} to='/employer/register'>
+            Post An Internship
+          </Nav.Link>
+        )}
       </Nav>
       <div className='ml-auto'>
         {student || employer || admin ? (

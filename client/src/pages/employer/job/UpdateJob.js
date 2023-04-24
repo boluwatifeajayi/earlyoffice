@@ -46,6 +46,7 @@ const UpdateJob = () => {
 			jobName: singleJob.jobName,
 			jobDescription: singleJob.jobDescription,
 			jobType: singleJob.jobType,
+			applicationInfo: singleJob.applicationInfo,
 			numberOfOpenings: singleJob.numberOfOpenings,
 			applicationDeadline: singleJob.applicationDeadline,
 			educationLevel: singleJob.educationLevel,
@@ -97,7 +98,7 @@ const UpdateJob = () => {
              <Link to="/employer/internships">
       <button className='btn btn-block  mt-4 mb-4 w-50' style={{backgroundColor: '#d9dce2'}}> <i className='fa fa-arrow-left'></i>{" "}Back</button>
       </Link>
-            <h2 class="text-center">Create A New Internship</h2>
+            <h2 class="text-center">Update Internship</h2>
 		<hr/>
             <form onSubmit={onSubmit}>
             <div class="row mt-4">
@@ -126,6 +127,7 @@ const UpdateJob = () => {
 
 				<div class="row">
 					<div class="col-md">
+						<label>Openings</label>
 						<input
 							type='number'
 							placeholder='Number Of Openings'
@@ -137,7 +139,7 @@ const UpdateJob = () => {
             			/>
 					</div>
 					<div class="col-md">
-						
+					<label>Type</label>
 						<select value={jobType} required style={{paddingLeft: 15,}} className="form-input mb-4" name="jobType"   onChange={(e)=>{onChange(e.target.name,e.target.value)}}>
                   {InternshipTypes.map(st => (
                     <option key={st.value} value={st.value}>

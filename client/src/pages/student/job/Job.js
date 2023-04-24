@@ -53,17 +53,28 @@ function Job() {
     }))
   }
 
-  const onSubmit = (e) => {
-      e.preventDefault();
-
-      const applyData = {
-        coverLetter
+  const onSubmit = async (e) => {
+    e.preventDefault();
+  
+    const applyData = {
+      coverLetter,
+    };
+  
+    try {
+      await dispatch(ApplyForJob({ jobId: id, applyData }));
+      setShowModal(false);
+      setShowConfirmationModal(true);
+    } catch (error) {
+      console.log("error is" + error)
+      if (error.response.status === 400) {
+        alert("you have already applied for this job, try soethign else")
+        navigate("/internships")
+        // Show alert here
+      }
     }
-    dispatch(ApplyForJob({jobId: id, applyData})) 
-    setShowModal(false);
-    setShowConfirmationModal(true);
-    }
-
+  };
+  
+  
     useEffect(() => {
       console.log(student);
       dispatch(GetSingleJob(id));

@@ -3,7 +3,7 @@ import { useNavigate, useParams, Link, histo } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { GetEmployer, employerreset } from '../../../features/employerAuth/employerSlice'
-import Spinner from '../../../media/loading-gif.gif'
+import { Spinner } from 'react-bootstrap'
 
 import { Helmet } from 'react-helmet';
 
@@ -38,9 +38,13 @@ function Company() {
 
         
 
-  if(isLoading){
-    return <h1 className='loading'>Loading...</h1>
-  }
+    if(isLoading){
+      return <h1 className='loading'>
+          <Spinner animation='border' role='status' className='spinner-img spin'>
+            <span className='sr-only'>Loading...</span>
+          </Spinner>
+    </h1>
+    }
 
 
   

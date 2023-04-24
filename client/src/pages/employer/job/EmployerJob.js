@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import {GetSingleJob, GetSingleJob2, reset, acceptStudent, declineStudent, deleteJob} from '../../../features/job/jobSlice'
 
 import { Button, Spinner, Modal, Form } from 'react-bootstrap';
+import moment from 'moment'
 
 function EmployerJob() {
   
@@ -14,6 +15,7 @@ function EmployerJob() {
     const [showb, setshowb] = useState(true)
     const [showModal, setShowModal] = useState(false);
 
+    
 
     const handleShowModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
@@ -21,17 +23,12 @@ function EmployerJob() {
 
 	const {singleJob, isLoading, isError, isSuccess, message} = useSelector((state) => state.job)
 
+ 
+
+
 	const { org, jobProfile, jobName, jobDescription, jobType, numberOfOpenings, applicationDeadline, skillsRequired, salary, applicationInfo, educationLevel, experienceLevel, duration, place, benefits, createdAt, student} = singleJob
 
-  function viewStudents(){
-    dispatch(GetSingleJob2(id))
-    const students = singleJob.student
-    setStatus(students)  
-    setshowb(false)
-    if(students.length === 0){
-      alert("no students have applied for this job yet")
-    }
-  }
+
 
 
  
@@ -77,37 +74,13 @@ function EmployerJob() {
       </Link>
           
    <div className='row gx-5 mx-1'>
-        <div className='col-md-7 border-b job-d mb-4'>
+        <div className='col-md-4 job-d mb-4 fixed'>
        
-        <h2 className='mt-4'><b>{jobName}</b></h2>
-            <div className='row'>
-              <div className='col'>
-                <p className='bigger'><b><i className='fa fa-circle'></i>{" "}{jobType}</b></p>
-              </div>
-              <div className='col'>
-              <p className='bigger'><b><i className='fa fa-clock'></i>{" "}{duration}</b></p>
-              </div>
-              <div className='col'>
-              <p className='bigger'><b><span>₦</span>{" "}{salary}</b></p>
-              </div>
-            </div>
-            <hr/> 
-            <b className='pinkish bigger'>Profile</b>
-            <p>{jobProfile}</p>
-            <b className='pinkish bigger'>Responsibilities</b>
-            <div dangerouslySetInnerHTML={{ __html: jobDescription?.slice(0, 200)  }} />
-            
-            <b className='pinkish bigger'>Skills needed</b>
-            <div dangerouslySetInnerHTML={{ __html: skillsRequired?.slice(0, 200) }} />
-            <b className='pinkish bigger'>Internship Benefits</b>
-            <div dangerouslySetInnerHTML={{ __html: benefits?.slice(0, 200) }} />
-            <b className='pinkish bigger'>Additional Information</b>
-            <div dangerouslySetInnerHTML={{ __html: applicationInfo?.slice(0, 200) }} />
-
-
-           <div>
-       <Link to={`/job/update/${id}`}> <button className='btn btn-secondary'>Update Job</button></Link>    
-            <button className='btn btn-danger ml-2' onClick={handleDelete}>Delete Job</button>
+        <h4 className='mt-4 mb-4'><b>{jobName}</b></h4>
+          
+           <div className='mt-3'>
+       <Link to={`/job/update/${id}`}> <button className='btn btn-secondary'>View Internship</button></Link>    
+            <button className='btn btn-danger ml-2' onClick={handleDelete}>Delete Internship</button>
             
             </div>
 
@@ -115,73 +88,123 @@ function EmployerJob() {
         <div className='col-md-0 '>
            <p className='text-white'>......</p>
         </div>
-		<div className='col-md-4 apply'>
-			<h3>Applications</h3>
-      {showb ?  <button onClick={viewStudents} className="btn normal-btn mt-4 mb-4">View Student Applications</button> : ""}
+		<div className='col-md-7 apply'>
+			<h4 className='mb-4'>Student Applications</h4>
+      <hr/>
      
       
-      {status.map((student) => (
-        <div key={student.studentId}>
-          <b>Status</b>
-          <p>{student.status}</p>
-
-          <b>Cover Letter</b>
-          <p>{student.coverLetter}</p>
-          <Link to={`/employer/application/${student.studentId}`}>
-            <button className='normal-btn'>
-              More About This student 
-            </button>
-          </Link>
-          
-
-
-
-       
-         
-      <button
-        className="btn btn-primary mt-4 mb-4 mr-3"
-        onClick={() => {
-          dispatch(acceptStudent({ studentId: student.studentId, jobId: id }));
-          setTimeout(() => {
-            setShowModal(true);
-            
-          }, 2000);
-        }}
-      >
-        Accept
-      </button>
-
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Successfully Accpeted</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          Send this student a custom email now
-          <Link to='/student/dashboard' >
-            <Button
-              type='submit'
-              className=' mt-4 w-100'
-              aria-disabled={false}
-              variant='success'
+      {student?.length === 0 ? (
+    <p>No applications yet.</p>
+  ) : (
+    student?.map((student) => (
+      <div key={student.studentId}>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              {student.studentFirstname} {student.studentLastname} ||{" "}
+              {student.studentIntrest}
+            </h5>
+            <p class="card-text">
+              <i class="fas fa-envelope"></i> {student.studentEmail}{" "}
+              <i class="fas fa-phone"></i> {student.studentPhone}
+            </p>
+            <hr />
+            <h5 class="card-title">About</h5>
+            <ul class="list-unstyled">
+              <li>
+                <i class="fas fa-graduation-cap"></i> {student.studentGrade}
+              </li>
+              <li>
+                <i class="fas fa-book"></i> {student.studentDegree} ||{" "}
+                {student.studentSchool} || {student.studentStatus}
+              </li>
+              <li>
+                <i class="fas fa-tools"></i> Skills: {student.studentSkills}
+              </li>
+            </ul>
+            <hr />
+            <h5 class="card-title">Link To Works</h5>
+            <p class="card-text">
+              {student.studentWorks} || {student.studentResume}
+            </p>
+            <hr />
+            <h5 class="card-title">Experience</h5>
+            <p class="card-text">
+              {student.studentWorkName} || {student.studentTitle} <br />{" "}
+              {student.studentDescription}
+            </p>
+            <hr />
+            <h5 class="card-title">Cover Letter</h5>
+            <p class="card-text">{student.coverLetter}</p>
+            <button
+              className="btn btn-primary mt-4 mb-4 mr-3"
+              onClick={() => {
+                dispatch(
+                  acceptStudent({
+                    studentId: student.studentId,
+                    jobId: id,
+                  })
+                );
+                setTimeout(() => {
+                  setShowModal(true);
+                }, 2000);
+              }}
             >
-             Send Email
-            </Button>
-          </Link>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    
-           
-            <button className="btn btn-danger mt-4 mb-4" onClick={() => dispatch(declineStudent({studentId: student.studentId, jobId: id}))}>Decline</button>
-            <hr/>
+              Accept Student
+            </button>
+
+            <Modal show={showModal} onHide={handleCloseModal}>
+              <Modal.Header closeButton>
+                <Modal.Title>Successfully Accpeted</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                Send this {student.studentFirstname} a custom email now
+                <a href={`mailto:${student.studentEmail}`}>
+                  <Button
+                    type="submit"
+                    className=" mt-4 w-100"
+                    aria-disabled={false}
+                    variant="success"
+                  >
+                    Send Email
+                  </Button>
+                </a>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleCloseModal}>
+                  Close
+                </Button>
+              </Modal.Footer>
+            </Modal>
+
+            <button
+              className="btn btn-danger mt-4 mb-4"
+              onClick={() =>
+                dispatch(
+                  declineStudent({
+                    studentId: student.studentId,
+                    jobId: id,
+                  })
+                )
+              }
+            >
+              Decline Student
+            </button>
+          </div>
+          <div class="card-footer">
+            <small className="text-muted">
+              Applied {moment(student.appliedAt).fromNow()}
+            </small>
+          </div>
         </div>
-      ))} 
+
+        <hr />
+      </div>
+    ))
+  )}
+
     
-        </div>
+      </div>
        
     </div>
   </div>
