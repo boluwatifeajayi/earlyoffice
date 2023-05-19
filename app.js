@@ -66,7 +66,7 @@ const PORT = process.env.PORT;
 const SERVER = "localhost";
 dbConnect().then(() => {
   app.listen(PORT, () => {
-    console.log(`Server running on http://${SERVER}:${PORT}`);
+    console.log(`Server running nice on http://${SERVER}:${PORT}`);
   });
 });
 
