@@ -5,6 +5,7 @@ import fifth from '../media/undraw_Job_offers_re_634p.png'
 import { useSpring, animated, useTrail } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import career from '../media/career.svg'
+import { HomeIcon, CodeIcon, SearchIcon, BookmarkIcon, ChartBarIcon, CogIcon, UserCircleIcon, BellIcon, LogoutIcon, ViewListIcon } from '@heroicons/react/outline';
 
 
 
@@ -47,8 +48,8 @@ function Home() {
     <div className="row">
       <div className="col-md-6 mt-6">
         <animated.div className="main-content-area" ref={ref} style={fadeIn}>
-          <h3 className="main-heading">Kickstart Your career with earlyoffice Internships</h3>
-          <p className="gray main-sub-text">Early Office bring students , youth, copper and new grads to connect with the best companys in Nigeria ready to offer them internships and great work experiences</p>
+          <h3 className="main-heading ml-4">Kickstart Your career with earlyoffice Internships</h3>
+          <p className="gray main-sub-text ml-4">Early Office bring students , youth, copper and new grads to connect with the best companys in Nigeria ready to offer them internships and great work experiences</p>
 
           <form className='home-search'>
             <div className="form-box">
@@ -74,7 +75,7 @@ function Home() {
 
               <Link to={`/internships/${category}`}>
                 <button className="intern-btn" type="button" disabled={isButtonDisabled}>
-                  Search
+                  <i className='fa fa-search'></i>
                 </button>
               </Link>
 
@@ -114,7 +115,7 @@ function Home() {
         </animated.div>
       </div>
       <div className="col-md-6">
-        <img src={career} className="img-fluid im" />
+        <img src={career} className="img-fluid ml-4 im" />
       </div>
      
     </div>
@@ -136,16 +137,16 @@ function Home() {
     <section className="section-2 container">
       <div className="sub-heading-div">
         <h1 className="section-heading">Popular Intersnhip Categories</h1>
-      <p className="center mb-4">Looking for an internship opportunity but not sure which category to explore? Here are some of the most popular internship categories </p>
+      <p className="center mb-4">Looking for an internship opportunity but not sure which category to explore? Here are some of <br/> the most popular internship categories </p>
       </div>
       
       <div className="cat-cards mt-4">
       <animated.div className="my-custom-card" ref={ref} style={cardAnimations}>
-          <p className="card-icon">
-            <i className="fas fa-code primary"></i>
+          <p className="card-icon primary">
+          <i className="fas fa-code"></i>
           </p>
           <h4>Technology</h4>
-          <p>Interested in coding and technology? Try a software development internship! You'll learn programming, testing, and debugging software applications alongside experienced developers.</p>
+          <p className='text-sm'>Interested in coding and technology? Try a software development internship! You'll learn programming, testing, and debugging software applications alongside experienced developers.</p>
           <Link to="/internships/Technology">
             <button>
               Explore
@@ -158,7 +159,7 @@ function Home() {
             <i className="fas fa-money-bill-wave"></i>
           </p>
           <h4>Finance</h4>
-          <p>Got a knack for numbers and an interest in finance? Consider a finance internship where you'll analyze financial data, prepare reports, and assist with financial planning under experienced finance professionals.</p>
+          <p className='text-sm'>Got a knack for numbers and an interest in finance? Consider a finance internship where you'll analyze financial data, prepare reports, and assist with financial planning under experienced finance professionals.</p>
           <Link to="/internships/Finance">
             <button>
               Explore
@@ -171,7 +172,7 @@ function Home() {
             <i className="fas fa-headphones"></i>
           </p>
           <h4>Customer Support</h4>
-          <p>Enjoy helping people and communicating? A customer support internship may suit you. You'll assist customers with issues, respond to inquiries, and improve customer satisfaction alongside experienced customer support professionals.</p>
+          <p className='text-sm'>Enjoy helping people and communicating? A customer support internship may suit you. You'll assist customers with issues, respond to inquiries, and improve customer satisfaction alongside experienced customer support professionals.</p>
           <Link to="/internships/Marketing">
             <button>
               Explore

@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost&family=Oxygen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Noto+Sans&family=Poppins&display=swap');
 
 body{
   color: #444;
-  font-family: 'Jost', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   background-color: ghostwhite;
 }
 html{
@@ -12,8 +12,7 @@ html{
 h1, h2, h3, h4, h5, h5, h6{
   /* font-family: 'Montserrat', sans-serif; */
   /* font-weight: bold; */
-  font-family: 'Jost', sans-serif;
-  font-weight: 600;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .App {
@@ -69,7 +68,7 @@ a:hover{
 }
 
 .form-input{
- border-radius: 8px;
+ border-radius: 5px;
   border: 1px solid #d9dce2;
   height: 46px;
   padding: 10px 30px;
@@ -77,31 +76,35 @@ a:hover{
 }
 
 .pinkish{
-  color: #0b79ce;
+  color: #0bcea1;
+}
+
+.liner{
+  line-height: 2px;
 }
 
 .normal-btn{
   color: #fff;
-  background-color: #0b79ce;
+  background-color: #0bcea1;
   width: 100%;
   padding: 10px 30px;
   border: none;
- border-radius: 8px;
+ border-radius: 5px;
 }
 
 .normal-btn-short{
   color: #fff;
-  background-color: #0b79ce;
+  background-color: #0bcea1;
   padding: 10px 30px;
   border: none;
- border-radius: 8px;
+ border-radius: 5px;
 }
 
 .img-contain{
   width: 95%;
   height: 470px;
   margin-right: 50px;
- border-radius: 8px;
+ border-radius: 5px;
 }
 
 .container-custom{
@@ -110,14 +113,14 @@ a:hover{
 
 .border-b{
   border: 1px solid #d9dce2;
- border-radius: 8px;
+ border-radius: 5px;
   padding: 15px 30px;
   
 }
 
 .border-post{
   border: 1px solid #d9dce2;
- border-radius: 8px;
+ border-radius: 5px;
   padding: 5px 5px;
   
 }
@@ -133,7 +136,7 @@ a:hover{
 }
 .border-post{
   border: 0px solid #d9dce2;
- border-radius: 8px;
+ border-radius: 5px;
   padding: 5px 5px;
   
 }
@@ -154,7 +157,7 @@ a:hover{
 }
 
 .secondary{
-  color: #0b79ce;
+  color: #0bcea1;
   font-weight: bold;
 }
 
@@ -199,6 +202,7 @@ a:hover{
   .collins {
     flex: 50%;
   }
+  
   .hide{
     display: none;
   }
@@ -228,12 +232,12 @@ a:hover{
 }
 
 .small-normal-btn{
-  color: #0b79ce;
-  /* background-color: #0b79ce; */
+  color: #0bcea1;
+  /* background-color: #0bcea1; */
   padding: 5px 20px;
   font-weight: bold;
   border: none;
- border-radius: 8px;
+ border-radius: 5px;
   font-size: 14px;
 }
 
@@ -253,13 +257,17 @@ html {
 body{
 	background-color: white;
   /* font-family: 'Montserrat', sans-serif; */
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   /* background-color: ghostwhite; */
 }
 
 img {
   max-width: 100%;
   width: 100%;
+}
+
+a{
+  font-family: 'Noto Sans', sans-serif;
 }
 
 
@@ -270,7 +278,7 @@ img {
   background-color: var(--orange);
   padding: 1em 2em;
   border: none;
- border-radius: 8px;
+ border-radius: 5px;
   cursor: pointer;
   transition: var(--smooth);
 
@@ -297,7 +305,7 @@ img {
     background-color: var(--orange);
     padding: 0.5em 1.5em;
     border: none;
-   border-radius: 8px;
+   border-radius: 5px;
     cursor: pointer;
     transition: var(--smooth);
   
@@ -338,15 +346,13 @@ button:hover {
 .log-btn:hover{
   background-color: transparent;
 }
-h1, h2, h3, h4, h5, h5, h6{
-  font-family: 'Poppins', sans-serif;
-}
+
 
 .gray{
   color: #444;
 }
 .primary{
-  color: #0b79ce;
+  color: #0bcea1;
 }
 p {
   line-height: 25px;
@@ -360,8 +366,8 @@ p {
 }
 
 :root {
-  --orange: #0b79ce;
-  --green: #143a7d;
+  --orange: #0bcea1;
+  --green: #23d48e;
   --gray: #4b4f51;
   --pink: #f8f8f8;
   --light-pink: #fff9f9;
@@ -370,7 +376,7 @@ p {
 }
 
 .round-border{
-  border-radius: 8px;
+  border-radius: 5px;
 }
 
 
@@ -413,7 +419,7 @@ header{
 }
 
 .nav_link li a:hover{
-  color: #0b79ce;
+  color: #0bcea1;
 }
 
 @media (max-width: 900px) {
@@ -565,15 +571,15 @@ header{
   width: 412px;
   padding: 10px 20px;
   font-size: 16px;
-  margin-left: 0; 
+  margin-left: 0px; 
 }
 
 .form-box .search-btn{
-  background-color: #0b79ce;
+  background-color: #0bcea1;
   color: #fff;
   height: 60px;
   padding: 10px 30px;
-  border: 1px solid #0b79ce;
+  border: 1px solid #0bcea1;
   font-size: 17px;
   font-weight: bold;
 
@@ -584,11 +590,11 @@ header{
 }
 
 .intern-btn{
-  background-color: #0b79ce;
+  background-color: #0bcea1;
   color: #fff;
   height: 60px;
   padding: 10px 30px;
-  border: 1px solid #0b79ce;
+  border: 1px solid #0bcea1;
   font-size: 16px;
   font-weight: bold;
   border-top-right-radius: 8px;
@@ -606,22 +612,22 @@ header{
     margin-left: 0; 
   }
   .intern-btn{
-    background-color: #0b79ce;
+    background-color: #0bcea1;
     color: #fff;
     height: 70px;
     padding: 10px 30px;
-    border: 1px solid #0b79ce;
+    border: 1px solid #0bcea1;
     font-size: 19px;
     font-weight: bold;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
   }
   
   .form-box .intern-field{
     border: 1px solid #e1d7d7;
-    border-radius: 8px;
+    border-radius: 5px;
     height: 50px;
     width: 100%;
     padding: 13px 20px;
@@ -632,12 +638,12 @@ header{
   
   .intern-btn{
     margin-top: 20px;
-    background-color: #0b79ce;
+    background-color: #0bcea1;
     color: #fff;
     height: 50px;
     width: 100%;
     padding: 13px 30px;
-    border: 1px solid #0b79ce;
+    border: 1px solid #0bcea1;
     font-size: 16px;
     font-weight: bold;
   }
@@ -648,7 +654,7 @@ header{
 }
 
 .under-text p{
-  color: #0b79ce;
+  color: #0bcea1;
   font-weight: bold;
   font-size: 13px;
 }
@@ -685,8 +691,8 @@ header{
 
 .my-custom-card{
    
-   border-radius: 8px;
-    padding: 3.5rem 2rem;
+   border-radius: 5px;
+    padding: 1.5rem 2rem;
     border: 1px solid #dcdfdf;
     /* background-color: ghostwhite; */
     cursor: pointer;
@@ -695,24 +701,64 @@ header{
     
 }
 
+ol{
+  margin-left: 10px;
+  padding-left: 20px;
+}
+
 .my-custom-card-job{
- border-radius: 8px;
+  border-radius: 5px;
   padding: 2rem;
   border: 1px solid #dcdfdf;
   background-color: white;
   cursor: pointer;
-  border-bottom: 5px solid #0b79ce;
-  height: 340px;
+  border-left: 5px solid #0bcea1;
+  height: 300px;
+  margin-bottom: 20px;
   /* position: relative; */
 }
 
+.btn-view{
+  border: none;
+  background-color: #0bcea1;
+  padding: 8px 18px;
+  color: white;
+  font-size: 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  float: right;
+}
+
+.smalli{
+  display: none;
+}
+
+
+@media (min-width: 600px)  {
+  .btn-view{
+    border: none;
+    background-color: #0bcea1;
+    padding: 8px 18px;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    float: left;
+  }
+
+  .smalli{
+    display: block;
+  }
+ 
+}
+
 .my-custom-card-post{
- border-radius: 8px;
+ border-radius: 5px;
   padding: 2rem;
   border: 1px solid #dcdfdf;
   background-color: white;
   cursor: pointer;
-  border-bottom: 5px solid #0b79ce;
+  border-bottom: 5px solid #0bcea1;
  
   
   /* position: relative; */
@@ -733,23 +779,23 @@ header{
 .my-custom-card-post button{
   /* position: absolute; */
   top: 10px;
-  color: #0b79ce;
+  color: #0bcea1;
   width: 100%;
   padding: 10px 30px;
-  border: 2px solid #0b79ce;
- border-radius: 8px;
+  border: 2px solid #0bcea1;
+ border-radius: 5px;
   background-color: white;
 }
 
 .my-custom-card button{
   border: none;
-  color: #0b79ce;
+  color: #0bcea1;
   font-weight: bold;
   background-color: transparent;
   cursor: pointer;
   background-color: white;
   padding: 5px 10px;
- border-radius: 8px;
+ border-radius: 5px;
   /* position: absolute; */
 }
 
@@ -760,7 +806,7 @@ header{
   background-color: var(--orange);
   padding: 1em 2em;
   border: none;
- border-radius: 8px;
+  border-radius: 5px;
   margin-top: 90px;
   cursor: pointer;
   transition: var(--smooth);
@@ -768,7 +814,7 @@ header{
 
 /* .my-custom-card-job button{
   border: none;
-  color: #0b79ce;
+  color: #0bcea1;
   font-weight: bold;
   background-color: transparent;
   cursor: pointer;
@@ -779,7 +825,7 @@ header{
 
 
 .my-custom-card:hover{
-  background-color: #0b79ce;
+  background-color: #0bcea1;
   color: white;
   
 }
@@ -797,6 +843,14 @@ header{
 
 }
 
+.jobs-cards{
+  margin-bottom: 10px;
+}
+
+.text-sm{
+  font-size: 14px;
+}
+
 .cards-posts{
     
   width: 100%;
@@ -808,7 +862,7 @@ header{
 }
 
 .card-icon{
-  font-size: 30px;
+  font-size: 20px;
   margin-bottom: 20px;
   background-color: white;
   width: 100px;
@@ -851,12 +905,12 @@ header{
   justify-content: center;
   text-align: center;
   align-items: center;
-  color: #0b79ce;
+  color: #0bcea1;
   font-weight: bold;
-  border: 1px solid #0b79ce;
+  border: 1px solid #0bcea1;
   padding: 10px 25px;
   background-color: transparent;
- border-radius: 8px;
+ border-radius: 5px;
  
 }
 
@@ -915,7 +969,7 @@ header{
 	position: absolute;
 	left:0;
 	bottom: -10px;
-	background-color: #0b79ce;
+	background-color: #0bcea1;
 	height: 2px;
 	box-sizing: border-box;
 	width: 50px;
@@ -1091,7 +1145,7 @@ header{
   padding: 8px 20px;
   font-size: 18px;
   border: none;
-  background-color: #0b79ce;
+  background-color: #0bcea1;
   color: #fff;
   cursor: pointer;
   transition: all 0.2s ease-in-out;

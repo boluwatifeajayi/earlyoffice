@@ -125,22 +125,23 @@ function Job() {
 
 
     <Link to="/internships">
-      <button className='btn mt-4 mb-4 back-btn' style={{backgroundColor: '#d9dce2'}}> <i className='fa fa-arrow-left'></i>{" "}Back To Interships</button>
+      <button className='btn mt-4 mb-4 back-btn text-sm' style={{backgroundColor: '#d9dce2'}}> <i className='fa fa-arrow-left'></i>{" "}Back To Interships</button>
       </Link>
           
    <div className='row gx-5 mx-1'>
         <div className='col-md-12 border-b job-d mb-4 p-4 inside'>
         <div className='inside'>
         <h2 className='mb-4'><b>{jobName}</b></h2>
-        <b className='pinkish bigger'>Category</b>
-            <p>{jobProfile}</p>
+        <h5 className='pinkish'><b>{" "}{companyname}, {place}</b></h5> 
+       
+            <p>{jobProfile} Internship</p>
             
-            <h5 className='pinkish'><b><i className='fa fa-building'></i>{" "}{companyname}</b></h5> 
+           
             {org && <Link to={`/company/${org.orgId}`}>
   <button className='small-normal-btn mt-3 mb-3'>More About {companyname}</button>
 </Link>}
 
-            <p className='bigger'><i className="fa fa-map-marker mt-2"></i>{" "} {place}</p>
+            
 
             
             
@@ -148,7 +149,7 @@ function Job() {
 
             {seeComp ? <div>
               <b>Company Email</b>
-            <p className='text-primary'>{companyEmail}</p>
+            <p className='text-sm text-primary'>{companyEmail}</p>
             <b>About Company</b>
             <p>{companyInfo}</p>
             </div> : <div>{""}</div>}
@@ -158,63 +159,63 @@ function Job() {
            
             <hr/>
             <div>
-  <div class="row">
-    <div class="col-12 col-md-4 mb-3 mb-md-0">
-      <p class="bigger"><b><i class="fa fa-circle"></i> {jobType}</b></p>
+  <div className="row">
+    <div className="col-12 col-md-4 mb-3 mb-md-0">
+      <p className="text-sm">{jobType}</p> 
     </div>
-    <div class="col-12 col-md-4 mb-3 mb-md-0">
-      <p class="bigger"><b><i class="fa fa-clock"></i> {duration}</b></p>
+    <div className="col-12 col-md-4 mb-3 mb-md-0">
+      <p className="text-sm"> {duration}</p>
     </div>
-    <div class="col-12 col-md-4">
-      <p class="bigger"><b><span>Stipend:</span> {salary}</b></p>
-    </div>
-  </div>
-  <hr class="my-4"/>
-  <div class="row">
-    <div class="col-12 col-md-4 mb-3 mb-md-0">
-      <p class="bigger"><b>Openings: {numberOfOpenings}</b></p>
-    </div>
-    <div class="col-12 col-md-4 mb-3 mb-md-0">
-      <p class="bigger"><b><span>Posted:</span> {timeDiff}</b></p>
-    </div>
-    <div class="col-12 col-md-4">
-      <p class="bigger"><b>Deadline: {deadline}</b></p>
+    <div className="col-12 col-md-4">
+      <p className="text-sm"><span>Stipend:</span> {salary}</p>
     </div>
   </div>
-  <hr class="my-4"/>
+  <hr className="my-4"/>
+  <div className="row">
+    <div className="col-12 col-md-4 mb-3 mb-md-0">
+      <p className="text-sm">{numberOfOpenings} openings</p>
+    </div>
+    <div className="col-12 col-md-4 mb-3 mb-md-0">
+      <p className="text-sm "><span>Posted </span> {timeDiff}</p>
+    </div>
+    <div className="col-12 col-md-4">
+      <p className="text-sm">Deadline {deadline}</p>
+    </div>
+  </div>
+  <hr className="my-4"/>
 </div>
 
            
            
             
             
-            <div class="mt-3 mb-3">
-              <b class="pinkish bigger push-down">Internship Description</b>
-              <div class="mb-3" dangerouslySetInnerHTML={{ __html: jobDescription }} />
+            <div className="mt-3 mb-3">
+              <b className="pinkish bigger push-down">Internship Description</b>
+              <div className="mb-3 text-sm" dangerouslySetInnerHTML={{ __html: jobDescription }} />
 
-              <b class="pinkish bigger mt-3 mb-3 push-down">Experience Level</b>
-              <div class="mb-3" dangerouslySetInnerHTML={{ __html: experienceLevel }} />
+              <b className="pinkish bigger mt-3 mb-3 push-down">Experience Level</b>
+              <div className="mb-3" dangerouslySetInnerHTML={{ __html: experienceLevel }} />
 
-              <b class="pinkish bigger mt-3 mb-3 push-down">Education Level</b>
-              <div class="mb-3" dangerouslySetInnerHTML={{ __html: educationLevel }} />
+              <b className="pinkish bigger mt-3 mb-3 push-down">Education Level</b>
+              <div className="mb-3" dangerouslySetInnerHTML={{ __html: educationLevel }} />
 
-              <b class="pinkish bigger mt-3 mb-3 push-down">Required Skills</b>
-              <div class="mb-3" dangerouslySetInnerHTML={{ __html: skillsRequired }} />
+              <b className="pinkish bigger mt-3 mb-3 push-down">Required Skills</b>
+              <div className="mb-3 text-sm" dangerouslySetInnerHTML={{ __html: skillsRequired }} />
 
-              <b class="pinkish bigger">Key Responsibilities</b>
-              <div class="mb-3" dangerouslySetInnerHTML={{ __html: benefits }} />
+              <b className="pinkish bigger">Key Responsibilities</b>
+              <div className="mb-3 text-sm" dangerouslySetInnerHTML={{ __html: benefits }} />
 
-              <b class="pinkish bigger">Application Information</b>
-              <div dangerouslySetInnerHTML={{ __html: applicationInfo }} />
+              {/* <b className="pinkish bigger">Application Information</b>
+              <div dangerouslySetInnerHTML={{ __html: applicationInfo }} /> */}
           </div>
 
 
-          <Button  className='w-100 mt-4 normal-btn' onClick={handleShowModal}>
+          <Button  className='w-100 mt-4 normal-btn text-sm' onClick={handleShowModal}>
         Apply Now
       </Button>
         </div>
         <div className='col-md-0 '>
-           <p className='text-white'>......</p>
+           <p className='text-sm text-white'>......</p>
         </div>
         </div>
         

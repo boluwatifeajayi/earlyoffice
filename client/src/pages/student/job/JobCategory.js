@@ -41,7 +41,7 @@ function JobCategory() {
 
   return (
     <div className='container'>
-      <div className='job-page-search container main-content-area'>
+      {/* <div className='job-page-search container main-content-area'>
         <form onSubmit={handleSearch}>
           <div className='form-box'>
             <i className='fa fa-briefcase mr-2 bigger-icon job-s' aria-hidden='true'></i>
@@ -66,10 +66,51 @@ function JobCategory() {
           </div>
         </form>
       </div>
-      <hr />
-      <section className='content'>
+      <hr /> */}
+      <h3 className='mt-4 text-center'>Internships For That Category</h3>
+
+      <div className='row'>
+        <div className='col-md-4'>
+        <div className='filter-internships mt-4 p-3 border fixed rounded'>
+              <h4>Filter Internships</h4>
+              <form onSubmit={handleSearch}>
+              <div className='form-group'>
+                
+                <label>Internship</label>
+                <input
+                  type='text'
+                  name='searchTerm'
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className='form-control'
+                  placeholder='Search Internship....'
+                />
+              </div>
+              <div className='form-group'>
+                <label>Location</label>
+                <input
+                  type='text'
+                 
+                  className='form-control'
+                 
+                  name='location'
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+             
+              placeholder='Search Locations...'
+                />
+              </div>
+              <button type='Submit' className='normal-btn'>
+                Apply Filters
+              </button>
+              </form>
+              
+            </div>
+        </div>
+        <div className='col-md-8'>
+        <section className='content'>
         {jobs.length > 0 ? (
-          <div className='cat-cards mt-4'> 
+          <div className='jobs-card mt-4'> 
             {jobs.map((job) => (
               <JobItem job={job} key={job.id} /> 
             ))}
@@ -84,6 +125,9 @@ function JobCategory() {
          
         )}
       </section>
+        </div>
+      </div>
+     
     </div>
   )
 }

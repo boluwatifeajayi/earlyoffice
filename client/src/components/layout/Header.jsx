@@ -93,25 +93,21 @@ function Header() {
             Blog
           </Nav.Link>
         )}
-         {!employer && (
-          <Nav.Link as={Link} to='/employer/register'>
-            Post An Internship
-          </Nav.Link>
-        )}
+        
       </Nav>
       <div className='ml-auto'>
         {student || employer || admin ? (
           <div className='prof'>
-            <Link className='text-primary' to={admin ? '/admin/dashboard' : employer ? '/employer/internships' : '/student/dashboard'}>
-              <i className='fas disp fa-user mr-2'></i>
+            <Link className='' to={admin ? '/admin/dashboard' : employer ? '/employer/internships' : '/student/dashboard'}>
+              <i className='far disp text-primary fa-user mr-2'></i>
               <b>
-                <span className='disp'>Welcome</span>
-                {employer?.adminFirstName || student?.firstname || admin?.username} {employer?.currentCompany?.adminFirstName || student?.currentStudent?.firstname || admin?.currentadmin?.username}
+                <span className='disp'>Hello,</span>
+                {employer?.adminFirstName || student?.firstname || admin?.username} {employer?.currentCompany?.adminFirstName || student?.currentStudent?.firstname || admin?.currentadmin?.username} 👋
               </b>{' '}
             </Link>
             <button className='btn' onClick={onLogout}>
-              <i className='fas fa-sign-out-alt mr-1'></i>
-              <b className='primary ml-2 disp'>Logout</b>
+              <i className='fas fa-sign-out-alt mr-1 pinkish'></i>
+              <b className=' ml-2 disp'>Logout</b>
             </button>
           </div>
         ) : (
