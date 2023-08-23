@@ -68,7 +68,7 @@ function JobItem({job}) {
   </div>
   <div className='col'>
     <p className='text-sm smalli'>
-	<i className='fas fa-clock'></i> {timeDiff}
+	<i className='fas fa-bullseye'></i> Actively Recuiting
     </p>
   </div>
   <div className='col'>

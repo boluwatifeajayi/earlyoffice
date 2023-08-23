@@ -12,7 +12,7 @@ html{
 h1, h2, h3, h4, h5, h5, h6{
   /* font-family: 'Montserrat', sans-serif; */
   /* font-weight: bold; */
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .App {
@@ -76,7 +76,7 @@ a:hover{
 }
 
 .pinkish{
-  color: #0bcea1;
+  color: #2807ad;
 }
 
 .liner{
@@ -85,7 +85,7 @@ a:hover{
 
 .normal-btn{
   color: #fff;
-  background-color: #0bcea1;
+  background-color: #2807ad;
   width: 100%;
   padding: 10px 30px;
   border: none;
@@ -94,7 +94,7 @@ a:hover{
 
 .normal-btn-short{
   color: #fff;
-  background-color: #0bcea1;
+  background-color: #2807ad;
   padding: 10px 30px;
   border: none;
  border-radius: 5px;
@@ -157,7 +157,7 @@ a:hover{
 }
 
 .secondary{
-  color: #0bcea1;
+  color: #2807ad;
   font-weight: bold;
 }
 
@@ -232,8 +232,8 @@ a:hover{
 }
 
 .small-normal-btn{
-  color: #0bcea1;
-  /* background-color: #0bcea1; */
+  color: #2807ad;
+  /* background-color: #2807ad; */
   padding: 5px 20px;
   font-weight: bold;
   border: none;
@@ -352,7 +352,7 @@ button:hover {
   color: #444;
 }
 .primary{
-  color: #0bcea1;
+  color: #2807ad;
 }
 p {
   line-height: 25px;
@@ -366,8 +366,8 @@ p {
 }
 
 :root {
-  --orange: #0bcea1;
-  --green: #23d48e;
+  --orange: #2807ad;
+  --green: #2e067e;
   --gray: #4b4f51;
   --pink: #f8f8f8;
   --light-pink: #fff9f9;
@@ -419,7 +419,7 @@ header{
 }
 
 .nav_link li a:hover{
-  color: #0bcea1;
+  color: #2807ad;
 }
 
 @media (max-width: 900px) {
@@ -575,11 +575,11 @@ header{
 }
 
 .form-box .search-btn{
-  background-color: #0bcea1;
+  background-color: #2807ad;
   color: #fff;
   height: 60px;
   padding: 10px 30px;
-  border: 1px solid #0bcea1;
+  border: 1px solid #2807ad;
   font-size: 17px;
   font-weight: bold;
 
@@ -590,11 +590,11 @@ header{
 }
 
 .intern-btn{
-  background-color: #0bcea1;
+  background-color: #2807ad;
   color: #fff;
   height: 60px;
   padding: 10px 30px;
-  border: 1px solid #0bcea1;
+  border: 1px solid #2807ad;
   font-size: 16px;
   font-weight: bold;
   border-top-right-radius: 8px;
@@ -612,11 +612,11 @@ header{
     margin-left: 0; 
   }
   .intern-btn{
-    background-color: #0bcea1;
+    background-color: #2807ad;
     color: #fff;
     height: 70px;
     padding: 10px 30px;
-    border: 1px solid #0bcea1;
+    border: 1px solid #2807ad;
     font-size: 19px;
     font-weight: bold;
     border-top-right-radius: 0px;
@@ -638,12 +638,12 @@ header{
   
   .intern-btn{
     margin-top: 20px;
-    background-color: #0bcea1;
+    background-color: #2807ad;
     color: #fff;
     height: 50px;
     width: 100%;
     padding: 13px 30px;
-    border: 1px solid #0bcea1;
+    border: 1px solid #2807ad;
     font-size: 16px;
     font-weight: bold;
   }
@@ -654,7 +654,7 @@ header{
 }
 
 .under-text p{
-  color: #0bcea1;
+  color: #2807ad;
   font-weight: bold;
   font-size: 13px;
 }
@@ -712,7 +712,7 @@ ol{
   border: 1px solid #dcdfdf;
   background-color: white;
   cursor: pointer;
-  border-left: 5px solid #0bcea1;
+  border-left: 5px solid #2807ad;
   height: 300px;
   margin-bottom: 20px;
   /* position: relative; */
@@ -720,7 +720,7 @@ ol{
 
 .btn-view{
   border: none;
-  background-color: #0bcea1;
+  background-color: #2807ad;
   padding: 8px 18px;
   color: white;
   font-size: 15px;
@@ -737,7 +737,7 @@ ol{
 @media (min-width: 600px)  {
   .btn-view{
     border: none;
-    background-color: #0bcea1;
+    background-color: #2807ad;
     padding: 8px 18px;
     color: white;
     font-size: 15px;
@@ -758,7 +758,7 @@ ol{
   border: 1px solid #dcdfdf;
   background-color: white;
   cursor: pointer;
-  border-bottom: 5px solid #0bcea1;
+  border-bottom: 5px solid #2807ad;
  
   
   /* position: relative; */
@@ -779,17 +779,17 @@ ol{
 .my-custom-card-post button{
   /* position: absolute; */
   top: 10px;
-  color: #0bcea1;
+  color: #2807ad;
   width: 100%;
   padding: 10px 30px;
-  border: 2px solid #0bcea1;
+  border: 2px solid #2807ad;
  border-radius: 5px;
   background-color: white;
 }
 
 .my-custom-card button{
   border: none;
-  color: #0bcea1;
+  color: #2807ad;
   font-weight: bold;
   background-color: transparent;
   cursor: pointer;
@@ -814,7 +814,7 @@ ol{
 
 /* .my-custom-card-job button{
   border: none;
-  color: #0bcea1;
+  color: #2807ad;
   font-weight: bold;
   background-color: transparent;
   cursor: pointer;
@@ -825,7 +825,7 @@ ol{
 
 
 .my-custom-card:hover{
-  background-color: #0bcea1;
+  background-color: #2807ad;
   color: white;
   
 }
@@ -905,9 +905,9 @@ ol{
   justify-content: center;
   text-align: center;
   align-items: center;
-  color: #0bcea1;
+  color: #2807ad;
   font-weight: bold;
-  border: 1px solid #0bcea1;
+  border: 1px solid #2807ad;
   padding: 10px 25px;
   background-color: transparent;
  border-radius: 5px;
@@ -969,7 +969,7 @@ ol{
 	position: absolute;
 	left:0;
 	bottom: -10px;
-	background-color: #0bcea1;
+	background-color: #2807ad;
 	height: 2px;
 	box-sizing: border-box;
 	width: 50px;
@@ -1145,7 +1145,7 @@ ol{
   padding: 8px 20px;
   font-size: 18px;
   border: none;
-  background-color: #0bcea1;
+  background-color: #2807ad;
   color: #fff;
   cursor: pointer;
   transition: all 0.2s ease-in-out;

@@ -4,6 +4,8 @@ import { studentreset, getStudentProfile } from '../../../features/studentAuth/s
 import { useNavigate, Link } from 'react-router-dom';
 import { StudentAppliedJobs, reset } from '../../../features/job/jobSlice';
 import { Badge, Spinner } from 'reactstrap';
+import axios from 'axios'; // Import Axios library
+
 
 
 function StudentDashboard() {
@@ -34,6 +36,31 @@ function StudentDashboard() {
     };
   }, []);
 
+  // Function to initialize the Paystack payment
+  const handleActivateEarlyofficePlus = async () => {
+    try {
+      // Make a POST request to your backend route to initialize the payment
+      const response = await axios.post('/api/students/payment', {
+        amount: 600000,
+        email: theStudent.email,
+      });
+
+      // Check if the payment initialization was successful
+      if (response.data.status === true) {
+        // Navigate to the authorization URL
+        window.location.href = response.data.data.authorization_url;
+      } else {
+        // Handle the case where payment initialization failed
+        console.error('Payment initialization failed');
+      }
+    } catch (error) {
+      console.error(error);
+      // Handle any errors here, such as displaying an error message
+    }
+  };
+
+
+
   if(isLoading){
      return <h1 className='loading'>
      <Spinner animation='border' role='status' className='spinner-img spin'>
@@ -60,6 +87,11 @@ function StudentDashboard() {
             <Link to="/student/profile/update">
               <button className="btn btn-success">Update Profile</button>
             </Link>
+          </div>
+          <div className="col-md-4">
+          <button className="btn btn-sm btn-dark mt-3" onClick={handleActivateEarlyofficePlus}>
+              Activate Earlyoffice Plus
+            </button> 
           </div>
         </div>
         <hr className="mb-4" />

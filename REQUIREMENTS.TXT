@@ -1,6 +1,20 @@
-JOB WOULD HAVE A STUDENT PROPERTY. 
-STUDENT PROPERTY HOLDS AN ARRAY OF DICTIONARIES
-EACH HOLDING THE STUDENT ID, COVERTEXT(REASON TO HIRE), TIME APPLIED(PROBABLY FROM TIME STAMPS)
+Features to add 
+- resume/cv upload
+- more advanced search filter (location, industry, experience level, type)
+- saved jobs functionalities
+- a way to guarantee response
+- application limits
+- application expire time
+- career resources
+- alerts and notifications
+- testimonials section
+- rating and feedback features on companies
+- interviews preparation tips
+- training and certifications courses search, - web scrapping
 
-STUDENT MODEL WOULD HAVE A JOB SECTION
-JOB SECTION HOLDS JOB ID , STATUS (PENDING, REVIEWED), JOBS APPLIED FOR
+
+- company verifications
+- employee branding showcase
+- chat system
+- admin pannel
+- 

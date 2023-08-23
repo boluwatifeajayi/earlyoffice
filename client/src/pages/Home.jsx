@@ -49,7 +49,7 @@ function Home() {
       <div className="col-md-6 mt-6">
         <animated.div className="main-content-area" ref={ref} style={fadeIn}>
           <h3 className="main-heading ml-4">Kickstart Your career with earlyoffice Internships</h3>
-          <p className="gray main-sub-text ml-4">Early Office bring students , youth, copper and new grads to connect with the best companys in Nigeria ready to offer them internships and great work experiences</p>
+          <p className="gray main-sub-text ml-4">Early Office bring students , youths, coppers and new grads to connect with the best companys in Nigeria ready to offer them internships and great work experiences</p>
 
           <form className='home-search'>
             <div className="form-box">

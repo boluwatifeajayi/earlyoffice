@@ -5,6 +5,7 @@ const {
   getStudentById,
   getStudentByLocation,
   getStudentByInterest,
+  activatePayment, // Import the new controller function
 } = require("../controllers/student.controller");
 const {
   protectedRoutes,
@@ -34,8 +35,7 @@ route.get(
   getStudentByInterest
 );
 
+// Add a route to initiate a payment
+route.post("/api/students/payment", activatePayment);
 
-module.exports = route
-
-
-
+module.exports = route;
