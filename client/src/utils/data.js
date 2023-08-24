@@ -73,37 +73,26 @@ export const InternshipCategory = [
   { value: 'Media', text: 'Media' },
   { value: 'Advertising', text: 'Advertising' },
   { value: 'Architecture', text: 'Architecture' },
-  { value: 'Art', text: 'Art' },
-  { value: 'Automotive', text: 'Automotive' },
-  { value: 'Aviation', text: 'Aviation' },
   { value: 'Biotechnology', text: 'Biotechnology' },
-  { value: 'Construction', text: 'Construction' },
-  { value: 'Consumer Goods', text: 'Consumer Goods' },
-  { value: 'Energy', text: 'Energy' },
-  { value: 'Environmental', text: 'Environmental' },
-  { value: 'Hospitality', text: 'Hospitality' },
+
   { value: 'Human Resources', text: 'Human Resources' },
   { value: 'Insurance', text: 'Insurance' },
   { value: 'Law', text: 'Law' },
-  { value: 'Logistics', text: 'Logistics' },
+ 
   { value: 'Nonprofit', text: 'Nonprofit' },
   { value: 'Real Estate', text: 'Real Estate' },
-  { value: 'Sports', text: 'Sports' },
+
   { value: 'Telecommunications', text: 'Telecommunications' },
-  { value: 'Travel', text: 'Travel' },
-  { value: 'Agriculture', text: 'Agriculture' },
-  { value: 'Chemical', text: 'Chemical' },
-  { value: 'Defense', text: 'Defense' },
+  
   { value: 'E-commerce', text: 'E-commerce' },
   { value: 'Entertainment', text: 'Entertainment' },
   { value: 'Fashion', text: 'Fashion' },
   { value: 'Food', text: 'Food' },
-  { value: 'Government', text: 'Government' },
-  { value: 'Information Services', text: 'Information Services' },
-  { value: 'Mining', text: 'Mining' },
-  { value: 'Pharmaceutical', text: 'Pharmaceutical' },
+ 
+  
+ 
   { value: 'Renewable Energy', text: 'Renewable Energy' },
-  { value: 'Social Media', text: 'Social Media' },
+
 ];
 
 
@@ -255,13 +244,12 @@ export const Industry = [
   {value: 'Fashion and Textiles', text: 'Fashion and Textiles'},
   {value: 'Food and Beverage', text: 'Food and Beverage'},
   {value: 'Healthcare', text: 'Healthcare'},
-  {value: 'Hospitality and Tourism', text: 'Hospitality and Tourism'},
-  {value: 'Mining and Metals', text: 'Mining and Metals'},
+  
   {value: 'Oil and Gas', text: 'Oil and Gas'},
   {value: 'Pharmaceuticals', text: 'Pharmaceuticals'},
   {value: 'Retail', text: 'Retail'},
   {value: 'Telecommunications', text: 'Telecommunications'},
-  {value: 'Transportation and Logistics', text: 'Transportation and Logistics'},
+ 
   {value: 'Construction', text: 'Construction'},
   {value: 'Education', text: 'Education'},
   {value: 'Electronics', text: 'Electronics'},
@@ -271,6 +259,4 @@ export const Industry = [
   {value: 'Media and Entertainment', text: 'Media and Entertainment'},
   {value: 'Nonprofit', text: 'Nonprofit'},
   {value: 'Real Estate', text: 'Real Estate'},
-  {value: 'Sports and Fitness', text: 'Sports and Fitness'},
-
 ];

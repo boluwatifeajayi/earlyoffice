@@ -89,8 +89,11 @@ function StudentDashboard() {
             </Link>
           </div>
           <div className="col-md-4">
-          <button className="btn btn-sm btn-dark mt-3" onClick={handleActivateEarlyofficePlus}>
-              Activate Earlyoffice Plus
+          <button className="btn btn-sm btn-dark mt-3">
+            <Link to='/student/plus' className='text-white'>
+            Activate Earlyoffice Plus
+            </Link>
+             
             </button> 
           </div>
         </div>

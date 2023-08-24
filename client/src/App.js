@@ -40,6 +40,7 @@ import Post from './pages/admin/post/Post';
 import PostCategory from './pages/admin/post/PostCategory';
 import UpdatePost from './pages/admin/post/UpdatePost';
 import UpdateJob from './pages/employer/job/UpdateJob';
+import StudentPlus from './pages/student/job/StudentPlus';
 
 
 
@@ -64,6 +65,7 @@ function App() {
         <Route path='/employer/internship/:id' element={<EmployerJob/>}/>
         <Route path='/employer/application/:studentId' element={<ViewStudent/>}/>
         <Route path='/student/dashboard' element={<StudentDashboard/>}/>
+        <Route path='/student/plus' element={<StudentPlus/>}/>
         <Route path='/student/create' element={<CreateProfile/>}/>
         <Route path='/student/profile/update' element={<UpdateProfile/>}/>
         <Route path='/employer/create' element={<CreateEmployerProfile/>}/>
