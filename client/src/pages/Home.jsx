@@ -49,7 +49,7 @@ function Home() {
       <div className="col-md-6 mt-6">
         <animated.div className="main-content-area" ref={ref} style={fadeIn}>
           <h3 className="main-heading ml-4"><b>Kickstart Your career with <span className='primary'>EarlyOffice</span></b></h3>
-          <p className="gray main-sub-text ml-4">Early Office bring students , youths, coppers and new grads to connect with the best companys in Nigeria ready to offer them internships and great work experiences</p>
+          <p className="gray main-sub-text ml-4">In Nigeria, thousands of young talents face the daunting challenge of entering the job market with limited experience. Our platform steps in to bridge this gap, ensuring that every applicant receives a response. We're here to eliminate the 'no experience, no job' dilemma.</p>
 
           <form className='home-search'>
             <div className="form-box">
@@ -115,7 +115,7 @@ function Home() {
         </animated.div>
       </div>
       <div className="col-md-6">
-        <img src={career} className="img-fluid ml-4 im" />
+        <img src={career} className="img-fluid ml-4 im animate-floating" />
       </div>
      
     </div>
@@ -258,23 +258,23 @@ function Home() {
           <p className="card-icon primary">
             <i className="fas fa-suitcase"></i>
           </p>
-          <h4>100+ Internships</h4>
-          <p>Early Office offers over 100 internship opportunities for students to gain practical experience in their fields of interest.</p>
+          <h4>Entry Level Only</h4>
+          <p>Early Office offers No experience overload, just opportunities for beginners and also very personalized.</p>
         </animated.div>
         <animated.div className="my-custom-card" ref={ref} style={cardAnimations}>
           <p className="card-icon primary">
             <i className="fas fa-users"></i>
           </p>
-          <h4>Other Benefits</h4>
-          <p>In addition to internships, Early Office provides other benefits such as career counseling, resume building, and interview preparation to help students succeed.</p>
+          <h4>Legit Jobs</h4>
+          <p>Fresh listings, limited competition, and up-to-date opportunities.</p>
          
         </animated.div>
         <animated.div className="my-custom-card" ref={ref} style={cardAnimations}>
           <p className="card-icon primary">
             <i className="fas fa-tachometer-alt"></i>
           </p>
-          <h4>Quick Response</h4>
-          <p>Early Office has a quick response time to inquiries and applications, ensuring that students can secure their desired internships as soon as possible.</p>
+          <h4>Guaranteed Responses</h4>
+          <p>Feedback for every application, your path to improvement, and applications are very easy.</p>
          
         </animated.div>
         

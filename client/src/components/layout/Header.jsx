@@ -60,7 +60,7 @@ function Header() {
 
   return (
     <div>
-     <Navbar sticky='top' bg='' expand='md' className='btt' style={{ boxShadow: '0 2px 6px rgba(0, 0, 0, 0.03)', borderBottom: '1px solid #f0f0f0' }}>
+     <Navbar sticky='top' bg='' expand='md' className='btt p-3' style={{ boxShadow: '0 2px 6px rgba(0, 0, 0, 0.03)', borderBottom: '1px solid #f0f0f0' }}>
   <Container>
     <Link to='/'>
       <Navbar.Brand className='logo'>
@@ -95,6 +95,11 @@ function Header() {
             Blog
           </Nav.Link>
         )}
+        {!employer && (
+          <Nav.Link as={Link} to='/community'>
+            Community
+          </Nav.Link>
+        )}
         
       </Nav>
       <div className='ml-auto'>
@@ -104,7 +109,7 @@ function Header() {
               <i className='far disp text-primary fa-user mr-2'></i>
               <b>
                 <span className='disp'>Hello,</span>
-                {employer?.adminFirstName || student?.firstname || admin?.username} {employer?.currentCompany?.orgName || student?.currentStudent?.firstname || admin?.currentadmin?.username} 👋
+                {employer?.adminFirstName || student?.firstname || admin?.username} {employer?.currentCompany?.orgName || student?.currentStudent?.firstname || admin?.currentadmin?.username} 
               </b>{' '}
             </Link>
             <button className='btn' onClick={onLogout}>

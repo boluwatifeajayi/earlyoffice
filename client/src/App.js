@@ -41,6 +41,7 @@ import PostCategory from './pages/admin/post/PostCategory';
 import UpdatePost from './pages/admin/post/UpdatePost';
 import UpdateJob from './pages/employer/job/UpdateJob';
 import StudentPlus from './pages/student/job/StudentPlus';
+import Communities from './pages/stateless/Community';
 
 
 
@@ -58,6 +59,7 @@ function App() {
         <Route path='/employer/login' element={<EmployerLogin/>}/>
         <Route path='/employer/register' element={<EmployerRegister/>}/>
         <Route path='/employer/createinternship' element={<CreateJob/>}/>
+        <Route path='/community' element={<Communities/>}/>
         <Route path='/internships' element={<Jobs/>}/>
         <Route path='/internship/:id/:companyname/:companylocation' element={<Job/>}/>
         <Route path='/internship/apply' element={<Apply/>}/>

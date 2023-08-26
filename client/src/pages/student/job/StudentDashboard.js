@@ -59,6 +59,31 @@ function StudentDashboard() {
     }
   };
 
+  const getStatusForStudent = (job, studentFirstName) => {
+    const studentApplication = job.student.find(
+      student => theStudent.first === studentFirstName
+    );
+    
+    if (studentApplication) {
+      return (
+        <Badge
+        className='text-white'
+          color={
+            studentApplication.status === 'accepted'
+              ? 'success'
+              : studentApplication.status === 'declined'
+              ? 'danger'
+              : 'warning'
+          }
+        >
+          {studentApplication.status}
+        </Badge>
+      );
+    } else {
+      return <span className="text-muted">Not Applied</span>;
+    }
+  };
+
 
 
   if(isLoading){
@@ -85,13 +110,13 @@ function StudentDashboard() {
           </div>
           <div className="col-md-4">
             <Link to="/student/profile/update">
-              <button className="btn btn-success">Update Profile</button>
+              <h5 className="primary"><i className='fa fa-user'></i>Update Profile</h5>
             </Link>
           </div>
           <div className="col-md-4">
           <button className="btn btn-sm btn-dark mt-3">
             <Link to='/student/plus' className='text-white'>
-            Activate Earlyoffice Plus
+              Try Premium
             </Link>
              
             </button> 
@@ -118,14 +143,27 @@ function StudentDashboard() {
                   <td>{job.org.orgName}</td>
                   <td>{job.jobName}</td>
                   <td>
-                    {job.student[0]?.status ? (
-                      <Badge color={job.student[0].status === 'accepted' ? 'success' : job.student[0].status === 'declined' ? 'danger' : 'warning'}>
-                        <strong>{job.student[0].status}</strong>{' '}
-                        {job.student[0].status === 'accepted' && <span>(expect an email soon)</span>}
-                      </Badge>
-                    ) : (
-                      <span className="text-muted">Not Applied</span>
-                    )}
+                  {
+  job.student.some(student => student.studentId === theStudent._id) ? (
+    <Badge className='text-white' color={
+      job.student.find(student => student.studentId === theStudent._id)?.status === 'accepted' 
+        ? 'success' 
+        : job.student.find(student => student.studentId === theStudent._id)?.status === 'declined' 
+          ? 'danger' 
+          : 'warning'
+    }>
+      <strong>
+        {job.student.find(student =>student.studentId === theStudent._id)?.status}
+      </strong>{' '}
+      {job.student.find(student => student.studentId === theStudent._id)?.status === 'accepted' && (
+        <span>(expect an email soon)</span>
+      )}
+    </Badge>
+  ) : (
+    <span className="text-muted">Not Applied</span>
+  )
+}
+
                   </td>
                 </tr>
               ))}

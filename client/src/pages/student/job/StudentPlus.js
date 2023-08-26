@@ -88,21 +88,55 @@ function StudentPlus() {
           </div>
         </div>
         <hr className="mb-4" />
-        <h4 className='fw-bold'>Subscribe To Early Office Premium to gain New Features <br/> at 6,000 NGN</h4>
-        <ul className='ml-4'>
-    <li>Priority Application Review</li>
-    <li>Advanced Resume Builder</li>
-    <li>Enhanced Profile Visibility</li>
-    <li>Application Tracking Dashboard</li>
-    <li>Customized Job Alerts</li>
-    <li>Premium Customer Support</li>
-    <li>Video Interview Practice</li>
-</ul>
-
-<button className="btn mt-4 btn-md btn-dark mt-3" onClick={handleActivateEarlyofficePlus}>
-              Subscribe Now
-            </button> 
-
+        <section className="py-5">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-6">
+            <h2 className="display-4">Unlock Premium Features</h2>
+            <p className="lead">
+              Take your career to the next level with our Premium Membership. Enjoy exclusive benefits designed to accelerate your job search and professional growth at just 7,000 NGN one time payment.
+            </p>
+            <p>
+              With Premium, you'll gain access to a world of opportunities, receive personalized guidance, and stand out to employers.
+            </p>
+          </div>
+          <div className="col-lg-6">
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">Premium Benefits</h5>
+                <ul className="list-group">
+                  <li className="list-group-item">Priority Application Review</li>
+                  <li className="list-group-item">Advanced Resume Builder</li>
+                  <li className="list-group-item">Enhanced Profile Visibility</li>
+                  <li className="list-group-item">Application Tracking Dashboard</li>
+                  <li className="list-group-item">Customized Job Alerts</li>
+                  <li className="list-group-item">Premium Customer Support</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="row mt-5">
+          <div className="col-lg-6">
+            <h3>How to Activate Premium</h3>
+            <p>Ready to unlock your potential? Follow these simple steps to activate Premium Membership:</p>
+            <ol>
+              <li>Create or log in to your account on our platform.</li>
+              <li>Navigate to your profile settings.</li>
+              <li>Choose the Premium Membership option.</li>
+              <li>Complete the payment process securely.</li>
+              <li>Enjoy Premium benefits instantly!</li>
+            </ol>
+          </div>
+          <div className="col-lg-6">
+            <h3>Ready to Get Started?</h3>
+            <p>Activate Premium Membership today and supercharge your career!</p>
+            <button type="button" className="btn btn-dark btn-lg" onClick={handleActivateEarlyofficePlus}>Pay With Paystack</button>
+          </div>
+        </div>
+      </div>
+    </section>
       </div>
     </div>
   );

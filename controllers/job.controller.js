@@ -153,10 +153,6 @@ const getJobOfCompany = async (req, res) => {
 
 
 
-
-
-
-
 const getJobById = async (req, res) => {
   try {
     const { jobId } = req.params;
