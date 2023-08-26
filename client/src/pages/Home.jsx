@@ -4,7 +4,7 @@ import { InternshipCategory } from '../utils/data';
 import fifth from '../media/undraw_Job_offers_re_634p.png'
 import { useSpring, animated, useTrail } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
-import career from '../media/career.svg'
+import career from '../media/Work_7.jpg'
 import { HomeIcon, CodeIcon, SearchIcon, BookmarkIcon, ChartBarIcon, CogIcon, UserCircleIcon, BellIcon, LogoutIcon, ViewListIcon } from '@heroicons/react/outline';
 
 
@@ -48,7 +48,7 @@ function Home() {
     <div className="row">
       <div className="col-md-6 mt-6">
         <animated.div className="main-content-area" ref={ref} style={fadeIn}>
-          <h3 className="main-heading ml-4">Kickstart Your career with earlyoffice Internships</h3>
+          <h3 className="main-heading ml-4"><b>Kickstart Your career with <span className='primary'>EarlyOffice</span></b></h3>
           <p className="gray main-sub-text ml-4">Early Office bring students , youths, coppers and new grads to connect with the best companys in Nigeria ready to offer them internships and great work experiences</p>
 
           <form className='home-search'>

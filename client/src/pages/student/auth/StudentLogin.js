@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { studentLogin, studentreset } from '../../../features/studentAuth/studentSlice'
-import third from '../../../media/undraw_Welcome_re_h3d9.png'
+import third from '../../../media/5191079.jpg'
 
 
 
@@ -62,7 +62,7 @@ const StudentLogin = (props) => {
         <div className='col-md-5 downn'>
         <div className="reg-container">
       <div className="reg-wrapper">
-      <h3><b>Welcome Back</b></h3>
+      <h3 className='topper'><b>Welcome Back</b></h3>
           <p className='mt-4'>Please Login to your <span className='pinkish'>student</span> account to continue</p>
          
           <hr/>

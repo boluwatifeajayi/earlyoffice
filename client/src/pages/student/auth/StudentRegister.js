@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { studentRegister, studentreset } from '../../../features/studentAuth/studentSlice'
-import first from '../../../media/undraw_Online_cv_re_gn0a.png'
+import first from '../../../media/4962879.jpg'
 
 
 const StudentRegister = (props) => {

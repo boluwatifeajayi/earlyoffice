@@ -181,6 +181,9 @@ a:hover{
   justify-content: center;
 }
 
+.topper{
+  margin-top: 30px;
+}
 
 
 @media (max-width: 850px) {
@@ -326,7 +329,7 @@ a{
 }
 
 .im{
-  height: 470px;
+  height: 500px;
 }
 
 .cta-outline button:hover{
